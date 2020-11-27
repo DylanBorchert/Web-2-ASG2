@@ -37,7 +37,7 @@ class GalleriesDB {
         return $statement->fetchAll();
     }
     public function getPainting($paintingID) {
-        $sql = "SELECT * FROM paintings WHERE PaintingID=?";
+        $sql = self::$baseSQL . " WHERE GalleryID=?";
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($paintingID));
         return $statement->fetchAll();
     }
