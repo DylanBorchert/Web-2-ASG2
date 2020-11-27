@@ -7,11 +7,9 @@ header("Access-Control-Allow-Origin: *");
 
 try{
     $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
-    $gateway = new GalleriesDB($conn);
-    if ( isCorrectQueryStringInfo("id") ) {
-        $paintings = $gateway->getPainting($_GET["id"]);
-    } else {
-        $paintings = $gateway->getAll();
+    $gateway = new PaintingsDB($conn);
+    if ( isCorrectQueryStringInfo("galleryid") ) {
+        $paintings = $gateway->getGalleryPaintings($_GET["galleryid"]);
     }
 
     echo json_encode( $paintings, JSON_NUMERIC_CHECK );
@@ -25,3 +23,4 @@ function isCorrectQueryStringInfo($param) {
     }
 }
 ?>
+

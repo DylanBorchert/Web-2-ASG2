@@ -43,4 +43,17 @@ class GalleriesDB {
     }
 }
 
+class PaintingsDB {
+    public function __construct($connection) {
+        $this->pdo = $connection;
+    }
+    public function getGalleryPaintings($galleryID) {
+        $sql = "SELECT * FROM paintings WHERE GalleryID=?";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($galleryID));
+        return $statement->fetchAll();
+    }
+}
+
 ?>
+
+
