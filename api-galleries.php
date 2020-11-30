@@ -8,8 +8,8 @@ header("Access-Control-Allow-Origin: *");
 try{
     $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
     $gateway = new GalleriesDB($conn);
-    if ( isCorrectQueryStringInfo("id") ) {
-        $paintings = $gateway->getPainting($_GET["id"]);
+    if ( isCorrectQueryStringInfo("galleryid") ) {
+        $paintings = $gateway->getPainting($_GET["galleryid"]);
     } else {
         $paintings = $gateway->getAll();
     }
