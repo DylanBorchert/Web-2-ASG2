@@ -125,8 +125,10 @@ document.addEventListener("DOMContentLoaded", function () {
     paintingHeading.style.display = "none";
     paintingArea.style.display = "none";
     paintingLoader.style.display = "block";
-//    const galleryLink = `https://www.randyconnolly.com/funwebdev/3rd/api/art/paintings.php?gallery=${gallery.GalleryID}`;
-const galleryLink = `api-paintings.php?gallery=${gallery.GalleryID}`;
+    const galleryLink = `https://www.randyconnolly.com/funwebdev/3rd/api/art/paintings.php?gallery=${gallery.GalleryID}`;
+//const galleryLink = `api-paintings.php?gallery=${gallery.GalleryID}`;
+//const galleryLink = "api-paintings.php";
+    console.log(galleryLink);
     fetch(galleryLink).then((response) => response.json()).then((paintingList) => {
 
         paintingArea.textContent = "";

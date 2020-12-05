@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
    <meta charset="utf-8"/>  
-    <title>Assignment 01</title>
+    <title>Assignment 02</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital@1&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
     </div>
      <div class="container">
         <div id="header"> 
-            <h1>COMP 3512: Assignment 1</h1>
+            <h1>COMP 3512: Assignment 2</h1>
             <p>By: Dylan Borchert, Curtis MacLean</p>
         </div>
         <div class="containerGallery">
