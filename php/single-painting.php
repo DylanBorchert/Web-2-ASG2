@@ -13,10 +13,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital@1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/asg2/style/reset.css"> 
      <link rel="stylesheet" href="/asg2/style/index.css">
-     <script src="/asg2/single-painting-tab.js"></script>
+     <script src="/asg2/Web-2-ASG2/single-painting-tab.js"></script>
 </head>
 <body>
-    <img href="images/paintings/square-medium/001020.jpg" alt="image">
+    <img href="/asg2/Web-2-ASG2/images/paintings/square-medium/001020.jpg" alt="stuff">
     <div id="header">
     <h2>paintings title</h2>
     <p>add to favorites</p>
