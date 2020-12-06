@@ -1,15 +1,18 @@
 <?php
-class DatabaseHelper {
-    public static function createConnection( $values=array() ) {
+class DatabaseHelper
+{
+    public static function createConnection($values = array())
+    {
         $connString = $values[0];
         $user = $values[1];
         $password = $values[2];
-        $pdo = new PDO($connString,$user,$password);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-        $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
+        $pdo = new PDO($connString, $user, $password);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         return $pdo;
     }
-    public static function runQuery($connection, $sql, $parameters=array()) {
+    public static function runQuery($connection, $sql, $parameters = array())
+    {
         if (!is_array($parameters)) {
             $parameters = array($parameters);
         }
@@ -17,59 +20,66 @@ class DatabaseHelper {
         if (count($parameters) > 0) {
             $statement = $connection->prepare($sql);
             $executedOk = $statement->execute($parameters);
-            if (! $executedOk) throw new PDOException;
+            if (!$executedOk) throw new PDOException;
         } else {
             $statement = $connection->query($sql);
             if (!$statement) throw new PDOException;
-        } 
+        }
         return $statement;
-    }   
+    }
 }
 
-class GalleriesDB {
+class GalleriesDB
+{
     private static $baseSQL = "SELECT * FROM galleries";
-    public function __construct($connection) {
+    public function __construct($connection)
+    {
         $this->pdo = $connection;
     }
-    public function getAll() {
+    public function getAll()
+    {
         $sql = self::$baseSQL;
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
         return $statement->fetchAll();
     }
-    public function getPainting($paintingID) {
+    public function getPainting($paintingID)
+    {
         $sql = self::$baseSQL . " WHERE GalleryID=?";
-        $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($paintingID));
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($paintingID));
         return $statement->fetchAll();
     }
 }
 
-class PaintingsDB {
-    public function __construct($connection) {
+class PaintingsDB
+{
+    public function __construct($connection)
+    {
         $this->pdo = $connection;
     }
-    public function getGalleryPaintings($galleryID) {
-        $sql = "SELECT * FROM paintings WHERE GalleryID=?";
-        $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($galleryID));
+    public function getGalleryPaintings($galleryID)
+    {
+        $sql = "SELECT *, CONCAT(ImageFileName,'.jpg') as FullImageFileName FROM paintings WHERE GalleryID=?";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($galleryID));
         return $statement->fetchAll();
     }
-    public function getPainting($PaintID) {
+    public function getPainting($PaintID)
+    {
         $sql = "SELECT * FROM paintings WHERE PaintingID=?";
-        $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($PaintID));
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($PaintID));
         return $statement->fetch();
     }
 }
 
-class ArtistDB {
-    public function __construct($connection) {
+class ArtistDB
+{
+    public function __construct($connection)
+    {
         $this->pdo = $connection;
     }
-    public function getArtist($artistID) {
+    public function getArtist($artistID)
+    {
         $sql = "SELECT * FROM artists WHERE ArtistID=?";
-        $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($artistID));
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($artistID));
         return $statement->fetch();
     }
 }
-
-?>
-
-
