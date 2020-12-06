@@ -14,7 +14,7 @@ if(isset($_GET['paintingid'])){
     $artist = $art->getArtist($painting['ArtistID']);
 
     $mues = new GalleriesDB($conn);
-    $museum = $mues->getPainting($painting['GalleryID']);
+    $museum = $mues->getGallery($painting['GalleryID']);
 
     
     }

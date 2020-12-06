@@ -48,6 +48,12 @@ class GalleriesDB
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($paintingID));
         return $statement->fetchAll();
     }
+    public function getGallery($paintingID)
+    {
+        $sql = self::$baseSQL . " WHERE GalleryID=?";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($paintingID));
+        return $statement->fetch();
+    }
 }
 
 class PaintingsDB
