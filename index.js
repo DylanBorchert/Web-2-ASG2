@@ -124,8 +124,8 @@ document.addEventListener("DOMContentLoaded", function () {
     paintingHeading.style.display = "none";
     paintingArea.style.display = "none";
     paintingLoader.style.display = "block";
-    const galleryLink = `https://www.randyconnolly.com/funwebdev/3rd/api/art/paintings.php?gallery=${gallery.GalleryID}`;
-    //const galleryLink = `api-paintings.php?gallery=${gallery.GalleryID}`;
+    //const galleryLink = `https://www.randyconnolly.com/funwebdev/3rd/api/art/paintings.php?gallery=${gallery.GalleryID}`;
+    const galleryLink = `api-paintings.php?galleryid=${gallery.GalleryID}`;
     //const galleryLink = "api-paintings.php";
     console.log(galleryLink);
     fetch(galleryLink)
@@ -257,7 +257,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let titleSpan = document.createElement("a");
     titleSpan.textContent = painting.Title;
     titleSpan.setAttribute("id", "paintingTitle");
-    titleSpan.setAttribute("href", "php/single-painting.php");
+    console.log(painting);
+    titleSpan.setAttribute("href", `single-painting-tab.php?paintingid=${painting.PaintingID}`); 
 
     let yearSpan = document.createElement("span");
     yearSpan.textContent = painting.YearOfWork;
