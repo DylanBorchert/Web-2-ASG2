@@ -1,5 +1,23 @@
 <?php
 
+require 'assignment2-db-classes.inc.php';
+require "config.inc.php";
+
+$conn = DatabaseHelper::createConnection(array(DBCONNSTRING,
+   DBUSER, DBPASS));
+
+if(isset($_GET['paintingid'])){
+    $paint = new PaintingsDB($conn);
+    $painting = $paint->getPainting($_GET['paintingid']);
+    echo $painting['ArtistID'];
+    $art = new ArtistDB($conn);
+    $artist = $art->getArtist($painting['ArtistID']);
+    $mues = new GalleriesDB($conn);
+    $museum = $mues->getPainting($painting['GalleryID']);
+
+    
+    }
+    else echo "broken";
 
 ?>
 <!DOCTYPE html>
@@ -18,10 +36,10 @@
 <body>
     <img href="/asg2/Web-2-ASG2/images/paintings/square-medium/001020.jpg" alt="stuff">
     <div id="header">
-    <h2>paintings title</h2>
+    <h2><?=$painting['Title']?></h2>
     <p>add to favorites</p>
-    <p>Artist Name</p>
-    <p>gallery name, year</p>
+    <p><?=$artist['FirstName'] . " " . $artist['LastName']?></p>
+    <p><?=$museum['GalleryName'] . " " . $painting['YearOfWork']?></p>
     </div>
     <template id="tabTemplates">
         <section id="Tabs">
@@ -29,18 +47,18 @@
         <h2 id="title2">Details</h2>
         <h2 id="title3">Colors</h2>
         </section>
-        <section id="Description">
-            <p id="descriptionText"></p>
+        <section id="Description" style="display:block">
+            <p id="descriptionText"><?=$painting['Description']?></p>
         </section>
-        <section id="Details">
-            <p id="Medium"></p>
-            <p id="width"></p>
-            <p id="height"></p>
-            <p id="copyright"></p>
-            <a id="wikiLink">Wiki Link</a>
-            <a id="museumLink">Museum Link</a>
+        <section id="Details" style="display:none">
+            <p id="Medium"><?=$painting['Medium']?></p>
+            <p id="width"><?=$painting['Width']?></p>
+            <p id="height"><?=$painting['Height']?></p>
+            <p id="copyright"><?=$painting['CopyrightText']?></p>
+            <a id="wikiLink" href="<?=$painting['WikiLink']?>">Wiki Link</a>
+            <a id="museumLink" href="<?=$painting['MuseumLink']?>">Museum Link</a>
         </section>
-        <section id="Colors">
+        <section id="Colors" style="display:none">
 
         </section>
     </template>

@@ -52,6 +52,22 @@ class PaintingsDB {
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($galleryID));
         return $statement->fetchAll();
     }
+    public function getPainting($PaintID) {
+        $sql = "SELECT * FROM paintings WHERE PaintingID=?";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($PaintID));
+        return $statement->fetch();
+    }
+}
+
+class ArtistDB {
+    public function __construct($connection) {
+        $this->pdo = $connection;
+    }
+    public function getArtist($artistID) {
+        $sql = "SELECT * FROM artists WHERE ArtistID=?";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($artistID));
+        return $statement->fetch();
+    }
 }
 
 ?>
