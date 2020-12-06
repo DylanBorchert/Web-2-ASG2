@@ -26,23 +26,31 @@ document.addEventListener("DOMContentLoaded", function () {
     // tab.querySelector("#museumLink").textContent = "test";
 
     // console.log(tab.querySelector("#copyright"));
-    let description = document.querySelector("#Description");
-    let color = document.querySelector("#Colors");
-    let details = document.querySelector("#Details");
+    let descriptionTitle = document.querySelector("#title1");
+    let detailsTitle = document.querySelector("#title2");
+    let colorTitle = document.querySelector("#title3");
 
-    description.addEventListener("onclick", function(){
+    let description = document.querySelector("#Description");
+    let details = document.querySelector("#Details");
+    let color = document.querySelector("#Colors");
+
+    console.log(description);
+    console.log(details);
+    console.log(color);
+
+    descriptionTitle.addEventListener("click", function(){
         description.style.display = "block";
         color.style.display = "none";
         details.style.display = "none";
     });
 
-    color.addEventListener("onclick", function(){
+    colorTitle.addEventListener("click", function(){
         description.style.display = "none";
         color.style.display = "block";
         details.style.display = "none";
     });
 
-    details.addEventListener("onclick", function(){
+    detailsTitle.addEventListener("click", function(){
         description.style.display = "none";
         color.style.display = "none";
         details.style.display = "block";
