@@ -70,7 +70,7 @@ class PaintingsDB
     }
     public function getPainting($PaintID)
     {
-        $sql = "SELECT * FROM paintings WHERE PaintingID=?";
+        $sql = "SELECT *, CONCAT(ImageFileName,'.jpg') as FullImageFileName FROM paintings WHERE PaintingID=?";
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($PaintID));
         return $statement->fetch();
     }
