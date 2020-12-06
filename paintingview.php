@@ -1,8 +1,5 @@
 <?php
-if(isset($_GET['paintingid'])){
-    echo "it worked";
-    }
-    else echo "broken";
+
 
 ?>
 <!DOCTYPE html>

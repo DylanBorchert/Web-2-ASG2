@@ -257,7 +257,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let titleSpan = document.createElement("a");
     titleSpan.textContent = painting.Title;
     titleSpan.setAttribute("id", "paintingTitle");
-    titleSpan.setAttribute("href", "php/single-painting.php");
+    console.log(painting);
+    titleSpan.setAttribute("href", `single-painting-tab.php?paintingid=${painting.PaintingID}`); 
 
     let yearSpan = document.createElement("span");
     yearSpan.textContent = painting.YearOfWork;
