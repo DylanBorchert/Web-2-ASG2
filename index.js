@@ -124,8 +124,8 @@ document.addEventListener("DOMContentLoaded", function () {
     paintingHeading.style.display = "none";
     paintingArea.style.display = "none";
     paintingLoader.style.display = "block";
-    const galleryLink = `https://www.randyconnolly.com/funwebdev/3rd/api/art/paintings.php?gallery=${gallery.GalleryID}`;
-    //const galleryLink = `api-paintings.php?gallery=${gallery.GalleryID}`;
+    //const galleryLink = `https://www.randyconnolly.com/funwebdev/3rd/api/art/paintings.php?gallery=${gallery.GalleryID}`;
+    const galleryLink = `api-paintings.php?galleryid=${gallery.GalleryID}`;
     //const galleryLink = "api-paintings.php";
     console.log(galleryLink);
     fetch(galleryLink)
@@ -270,18 +270,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function addSquare(painting, node, size) {
     imageURL = `https://res.cloudinary.com/funwebdev/image/upload/w_100/art/paintings/square/${painting.ImageFileName}`;
-
+    console.log("painting" + painting.ImageFileName + ".jpg was displayed");
     let imageItem = document.createElement("img");
     node.appendChild(imageItem);
 
     imageItem.setAttribute("src", imageURL);
 
-    // paintingLoader.style.display = "block";
-    // paintingHeading.style.display = "none";
-    // paintingArea.style.display = "none";
+    paintingLoader.style.display = "block";
+    paintingHeading.style.display = "none";
+    paintingArea.style.display = "none";
 
-    paintingLoader.style.display = "none";
-    paintingHeading.style.display = "flex";
     paintingArea.style.display = "flex";
     loadImage(imageURL).then(() => {
       paintingLoader.style.display = "none";
@@ -295,11 +293,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     imageItem.setAttribute("src", imageURL);
 
-    // paintViewLoader.style.display = "block";
-    // paintingView.style.display = "none";
+    paintViewLoader.style.display = "block";
+    paintingView.style.display = "none";
 
-    paintViewLoader.style.display = "none";
-    paintingView.style.display = "grid";
     loadImage(imageURL).then((data) => {
       paintViewLoader.style.display = "none";
       paintingView.style.display = "grid";
