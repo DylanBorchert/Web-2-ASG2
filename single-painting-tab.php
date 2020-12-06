@@ -36,7 +36,7 @@ if (isset($_GET['paintingid'])) {
 </head>
 
 <body>
-    <img href="./images/paintings/full/<?= $painting['FullImageFileName'] ?>" alt="<?= $painting['FullImageFileName'] ?>">
+    <img src="./images/paintings/full/<?= $painting['FullImageFileName'] ?>" alt="<?= $painting['FullImageFileName'] ?>">
     <div id="header">
         <h2><?= $painting['Title'] ?></h2>
         <p>add to favorites</p>
