@@ -37,6 +37,11 @@
 a {
     color: var(--color-primary-1);
     text-decoration: none;
+    padding-left: 10px;
+}
+
+a:hover {
+    color: var(--color-primary-1);
 }
 
 
