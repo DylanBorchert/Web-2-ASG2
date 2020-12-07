@@ -254,11 +254,16 @@ document.addEventListener("DOMContentLoaded", function () {
     artistSpan.textContent = painting.LastName;
     artistSpan.setAttribute("id", "paintingArtist");
 
-    let titleSpan = document.createElement("a");
-    titleSpan.textContent = painting.Title;
+    let titleSpan = document.createElement("span");
     titleSpan.setAttribute("id", "paintingTitle");
+    let titleLink = document.createElement("a");
+    titleLink.textContent = painting.Title;
     console.log(painting);
-    titleSpan.setAttribute("href", `single-painting-tab.php?paintingid=${painting.PaintingID}`); 
+    titleLink.setAttribute(
+      "href",
+      `single-painting-tab.php?paintingid=${painting.PaintingID}`
+    );
+    titleSpan.appendChild(titleLink);
 
     let yearSpan = document.createElement("span");
     yearSpan.textContent = painting.YearOfWork;
@@ -270,38 +275,17 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function addSquare(painting, node, size) {
-    imageURL = `https://res.cloudinary.com/funwebdev/image/upload/w_100/art/paintings/square/${painting.ImageFileName}`;
     console.log("painting" + painting.ImageFileName + ".jpg was displayed");
     let imageItem = document.createElement("img");
     node.appendChild(imageItem);
-
-    imageItem.setAttribute("src", imageURL);
-
-    paintingLoader.style.display = "block";
-    paintingHeading.style.display = "none";
-    paintingArea.style.display = "none";
-
+    imageItem.setAttribute("width", "100px");
+    imageItem.setAttribute(
+      "src",
+      `./images/paintings/square/${painting.FullImageFileName}`
+    );
+    paintingLoader.style.display = "none";
+    paintingHeading.style.display = "flex";
     paintingArea.style.display = "flex";
-    loadImage(imageURL).then(() => {
-      paintingLoader.style.display = "none";
-      paintingHeading.style.display = "flex";
-      paintingArea.style.display = "flex";
-    });
-  }
-
-  function addFull(painting, imageItem) {
-    imageURL = `https://res.cloudinary.com/funwebdev/image/upload/h_800/art/paintings/${painting.ImageFileName}`;
-
-    imageItem.setAttribute("src", imageURL);
-
-    paintViewLoader.style.display = "block";
-    paintingView.style.display = "none";
-
-    loadImage(imageURL).then((data) => {
-      paintViewLoader.style.display = "none";
-      paintingView.style.display = "grid";
-      //console.log(`image loaded: ${painting.ImageFileName}`);
-    });
   }
 
   function loadImage(url) {
