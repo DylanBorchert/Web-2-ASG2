@@ -75,19 +75,6 @@ class PaintingsDB
         return $sql;
     }
 
-    private static function getTop20PaintingsSQL()
-    {
-        $sql = self::getPaintingSQL();
-        $sql .= " ORDER BY YearOfWork LIMIT 20";
-        return $sql;
-    }
-    public function get20Paintings()
-    {
-        $sql = self::getTop20PaintingsSQL();
-        $statement =
-            DatabaseHelper::runQuery($this->pdo, $sql, null);
-        return $statement->fetchAll();
-    }
     private static function getFavPaintingSQL($pID)
     {
         $sql = "SELECT ImageFileName, Title, PaintingID FROM Paintings WHERE PaintingID=$pID";
