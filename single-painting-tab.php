@@ -1,5 +1,4 @@
 <?php
-
 require 'assignment2-db-classes.inc.php';
 require "config.inc.php";
 
@@ -36,10 +35,16 @@ if (isset($_GET['paintingid'])) {
 </head>
 
 <body>
-    <img src="./images/paintings/full/<?= $painting['FullImageFileName'] ?>" alt="<?= $painting['FullImageFileName'] ?>">
+    <img src="./images/paintings/full/<?= $painting['FullImageFileName'] ?>" alt=" <?= $painting['FullImageFileName'] ?>">
     <div id="header">
         <h2><?= $painting['Title'] ?></h2>
-        <p>add to favorites</p>
+        <?php
+        if (isset($_GET['added'])) {
+            echo "<button>Painting Is Favorited</button>";
+        } else {
+            echo "<button><a href='favorites.php?paintingid=" . $painting['PaintingID'] . "'>Add To Favorites</a></button>";
+        }
+        ?>
         <p><?= $artist['FirstName'] . " " . $artist['LastName'] ?></p>
         <p><?= $museum['GalleryName'] . " Year: " . $painting['YearOfWork'] ?></p>
     </div>

@@ -22,6 +22,10 @@ $paintings = $paintingGate->getAll();
 
 <body>
   <?php
+  if (isset($_GET['paintingid'])) {
+    addFavorite($_GET['paintingid']);
+    header("Location: single-painting-tab.php?paintingid=" . $_GET['paintingid'] . "&added=yes");
+  }
   //Array of paintings selected to be deleted.
   $selectedP = array();
 
