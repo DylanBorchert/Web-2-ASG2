@@ -1,0 +1,90 @@
+body {
+
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    overflow-x: hidden;
+    margin-right: 29px;
+
+}
+.container {
+    display: grid;
+    grid-template-columns: 20% 30% 50%;
+    grid-template-rows: 250px 400px minmax(400px, auto);
+    grid-gap:2px;
+
+}
+.box {
+
+  background-color:skyblue;
+  padding: 5px;
+  font-size: 150%;
+}
+
+#info {
+
+    font-size:500px;
+
+}
+
+.h {
+    grid-column: 1 / span 3;
+    text-align: center;
+    color: gray;
+}
+
+h2 {
+    text-align: center;
+}
+.WelcomeUser {
+    grid-column: 1 / span 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    text-align: center;
+
+} 
+
+.searchFavorite {
+    grid-column: 3 / span 1;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.Results {
+    grid-column: 3 / span 1;
+    grid-row-start: 3;
+    grid-row-end: 4;
+   
+}
+
+
+#Favorites {
+    grid-column: 1 / span 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+
+}
+
+
+.showPaintings {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.odd {
+
+    grid-column-start: 1;
+    grid-column-end: 2;
+    text-align: left;   
+}
+
+.even {
+
+    grid-column-start: 3;
+    grid-column-end: 4;   
+    text-align: left;
+}
+
+.middle {
+    grid-column-start: 2;
+    grid-column-end: 3;   
+    text-align: left;
+}
