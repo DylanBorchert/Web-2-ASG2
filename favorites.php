@@ -18,6 +18,7 @@ $paintings = $paintingGate->getAll();
 <html>
 
 <head>
+  <script type="text/javascript" src="favorites.js"></script>
 </head>
 
 <body>
@@ -45,8 +46,8 @@ $paintings = $paintingGate->getAll();
   $selectedP = array();
   ?>
 
-  <button type="submit" name="selectAll" method="get" action="<?= $_SERVER['REQUEST_URI'] ?>">Select All</button>
-
+  <button id="selectAll" name="selectAll">Select All</button>
+  <button id="deselectAll" name="deselectAll">Deselect All</button>
   <table>
     <tr>
       <th>Check To Remove</th>
