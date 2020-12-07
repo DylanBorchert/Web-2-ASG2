@@ -40,8 +40,13 @@ a {
     padding-left: 10px;
 }
 
+#info {
+    align-content: right;
+    position: right;
+}
+
 a:hover {
-    color: var(--color-primary-1);
+    color: var(--color-secondary-2);
 }
 
 
