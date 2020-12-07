@@ -1,0 +1,24 @@
+:root {
+    --color-1: #3C1874;
+    --color-primary-2:#7f5900;
+    --color-primary-1: #ffb300;
+    --color-secondary-2: #7a431d;
+    --color-secondary-1: #de9e48;
+    --color-background-1: #563727;
+    --color-background-2: #372c2e;
+    --color-white-1: #f1ffff;
+    --color-white-2: #bac2c2;
+    --color-black-1: #000000;
+    --color-black-3: #424242;
+    --color-black-2: #121212;
+ }
+
+
+
+
+h2 {
+    display: inline-block;
+    border: solid;
+    
+    border-color: var(--color-primary-1);
+}

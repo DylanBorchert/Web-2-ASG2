@@ -30,19 +30,21 @@ if (isset($_GET['paintingid'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital@1&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="/asg2/style/reset.css"> 
-     <link rel="stylesheet" href="/asg2/style/index.css"> -->
+    <!-- <link rel="stylesheet" href="/asg2/Web-2-ASG-2/style/reset.css">  -->
+     <link rel="stylesheet" href="/asg2/Web-2-ASG2/style/index.css">
+     <link rel="stylesheet" href="/asg2/Web-2-ASG2/style/single-painting-tab.css">
     <script src="/asg2/Web-2-ASG2/single-painting-tab.js"></script>
 </head>
 
 <body>
-    <img src="./images/paintings/full/<?= $painting['FullImageFileName'] ?>" alt="<?= $painting['FullImageFileName'] ?>">
-    <div id="header">
-        <h2><?= $painting['Title'] ?></h2>
+<div id="header">
+    <img style="max-height:400px"src="./images/paintings/full/<?= $painting['FullImageFileName'] ?>" alt="<?= $painting['FullImageFileName'] ?>">
+    
+        <h3><?= $painting['Title'] ?></h3>
         <p>add to favorites</p>
         <p><?= $artist['FirstName'] . " " . $artist['LastName'] ?></p>
         <p><?= $museum['GalleryName'] . " Year: " . $painting['YearOfWork'] ?></p>
-    </div>
+    
     <!-- <template id="tabTemplates"> -->
     <section id="Tabs">
         <h2 id="title1">Desciption</h2>
@@ -64,7 +66,7 @@ if (isset($_GET['paintingid'])) {
 
     </section>
     <!-- </template> -->
-
+    </div>
 </body>
 <?php
 
