@@ -48,6 +48,12 @@ class GalleriesDB
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($paintingID));
         return $statement->fetchAll();
     }
+    public function getGallery($paintingID)
+    {
+        $sql = self::$baseSQL . " WHERE GalleryID=?";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($paintingID));
+        return $statement->fetch();
+    }
 }
 
 class PaintingsDB
@@ -86,5 +92,25 @@ class PaintingsDB
         $statement =
             DatabaseHelper::runQuery($this->pdo, $sql, null);
         return $statement->fetch(PDO::FETCH_ASSOC);
+    }
+    public function getPainting($PaintID)
+    {
+        $sql = "SELECT *, CONCAT(ImageFileName,'.jpg') as FullImageFileName FROM paintings WHERE PaintingID=?";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($PaintID));
+        return $statement->fetch();
+    }
+
+}
+class ArtistDB
+{
+    public function __construct($connection)
+    {
+        $this->pdo = $connection;
+    }
+    public function getArtist($artistID)
+    {
+        $sql = "SELECT * FROM artists WHERE ArtistID=?";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($artistID));
+        return $statement->fetch();
     }
 }
