@@ -44,8 +44,9 @@ if (isset($_GET['paintingid'])) {
         <p>add to favorites</p>
         <p><?= $artist['FirstName'] . " " . $artist['LastName'] ?></p>
         <p><?= $museum['GalleryName'] . " Year: " . $painting['YearOfWork'] ?></p>
-    
+        </div>
     <!-- <template id="tabTemplates"> -->
+        <div id="header">
     <section id="Tabs">
         <h2 id="title1">Desciption</h2>
         <h2 id="title2">Details</h2>

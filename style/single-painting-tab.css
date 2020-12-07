@@ -16,9 +16,41 @@
 
 
 
-h2 {
+ h2 {
     display: inline-block;
+    padding: 10px;
+    margin: 10px;
     border: solid;
     
     border-color: var(--color-primary-1);
+    border-radius: 5px;
+
 }
+
+#Tabs {
+    padding: 1.5vh;
+    margin-bottom: 10px;
+    border: 3px solid var(--color-secondary-1);
+    border-radius: 5px;
+}
+
+a {
+    color: var(--color-primary-1);
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
