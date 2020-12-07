@@ -24,7 +24,7 @@ if (isset($_GET['paintingid'])) {
 <html lang=en>
 
 <head>
-    <title>Lab 14</title>
+    <title>single painting</title>
     <meta charset="utf-8" />
     <title>Assignment 02</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
