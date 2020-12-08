@@ -15,7 +15,8 @@ if (checkForLogin()) {
         if (isset($data['Pass'])) {
             //Check password
             if (password_verify($_POST['pass'], $data['Pass'])) {
-                $_SESSION['user'] = $data['CustomerID'];
+                $_SESSION['userID'] = $data['CustomerID'];
+                $_SESSION['userFavorites'] = array();
                 header('Location: homepage.php');
                 exit();
             } else {

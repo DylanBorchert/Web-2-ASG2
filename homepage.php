@@ -1,10 +1,26 @@
 <?php
-//session_start();
-
 require_once 'config.inc.php';
-require_once 'db-classes.inc.php';
+require_once 'assignment2-db-classes.inc.php';//!!!!! Some stuff isn't workiing as I tranfer your classes
 session_start();
 $_SESSION['userFavorites'] = array();
+
+try {
+    $connection = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
+    $gate = new CustomerInfoDB($connection);
+    //Query For user info to process welcome user section
+    $customerInfo = $gate->getCustomerInfo($_SESSION['userID']);
+    $connection = null;
+} catch (PDOException $e) {
+    die($e->getMessage());
+}
+
+function displayUserData($customerInfo)
+    {
+        if (isset($customerInfo)) {
+        echo "<h2> Welcome " . $customerInfo['FirstName'] . "</h2>";
+        echo "<p>" . $customerInfo['FirstName'] . " " . $customerInfo['LastName'] . "</p>" . "<p>" . $customerInfo['City'] . "</p>" . "<p>" . $customerInfo['Country'] . "</p>";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -46,10 +62,7 @@ $_SESSION['userFavorites'] = array();
 
         <div class="box WelcomeUser">
             <section>
-
                 <?php
-
-
                 function processOutputtingFirst15($dataFirst15)
                 {
                     echo "<div class='box' id = 'Favorites'>";
@@ -73,35 +86,8 @@ $_SESSION['userFavorites'] = array();
                         }
                     }
                 }
-
-
-                //!!!DO SESSION STUFF HERE
-                function displayUserData($dataID)
-                {
-                    if (isset($dataID)) {
-                        echo "<h2> Welcome " . $dataID[0]['firstname'] . "</h2>";
-                        echo ("<p>" . $dataID[0]['firstname'] . " " . $dataID[0]['lastname'] . "</p>" . "<p>" . $dataID[0]['city'] . "</p>" . "<p>" . $dataID[0]['country'] . "</p>");
-                    }
-                }
-
-                if (isset($_SESSION['ID'])) {
-
-                    try {
-                        $conn = DatabaseHelper::createConnection(array(
-                            DBCONNSTRING,
-                            DBUSER,
-                            DBPASS
-                        ));
-                        $customerGate = new Customer($conn);
-                        //Query For user info to process welcome user section
-                        $dataID = $customerGate->getByID($_SESSION['ID']);
-                        displayUserData($dataID);
-                        $conn = null;
-                    } catch (PDOException $e) {
-                        die($e->getMessage());
-                    }
-                }
-
+                
+                displayUserData($customerInfo);
                 ?>
             </section>
         </div>

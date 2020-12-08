@@ -123,4 +123,17 @@ class CustomerLoginDB {
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
 }
+
+class CustomerInfoDB {
+    private static $baseSQL = "SELECT FirstName, LastName, City, Country FROM customers";
+
+    public function __construct($connection) {
+        $this->pdo = $connection;
+    }
+    public function getCustomerInfo($userID) {
+        $sql = self::$baseSQL . " WHERE CustomerID=?";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($userID));
+        return $statement->fetch(PDO::FETCH_ASSOC);
+    }
+}
 ?>

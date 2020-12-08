@@ -7,5 +7,5 @@ include 'assignment2-db-classes.inc.php';
         header('Location: login.php');
         exit();
     }
+    echo "<h1>UserID =" . $_SESSION['user'] . "</h1>";
 ?>
-<h1>UserID = <? $_SESSION['user'] ?></h1>
