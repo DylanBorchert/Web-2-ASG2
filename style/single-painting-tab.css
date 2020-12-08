@@ -41,8 +41,13 @@ a {
 }
 
 #info {
-    align-content: right;
-    position: right;
+    z-index: 10;
+    position: relative;
+    float: right;
+    /* align-content: right;
+    position: right; */
+    right: -500px;
+
 }
 
 a:hover {
