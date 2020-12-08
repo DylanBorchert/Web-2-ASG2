@@ -68,7 +68,7 @@ $paintings = $paintingGate->getAll();
       //If user has favorites, Display them.
       if (count($_SESSION['userFavorites']) > 0) {
         //Generate Favorites List.
-        displayFavorites($paintingGate, $allSelected);
+        displayFavorites($paintingGate);
       } else {
         //User Has No Favorites Yet.
         echo "<p>Your Favorite Paintings Will Appear Here When You Find Them!</p>";

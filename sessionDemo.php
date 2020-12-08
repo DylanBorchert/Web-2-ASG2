@@ -1,5 +1,6 @@
 <?php
 // Start the session
+require_once 'favoritesHelper.php';
 session_start();
 ?>
 <!DOCTYPE html>

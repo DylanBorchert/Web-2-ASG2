@@ -1,22 +1,11 @@
 <?php
-function displayFavorites($paintingGate, $allSelected)
+function displayFavorites($paintingGate)
 {
-    if ($allSelected) {
-        foreach ($_SESSION['userFavorites'] as $f) {
-            foreach ($_SESSION['userFavorites'] as $f) {
-                $favPainting = $paintingGate->getFavPainting($f);
-                echo "<tr id=" . $favPainting['PaintingID'] . ">
-                <td><input type='checkbox' id=" . $favPainting['PaintingID'] . " value=" . $favPainting['PaintingID'] . " name='favPainting[]' checked></td>
-          <td><a href='single-painting-tab.php?paintingid=" . $favPainting['PaintingID'] . "'><img src='images/paintings/square-medium/" . $favPainting['ImageFileName'] . ".jpg'></a></td><td>" . $favPainting['Title'] . "</td></tr>";
-            }
-        }
-    } else {
-        foreach ($_SESSION['userFavorites'] as $f) {
-            $favPainting = $paintingGate->getFavPainting($f);
-            echo "<tr id=" . $favPainting['PaintingID'] . ">
+    foreach ($_SESSION['userFavorites'] as $f) {
+        $favPainting = $paintingGate->getFavPainting($f);
+        echo "<tr id=" . $favPainting['PaintingID'] . ">
             <td><input type='checkbox' id=" . $favPainting['PaintingID'] . " value=" . $favPainting['PaintingID'] . " name='favPainting[]'></td>
-      <td><a href='single-painting-tab.php?paintingid=" . $favPainting['PaintingID'] . "'><img src='images/paintings/square-medium/" . $favPainting['ImageFileName'] . ".jpg'></a></td><td>" . $favPainting['Title'] . "</td></tr>";
-        }
+      <td><a href='single-painting-tab.php?paintingid=" . $favPainting['PaintingID'] . "'><img src='images/paintings/square-medium/" . $favPainting['ImageFileName'] . ".jpg'></a></td><td><a href='single-painting-tab.php?paintingid=" . $favPainting['PaintingID'] . "'>" . $favPainting['Title'] . "</a></td></tr>";
     }
 }
 
