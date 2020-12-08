@@ -19,7 +19,7 @@ body {
     max-height: 100%;
     display: grid;
     grid-template-rows: 50px auto 30px;
-    background-color: greenyellow;
+    background-color: lightblue;
 }
 
 /*Style for the header*/
@@ -28,7 +28,7 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: red;
+    background-color: whitesmoke;
     display: flex;
     justify-content: flex-start;
     align-items: center;
