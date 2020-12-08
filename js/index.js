@@ -2,7 +2,7 @@ const gallery = [];
 let currGallery = "";
 
 document.addEventListener("DOMContentLoaded", function () {
-  //  let url = "https://www.randyconnolly.com/funwebdev/3rd/api/art/galleries.php";
+  //let url = "https://www.randyconnolly.com/funwebdev/3rd/api/art/galleries.php";
   let url = "api-galleries.php";
 
   let listLoader = document.querySelector("#listLoader");
