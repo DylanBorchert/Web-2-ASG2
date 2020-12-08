@@ -109,6 +109,12 @@ class ArtistDB {
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($artistID));
         return $statement->fetch();
     }
+    public function getAllArtist()
+    {
+        $sql = "SELECT * FROM artists";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+        return $statement->fetchAll();
+    }
 }
 
 class CustomerLoginDB {
@@ -136,4 +142,3 @@ class CustomerInfoDB {
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
 }
-?>
