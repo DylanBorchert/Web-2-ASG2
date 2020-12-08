@@ -65,7 +65,12 @@ if (isset($_GET['paintingid'])) {
         <a id="museumLink" href="<?= $painting['MuseumLink'] ?>">Museum Link</a>
     </section>
     <section id="Colors" style="display:none">
+        <?php
+        // foreach($painting['Color'] as $p){
+        //     echo "$p";
 
+        // }
+        ?>
     </section>
     <!-- </template> -->
     </div>
