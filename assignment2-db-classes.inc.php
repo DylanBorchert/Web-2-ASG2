@@ -20,14 +20,14 @@ class DatabaseHelper
         if (count($parameters) > 0) {
             $statement = $connection->prepare($sql);
             $executedOk = $statement->execute($parameters);
-            if (!$executedOk) throw new PDOException;
+           if (! $executedOk) {throw new PDOException;}
         } else {
             $statement = $connection->query($sql);
-            if (!$statement) throw new PDOException;
+            if (!$statement) {throw new PDOException;}
         }
         return $statement;
     }
-}
+} 
 
 class GalleriesDB
 {
@@ -69,6 +69,21 @@ class PaintingsDB
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($galleryID));
         return $statement->fetchAll();
     }
+}
+
+class CustomerLoginDB {
+    private static $baseSQL = "SELECT CustomerID, UserName, Pass FROM customerlogon";
+    
+    public function __construct($connection) {
+        $this->pdo = $connection;
+    }
+    public function getUserName($userName) {
+        $sql = self::$baseSQL . " WHERE UserName=?";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($userName));
+        return $statement->fetch(PDO::FETCH_ASSOC);
+    }
+}
+
     public function getAll()
     {
         $sql = self::$baseSQL;
@@ -114,3 +129,4 @@ class ArtistDB
         return $statement->fetch();
     }
 }
+?>
