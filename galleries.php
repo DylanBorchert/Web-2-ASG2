@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="CSS/reset.css">
     <link rel="stylesheet" href="CSS/galleries.css">
-    <!-- <script src="JS/general.js"></script> -->
     <script src="JS/index.js"></script>
 </head>
 
@@ -29,6 +28,9 @@
         </button>
     </nav> -->
     <div class="container">
+        <?php
+        include("pagenav.inc.php");
+        ?>
         <div class="containerGallery">
 
             <div id="listOfGalleries">

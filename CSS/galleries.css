@@ -1,17 +1,4 @@
-:root {
-  --color-1: #3c1874;
-  --color-primary-2: #7f5900;
-  --color-primary-1: #ffb300;
-  --color-secondary-2: #7a431d;
-  --color-secondary-1: #de9e48;
-  --color-background-1: #563727;
-  --color-background-2: #372c2e;
-  --color-white-1: #f1ffff;
-  --color-white-2: #bac2c2;
-  --color-black-1: #000000;
-  --color-black-3: #424242;
-  --color-black-2: #121212;
-}
+@import "./colorpalet.css";
 
 body {
   /* background from https://www.toptal.com/designers/subtlepatterns/page/14/ */
@@ -183,16 +170,16 @@ div#listOfGalleries {
   width: 120px;
 }
 
-#paintingHeading span[id="paintHeadArtist"] {
+#paintingHeading span[id="artist"] {
   width: 150px;
 }
 
-#paintingHeading span[id="paintHeadTitle"] {
+#paintingHeading span[id="title"] {
   width: 15vw;
   flex-grow: 2;
 }
 
-#paintingHeading span[id="paintHeadYear"] {
+#paintingHeading span[id="year"] {
   width: 100px;
   padding-right: 20px;
 }
