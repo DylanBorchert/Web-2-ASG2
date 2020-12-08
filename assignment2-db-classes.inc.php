@@ -88,4 +88,10 @@ class ArtistDB
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($artistID));
         return $statement->fetch();
     }
+    public function getAllArtist()
+    {
+        $sql = "SELECT * FROM artists";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+        return $statement->fetchAll();
+    }
 }
