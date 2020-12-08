@@ -231,12 +231,14 @@ div#listOfGalleries {
   width: 100px;
 }
 
-#paintingTitle {
-  cursor: pointer;
+#paintingTitle a:link,
+a:visited {
   color: var(--color-primary-1);
+  text-decoration: none;
 }
 
-#paintingTitle:hover {
+#paintingTitle a:hover {
+  cursor: pointer;
   color: var(--color-primary-2);
 }
 

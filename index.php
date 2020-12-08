@@ -129,16 +129,6 @@
                     <p id="return"></p>
                 </div>
             </template>
-            <div class="lds-roller" id="paintViewLoader">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
             <div id="paintingView"></div>
         </div>
     </div>
