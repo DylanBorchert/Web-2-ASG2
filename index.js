@@ -146,11 +146,11 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         };
 
-        if (sort == "artist") {
+        if (sort == "paintHeadArtist") {
           paintingList.sort((a, b) => sortPaintingList(a.LastName, b.LastName));
-        } else if (sort == "title") {
+        } else if (sort == "paintHeadTitle") {
           paintingList.sort((a, b) => sortPaintingList(a.Title, b.Title));
-        } else if (sort == "year") {
+        } else if (sort == "paintHeadYear") {
           paintingList.sort((a, b) =>
             sortPaintingList(a.YearOfWork, b.YearOfWork)
           );
@@ -163,69 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
           addSquare(painting, paintingDiv);
           addPaintings(painting, paintingDiv);
         }
-        tableClicks(paintingList);
       });
-  }
-
-  function tableClicks(paintingList) {
-    paintingArea.addEventListener("click", (e) => {
-      if (e.target.id == "paintingTitle") {
-        //     containerGallery.style.display = "none";
-        //     containerView.style.display = "grid";
-        //     let paintingTemplate = document.querySelector("#paintingViewTemplate");
-        //     containerGallery.style.display = "none";
-        //   containerView.style.display = "grid";
-        //     let foundPainting = paintingList.find(painting => e.target.innerHTML == painting.Title);
-        //     paintingView.innerHTML = "";
-        //     let paintViewClone = paintingTemplate.content.cloneNode(true);
-        //     let baseImg = paintViewClone.querySelector("img");
-        //     addFull(foundPainting, baseImg);
-        //     addFull(foundPainting, largePainting.querySelector("img"));
-        //     document.querySelector("#closeButton").addEventListener('click', function(){
-        //       largePainting.style.display = "none";
-        //     });
-        //     baseImg.addEventListener("click", function(e){
-        //       largePainting.style.display = "block";
-        //     });
-        //     paintViewClone.querySelector("#Width").textContent = `${foundPainting.Width}`;
-        //     paintViewClone.querySelector("#Height").textContent = `${foundPainting.Height}`;
-        //     paintViewClone.querySelector("#Copyright").textContent = `Copyright: ${foundPainting.CopyrightText}`;
-        //     paintViewClone.querySelector("#Title").textContent = `Painting Title: ${foundPainting.Title}`;
-        //     paintViewClone.querySelector("#Artist").textContent = `Painters Name: ${foundPainting.FirstName} ${foundPainting.LastName}`;
-        //     paintViewClone.querySelector("#Medium").textContent = `Painting Medium: ${foundPainting.Medium}`;
-        //     paintViewClone.querySelector("#Year").textContent = `Year Of Work: ${foundPainting.YearOfWork}`;
-        //     if(foundPainting.Description) {
-        //         paintViewClone.querySelector("#Description").textContent = `Description: ${foundPainting.Description}`;
-        //     }
-        //     paintViewClone.querySelector("#GalleryName").textContent = `Gallery Name: ${foundPainting.GalleryName}`;
-        //     paintViewClone.querySelector("#GalleryCity").textContent = `Gallery City: ${foundPainting.GalleryCity}`;
-        //     let MuseumLink = paintViewClone.querySelector("#MuseumLink");
-        //     MuseumLink.setAttribute("href", `${foundPainting.MuseumLink}`);
-        //     MuseumLink.textContent = "Gallery Web Site";
-        //     let returnButton = paintViewClone.querySelector("#return");
-        //     returnButton.textContent = "return";
-        //     // color contrast calculation from: https://dev.to/daviddalbusco/generate-contrasting-text-for-your-random-background-color-g0m
-        //     const textColorContrast = function textColorContrast(red, green, blue) {
-        //         let contrast = ((red * 299) + (green * 587) + (blue * 114)) / 1000;
-        //         return contrast >= 128 ? '#000' : '#fff';
-        //     }
-        //     //paintViewClone.querySelector(`.color`);
-        //     let index = 1;
-        //     for(let c of foundPainting.JsonAnnotations.dominantColors){
-        //       let colorDiv = paintViewClone.querySelector(`#Colour_${index}`);
-        //       colorDiv.style.backgroundColor = `${c.web}`;
-        //       colorDiv.style.color = textColorContrast(c.color.red, c.color.green, c.color.blue);
-        //       colorDiv.querySelector(".name").textContent = `${c.name}`;
-        //       colorDiv.querySelector(".hex").textContent = `${c.web}`;
-        //       index++;
-        //     }
-        //     paintingView.appendChild(paintViewClone);
-        //     returnButton.addEventListener("click", () => {
-        //         containerGallery.style.display = "grid";
-        //         containerView.style.display = "none";
-        //     });
-      }
-    });
   }
 
   function addHeading(paintingHeading) {
@@ -233,11 +171,11 @@ document.addEventListener("DOMContentLoaded", function () {
     emptyFlex = document.createElement("span");
     emptyFlex.setAttribute("id", "emptyFlex");
     artist = document.createElement("span");
-    artist.setAttribute("id", "artist");
+    artist.setAttribute("id", "paintHeadArtist");
     title = document.createElement("span");
-    title.setAttribute("id", "title");
+    title.setAttribute("id", "paintHeadTitle");
     creationYear = document.createElement("span");
-    creationYear.setAttribute("id", "year");
+    creationYear.setAttribute("id", "paintHeadYear");
 
     artist.textContent = "Artist";
     title.textContent = "Title";
@@ -281,7 +219,7 @@ document.addEventListener("DOMContentLoaded", function () {
     imageItem.setAttribute("width", "100px");
     imageItem.setAttribute(
       "src",
-      `./images/paintings/square/${painting.FullImageFileName}`
+      `f2020-assign2/images/paintings/square/${painting.FullImageFileName}`
     );
     paintingLoader.style.display = "none";
     paintingHeading.style.display = "flex";
