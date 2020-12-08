@@ -1,6 +1,5 @@
 <?php
-class DatabaseHelper
-{
+class DatabaseHelper {
     public static function createConnection($values = array())
     {
         $connString = $values[0];
@@ -29,8 +28,7 @@ class DatabaseHelper
     }
 } 
 
-class GalleriesDB
-{
+class GalleriesDB {
     private static $baseSQL = "SELECT * FROM galleries";
     public function __construct($connection)
     {
@@ -56,8 +54,7 @@ class GalleriesDB
     }
 }
 
-class PaintingsDB
-{
+class PaintingsDB {
     private static $baseSQL = "SELECT * FROM paintings";
     public function __construct($connection)
     {
@@ -69,21 +66,6 @@ class PaintingsDB
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($galleryID));
         return $statement->fetchAll();
     }
-}
-
-class CustomerLoginDB {
-    private static $baseSQL = "SELECT CustomerID, UserName, Pass FROM customerlogon";
-    
-    public function __construct($connection) {
-        $this->pdo = $connection;
-    }
-    public function getUserName($userName) {
-        $sql = self::$baseSQL . " WHERE UserName=?";
-        $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($userName));
-        return $statement->fetch(PDO::FETCH_ASSOC);
-    }
-}
-
     public function getAll()
     {
         $sql = self::$baseSQL;
@@ -114,10 +96,9 @@ class CustomerLoginDB {
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($PaintID));
         return $statement->fetch();
     }
-
 }
-class ArtistDB
-{
+
+class ArtistDB {
     public function __construct($connection)
     {
         $this->pdo = $connection;
@@ -127,6 +108,19 @@ class ArtistDB
         $sql = "SELECT * FROM artists WHERE ArtistID=?";
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($artistID));
         return $statement->fetch();
+    }
+}
+
+class CustomerLoginDB {
+    private static $baseSQL = "SELECT CustomerID, UserName, Pass FROM customerlogon";
+    
+    public function __construct($connection) {
+        $this->pdo = $connection;
+    }
+    public function getUserName($userName) {
+        $sql = self::$baseSQL . " WHERE UserName=?";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($userName));
+        return $statement->fetch(PDO::FETCH_ASSOC);
     }
 }
 ?>

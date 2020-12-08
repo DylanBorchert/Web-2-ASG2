@@ -16,7 +16,7 @@ if (checkForLogin()) {
             //Check password
             if (password_verify($_POST['pass'], $data['Pass'])) {
                 $_SESSION['user'] = $data['CustomerID'];
-                header('Location: test.php');
+                header('Location: homepage.php');
                 exit();
             } else {
                 $msg = "Incorrect Password";
