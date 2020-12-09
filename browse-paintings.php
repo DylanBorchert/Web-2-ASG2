@@ -203,7 +203,7 @@ $paintings = $paint->getAll();
                             </div>
                             <div id="paintings">
                                 <?php
-                                echo "here";
+                                // echo "here";
                                 foreach ($searchedPaintings as $p) {
                                 ?>
                                     <div id="painting">

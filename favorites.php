@@ -7,7 +7,6 @@ require_once 'assignment2-db-classes.inc.php';
 require_once 'favoritesHelper.php';
 require_once 'sessionDemo.php';
 $connection = DatabaseHelper::createConnection([DBCONNSTRING, DBUSER, DBPASS]);
-// now retrieve galleries 
 $galleryGate = new GalleriesDB($connection);
 $paintingGate = new PaintingsDB($connection);
 $galleries = $galleryGate->getAll();
