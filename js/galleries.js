@@ -171,7 +171,6 @@ document.addEventListener("DOMContentLoaded", function () {
           addSquare(painting, paintingDiv);
           addPaintings(painting, paintingDiv);
         }
-        tableClicks(paintingList);
       });
   }
 
@@ -205,7 +204,6 @@ document.addEventListener("DOMContentLoaded", function () {
     titleSpan.setAttribute("id", "paintingTitle");
     let titleLink = document.createElement("a");
     titleLink.textContent = painting.Title;
-    console.log(painting);
     titleLink.setAttribute(
       "href",
       `single-painting-tab.php?paintingid=${painting.PaintingID}`
@@ -222,13 +220,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function addSquare(painting, node, size) {
-    console.log("painting" + painting.FullImageFileName + ".jpg was displayed");
+    console.log("painting" + painting.FullImageFileName + " was displayed");
     let imageItem = document.createElement("img");
     node.appendChild(imageItem);
     imageItem.setAttribute("width", "100px");
     imageItem.setAttribute(
       "src",
-      `../images/paintings/square/${painting.FullImageFileName}`
+      `images/paintings/square/${painting.FullImageFileName}`
     );
     paintingLoader.style.display = "none";
     paintingHeading.style.display = "flex";
