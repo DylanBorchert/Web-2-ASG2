@@ -1,7 +1,8 @@
-<!-- <link rel="stylesheet" href="CSS/general.css"> -->
+<link rel="stylesheet" href="CSS/pagenav.css">
+<link rel="stylesheet" href="CSS/reset.css">
 <nav class="pagenav">
     <div class="navlinks">
-        <div class="logo">Insert Logo</div>
+        <div class="logo"></div>
         <a href="index.php">Home/Login</a>
         <a href="about.php">About</a>
         <a href="galleries.php">Galleries</a>
@@ -10,7 +11,7 @@
         <a href="favorites.php">Favorites</a>
         <a href="profile.php">Profile</a>
     </div>
-    <button class="pagenavhamburger">
+    <div class="pagenavhamburger">
 
-    </button>
+    </div>
 </nav>

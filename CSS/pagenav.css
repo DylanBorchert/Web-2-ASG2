@@ -1,0 +1,27 @@
+@import "./colorpalet.css";
+nav.pagenav {
+  background-color: var(--color-background-2);
+  height: 50px;
+}
+
+nav.pagenav div.navlinks {
+  display: flex;
+}
+
+nav.pagenav div.navlinks a {
+  text-decoration: none;
+  color: var(--color-secondary-1);
+  width: 120px;
+  height: 10px;
+  padding: 30px 8px 8px 8px;
+  display: block;
+  text-align: center;
+  line-height: 10px;
+}
+
+nav.pagenav div.navlinks a:hover {
+  border-bottom: 2px solid var(--color-secondary-1);
+  cursor: pointer;
+  background-color: var(--color-background-1);
+  transition: background-color 0.5s;
+}

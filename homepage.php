@@ -1,6 +1,6 @@
 <?php
 require_once 'config.inc.php';
-require_once 'assignment2-db-classes.inc.php';//!!!!! Some stuff isn't workiing as I tranfer your classes
+require_once 'assignment2-db-classes.inc.php'; //!!!!! Some stuff isn't workiing as I tranfer your classes
 session_start();
 $_SESSION['userFavorites'] = array();
 
@@ -15,8 +15,8 @@ try {
 }
 
 function displayUserData($customerInfo)
-    {
-        if (isset($customerInfo)) {
+{
+    if (isset($customerInfo)) {
         echo "<h2> Welcome " . $customerInfo['FirstName'] . "</h2>";
         echo "<p>" . $customerInfo['FirstName'] . " " . $customerInfo['LastName'] . "</p>" . "<p>" . $customerInfo['City'] . "</p>" . "<p>" . $customerInfo['Country'] . "</p>";
     }
@@ -33,21 +33,9 @@ function displayUserData($customerInfo)
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="CSS/homepage.css">
 </head>
-<nav class="nav">
-    <div class="navlinks">
-        <div class="logo">Insert Logo</div>
-        <a href="home-logged-in.php">Home/Login</a>
-        <a href="about.php">About</a>
-        <a href="galleries.php">Galleries</a>
-        <a href="browse-paintings.php">Search/Browse</a>
-        <a href="single-painting.php">Single Painting</a>
-        <a href="favorites.php">Favorites</a>
-        <a href="profile.php">Profile</a>
-    </div>
-    <button class="hamburger">
-
-    </button>
-</nav>
+<?php
+include("pagenav.inc.php");
+?>
 
 <body>
     <main class="container">
@@ -86,7 +74,7 @@ function displayUserData($customerInfo)
                         }
                     }
                 }
-                
+
                 displayUserData($customerInfo);
                 ?>
             </section>
