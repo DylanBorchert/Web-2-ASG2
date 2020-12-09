@@ -45,8 +45,10 @@ document.addEventListener("DOMContentLoaded", function () {
           let map = document.querySelector("#map");
           map.style.height = "56vh";
           let galleryMap = document.querySelector("#galleryMap");
-          galleryMap.style.gridRow = "2/3";
-          galleryMap.style.gridColumn = "2/3";
+          if (document.documentElement.clientWidth > 950) {
+            galleryMap.style.gridRow = "2/3";
+            galleryMap.style.gridColumn = "2/3";
+          }
           galleryInfo.style.display = "block";
           paintings.style.display = "block";
 
@@ -106,7 +108,9 @@ document.addEventListener("DOMContentLoaded", function () {
     listOfGalleries.style.border = "none";
     listGalleryHeader.style.display = "flex";
     listOfGalleriesArea.style.display = "block";
-    containerGallery.style.gridTemplateColumns = "2fr 3fr 4fr";
+    if (document.documentElement.clientWidth > 950) {
+      containerGallery.style.gridTemplateColumns = "2fr 3fr 4fr";
+    }
     expandList.style.display = "none";
   });
 
