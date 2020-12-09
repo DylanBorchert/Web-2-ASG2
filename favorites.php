@@ -37,8 +37,9 @@ $paintings = $paintingGate->getAll();
     header("Location: single-painting-tab.php?paintingid=" . $_GET['paintingid'] . "&added=yes");
   }
   if (isset($_GET['paintingid-search'])) {
-    addFavorite($_GET['paintingid']);
-    header("Location: favorites.php?paintingid-search=" . $p['PaintingID'] . "&title=" . $_GET['title'] . "&artist=" . $_GET['artist'] . "&museum=" . $_GET['museum']);
+    addFavorite($_GET['paintingid-search']);
+    //header("Location: favorites.php?paintingid-search=" . $_GET['paintingid-search'] . "&title=" . $_GET['title'] . "&artist=" . $_GET['artist'] . "&museum=" . $_GET['museum']);
+    header("Location: favorites.php?title=" . $_GET['title'] . "&artist=" . $_GET['artist'] . "&museum=" . $_GET['museum']);
   }
   //Array of paintings selected to be deleted.
   $selectedP = array();

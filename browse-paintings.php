@@ -34,8 +34,8 @@ $paintings = $paint->getAll();
     <!-- <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital@1&display=swap" rel="stylesheet"> -->
     <!-- <link rel="stylesheet" href="/asg2/Web-2-ASG-2/style/reset.css">  -->
-    <!-- <link rel="stylesheet" href="/asg2/Web-2-ASG2/style/index.css">
-    <link rel="stylesheet" href="/asg2/Web-2-ASG2/style/browse-paintings.css"> -->
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/browse-paintings.css">
 
 </head>
 
@@ -175,7 +175,7 @@ $paintings = $paint->getAll();
                                 foreach ($searchedPaintings as $p) {
                                 ?>
                                     <div id="painting">
-                                        <img id="squareImage" src="/images/paintings/square/<?= $p['ImageFileName'] ?>.jpg">
+                                        <img src="images/paintings/square-medium/<?= $p['ImageFileName'] ?>.jpg">
                                         <!-- find artist name -->
                                         <p><?= $p['Title'] ?></p>
                                         <p><?= $p['YearOfWork'] ?></p>
