@@ -73,29 +73,6 @@
 
         </div>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRm7Dyqq8GWu-nGW5OhUdc3kq0jacKuds&callback=initMap" type="text/javascript"></script>
-        <!-- <main>
-            <div>
-                <section>
-                    <button id="login">Login</button>
-                    <button id="join">Join</button>
-                    <button id="searchbutton" type="submit">Search</button>
-
-                    <input type="text" name="title" class="searchbox" placeholder="Search BOX FOR Painting ">
-
-
-                </section>
-            </div>
-        </main> -->
-
-        <!-- <footer>
-            <p class="copyright">© Group Name: Webberinos - Web 2: December 2020</p>
-
-
-
-        </footer> -->
-
-
-
 </body>
 
 </html>

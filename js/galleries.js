@@ -43,7 +43,9 @@ document.addEventListener("DOMContentLoaded", function () {
       listOfGalleriesArea.addEventListener("click", (e) => {
         if (e.target.nodeName.toLowerCase() == "li") {
           let map = document.querySelector("#map");
-          map.style.height = "56vh";
+          if (document.documentElement.clientWidth > 950) {
+            map.style.height = "56vh";
+          }
           let galleryMap = document.querySelector("#galleryMap");
           if (document.documentElement.clientWidth > 950) {
             galleryMap.style.gridRow = "2/3";
@@ -100,7 +102,9 @@ document.addEventListener("DOMContentLoaded", function () {
     listOfGalleries.style.border = "3px solid var(--color-secondary-1)";
     listGalleryHeader.style.display = "none";
     listOfGalleriesArea.style.display = "none";
-    containerGallery.style.gridTemplateColumns = "75px 3fr 4fr";
+    if (document.documentElement.clientWidth > 950) {
+      containerGallery.style.gridTemplateColumns = "75px 3fr 4fr";
+    }
     expandList.style.display = "block";
   });
 
@@ -171,67 +175,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 
-  function tableClicks(paintingList) {
-    paintingArea.addEventListener("click", (e) => {
-      if (e.target.id == "paintingTitle") {
-        //     containerGallery.style.display = "none";
-        //     containerView.style.display = "grid";
-        //     let paintingTemplate = document.querySelector("#paintingViewTemplate");
-        //     containerGallery.style.display = "none";
-        //   containerView.style.display = "grid";
-        //     let foundPainting = paintingList.find(painting => e.target.innerHTML == painting.Title);
-        //     paintingView.innerHTML = "";
-        //     let paintViewClone = paintingTemplate.content.cloneNode(true);
-        //     let baseImg = paintViewClone.querySelector("img");
-        //     addFull(foundPainting, baseImg);
-        //     addFull(foundPainting, largePainting.querySelector("img"));
-        //     document.querySelector("#closeButton").addEventListener('click', function(){
-        //       largePainting.style.display = "none";
-        //     });
-        //     baseImg.addEventListener("click", function(e){
-        //       largePainting.style.display = "block";
-        //     });
-        //     paintViewClone.querySelector("#Width").textContent = `${foundPainting.Width}`;
-        //     paintViewClone.querySelector("#Height").textContent = `${foundPainting.Height}`;
-        //     paintViewClone.querySelector("#Copyright").textContent = `Copyright: ${foundPainting.CopyrightText}`;
-        //     paintViewClone.querySelector("#Title").textContent = `Painting Title: ${foundPainting.Title}`;
-        //     paintViewClone.querySelector("#Artist").textContent = `Painters Name: ${foundPainting.FirstName} ${foundPainting.LastName}`;
-        //     paintViewClone.querySelector("#Medium").textContent = `Painting Medium: ${foundPainting.Medium}`;
-        //     paintViewClone.querySelector("#Year").textContent = `Year Of Work: ${foundPainting.YearOfWork}`;
-        //     if(foundPainting.Description) {
-        //         paintViewClone.querySelector("#Description").textContent = `Description: ${foundPainting.Description}`;
-        //     }
-        //     paintViewClone.querySelector("#GalleryName").textContent = `Gallery Name: ${foundPainting.GalleryName}`;
-        //     paintViewClone.querySelector("#GalleryCity").textContent = `Gallery City: ${foundPainting.GalleryCity}`;
-        //     let MuseumLink = paintViewClone.querySelector("#MuseumLink");
-        //     MuseumLink.setAttribute("href", `${foundPainting.MuseumLink}`);
-        //     MuseumLink.textContent = "Gallery Web Site";
-        //     let returnButton = paintViewClone.querySelector("#return");
-        //     returnButton.textContent = "return";
-        //     // color contrast calculation from: https://dev.to/daviddalbusco/generate-contrasting-text-for-your-random-background-color-g0m
-        //     const textColorContrast = function textColorContrast(red, green, blue) {
-        //         let contrast = ((red * 299) + (green * 587) + (blue * 114)) / 1000;
-        //         return contrast >= 128 ? '#000' : '#fff';
-        //     }
-        //     //paintViewClone.querySelector(`.color`);
-        //     let index = 1;
-        //     for(let c of foundPainting.JsonAnnotations.dominantColors){
-        //       let colorDiv = paintViewClone.querySelector(`#Colour_${index}`);
-        //       colorDiv.style.backgroundColor = `${c.web}`;
-        //       colorDiv.style.color = textColorContrast(c.color.red, c.color.green, c.color.blue);
-        //       colorDiv.querySelector(".name").textContent = `${c.name}`;
-        //       colorDiv.querySelector(".hex").textContent = `${c.web}`;
-        //       index++;
-        //     }
-        //     paintingView.appendChild(paintViewClone);
-        //     returnButton.addEventListener("click", () => {
-        //         containerGallery.style.display = "grid";
-        //         containerView.style.display = "none";
-        //     });
-      }
-    });
-  }
-
   function addHeading(paintingHeading) {
     paintingHeading.innerHTML = "";
     emptyFlex = document.createElement("span");
@@ -279,7 +222,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function addSquare(painting, node, size) {
-    console.log("painting" + painting.ImageFileName + ".jpg was displayed");
+    console.log("painting" + painting.FullImageFileName + ".jpg was displayed");
     let imageItem = document.createElement("img");
     node.appendChild(imageItem);
     imageItem.setAttribute("width", "100px");
