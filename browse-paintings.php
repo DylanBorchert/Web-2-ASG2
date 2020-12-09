@@ -89,19 +89,19 @@ $paintings = $paint->getAll();
                                 <p>Year:</p>
                             </tr>
                             <tr>
-                                <!-- <input type="radio" class="rad" id="before" name="year" value=""> -->
+                                <input type="radio" class="rad" id="before" name="year" value="">
                                 <label for="before">Before</label>
                                 <input type="text" id="beforeInput" name="beforeInput">
                                 <br>
                             </tr>
                             <tr>
-                                <!-- <input type="radio" class="rad" id="after" name="year" value=""> -->
+                                <input type="radio" class="rad" id="after" name="year" value="">
                                 <label for="after">After</label>
                                 <input type="text" id="afterInput" name="afterInput">
                                 <br>
                             </tr>
                             <tr>
-                                <!-- <input type="radio" class="rad" id="between" name="year" value=""> -->
+                                <input type="radio" class="rad" id="between" name="year" value="">
                                 <label for="between">Between</label>
                                 </br>
                                 <input type="text" id="betweenLow" name="betweenLow">
