@@ -36,6 +36,7 @@ $paintings = $paint->getAll();
     <!-- <link rel="stylesheet" href="/asg2/Web-2-ASG-2/style/reset.css">  -->
     <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/browse-paintings.css">
+    <script type="text/javascript" src="js/browse-paintings.js"></script>
 
 </head>
 
@@ -88,26 +89,27 @@ $paintings = $paint->getAll();
                                 <p>Year:</p>
                             </tr>
                             <tr>
-                                <input type="radio" id="before" name="year" value="">
+                                <!-- <input type="radio" class="rad" id="before" name="year" value=""> -->
                                 <label for="before">Before</label>
                                 <input type="text" id="beforeInput" name="beforeInput">
                                 <br>
                             </tr>
                             <tr>
-                                <input type="radio" id="after" name="year" value="">
+                                <!-- <input type="radio" class="rad" id="after" name="year" value=""> -->
                                 <label for="after">After</label>
                                 <input type="text" id="afterInput" name="afterInput">
                                 <br>
                             </tr>
                             <tr>
-                                <input type="radio" id="Between" name="year" value="">
+                                <!-- <input type="radio" class="rad" id="between" name="year" value=""> -->
                                 <label for="between">Between</label>
                                 </br>
                                 <input type="text" id="betweenLow" name="betweenLow">
                                 <input type="text" id="betweenHigh" name="betweenHigh">
                                 </br>
                                 <input type="submit" title="filter" name="filter" value="filter">
-                                <input type="reset" title="clear" name="clear" value="clear">
+                                <!-- <input type="reset" title="clear" name="clear" value="clear"> -->
+                                <input type="submit" value="Clear" formaction="./browse-paintings.php">
                             </tr>
                         </table>
                     </form>
@@ -206,7 +208,16 @@ $paintings = $paint->getAll();
                                 ?>
                                     <div id="painting">
                                         <img src="images/paintings/square-medium/<?= $p['ImageFileName'] ?>.jpg">
-                                        <!-- find artist name -->
+
+                                        <?php
+                                        foreach ($artists as $a) {
+                                            if ($p['ArtistID'] == $a['ArtistID']) {
+                                        ?>
+                                                <p><?= $a['FirstName'] . " " . $a['LastName'] ?></p>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
                                         <p><?= $p['Title'] ?></p>
                                         <p><?= $p['YearOfWork'] ?></p>
                                         <?php if (isset($_GET['addedSearch'])) {
