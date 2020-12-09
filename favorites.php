@@ -23,25 +23,14 @@ $paintings = $paintingGate->getAll();
   <title>COMP 3512 Assign 2</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="CSS/reset.css">
   <link rel="stylesheet" href="CSS/homepage.css">
 </head>
 
 <body>
-  <nav class="nav">
-    <div class="navlinks">
-      <div class="logo">Insert Logo</div>
-      <a href="home-logged-in.php">Home/Login</a>
-      <a href="about.php">About</a>
-      <a href="galleries.php">Galleries</a>
-      <a href="browse-paintings.php">Search/Browse</a>
-      <a href="single-painting.php">Single Painting</a>
-      <a href="favorites.php">Favorites</a>
-      <a href="profile.php">Profile</a>
-    </div>
-    <button class="hamburger">
-
-    </button>
-  </nav>
+  <?php
+  include("pagenav.inc.php");
+  ?>
   <?php
   if (isset($_GET['paintingid'])) {
     addFavorite($_GET['paintingid']);

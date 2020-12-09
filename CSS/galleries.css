@@ -217,8 +217,12 @@ div#listOfGalleries {
   width: 100px;
 }
 
-#paintingTitle a:link,
-a:visited {
+#paintingTitle a:visited {
+  color: var(--color-primary-1);
+  text-decoration: none;
+}
+
+#paintingTitle a:link {
   color: var(--color-primary-1);
   text-decoration: none;
 }
@@ -239,6 +243,7 @@ a:visited {
   margin: 1vh;
 }
 
+.pagenav,
 .containerGallery > div,
 .containerView > div,
 #header {

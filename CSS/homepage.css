@@ -1,11 +1,5 @@
 @import "./colorpalet.css";
 
-body {
-  font-family: sans-serif;
-  font-size: 0.8rem;
-  overflow-x: hidden;
-  margin-right: 29px;
-}
 .container {
   display: grid;
   grid-template-columns: 20% 30% 50%;
