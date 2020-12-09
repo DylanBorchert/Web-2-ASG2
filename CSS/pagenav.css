@@ -2,10 +2,7 @@
 nav.pagenav {
   background-color: var(--color-background-2);
   height: 50px;
-}
-
-nav.pagenav div.navlinks {
-  display: flex;
+  top: 0px;
 }
 
 nav.pagenav div.navlinks a {
@@ -24,4 +21,55 @@ nav.pagenav div.navlinks a:hover {
   cursor: pointer;
   background-color: var(--color-background-1);
   transition: background-color 0.5s;
+}
+
+.pagenavhamburger {
+  background-color: var(--color-background-2);
+  border: none;
+  display: none;
+}
+
+@media only screen and (max-width: 950px) {
+  .pagenavhamburger {
+    margin-left: 10px;
+    height: 45px;
+    display: block;
+  }
+
+  nav.pagenav div.navlinks a {
+    border-right: 2px solid var(--color-background-2);
+    padding: 15px 8px 15px 8px;
+  }
+
+  nav.pagenav div.navlinks a:hover {
+    border: none;
+    border-right: 2px solid var(--color-secondary-1);
+  }
+
+  .pagenavhamburger svg {
+    fill: var(--color-primary-1);
+    max-width: 45px;
+    max-height: 40px;
+  }
+
+  button.pagenavhamburger svg:hover {
+    fill: var(--color-primary-2);
+    cursor: pointer;
+  }
+
+  div.navlinks {
+    box-shadow: 0px 0px 2px black;
+    background-color: var(--color-background-2);
+    top: 50px;
+    position: absolute;
+    flex-direction: column;
+    display: none;
+  }
+}
+@media only screen and (min-width: 950px) {
+  div.navlinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
 }
