@@ -170,16 +170,16 @@ div#listOfGalleries {
   width: 120px;
 }
 
-#paintingHeading span[id="paintHeadArtist"] {
+#paintingHeading span[id="artist"] {
   width: 150px;
 }
 
-#paintingHeading span[id="paintHeadTitle"] {
+#paintingHeading span[id="title"] {
   width: 15vw;
   flex-grow: 2;
 }
 
-#paintingHeading span[id="paintHeadYear"] {
+#paintingHeading span[id="year"] {
   width: 100px;
   padding-right: 20px;
 }
