@@ -59,7 +59,7 @@ include("pagenav.inc.php");
 
                     for ($i = 0; $i < count($dataFirst15); $i++) {
                         if ($i == 0) {
-                            echo "<div class = 'middle'> <img src='/images/paintings/square-medium/" . $dataFirst15[$i]['ImageFileName'] . ".jpg'/> 
+                            echo "<div class = 'middle'> <img src='images/paintings/square-medium/" . $dataFirst15[$i]['ImageFileName'] . ".jpg'/> 
                         " . "<br>" . $dataFirst15[$i]['Title'] . "</div>";
                         }
                         if ($i % 2 && $i != 0) {
