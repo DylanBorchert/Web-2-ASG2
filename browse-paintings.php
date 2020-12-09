@@ -1,7 +1,8 @@
 <?php
 
 require 'assignment2-db-classes.inc.php';
-require "config.inc.php";
+require 'config.inc.php';
+require 'favoritesHelper.php';
 
 $conn = DatabaseHelper::createConnection(array(
     DBCONNSTRING,
@@ -18,7 +19,8 @@ $artists = $art->getAllArtist();
 $gal = new GalleriesDB($conn);
 $galleries = $gal->getAll();
 
-
+$paint = new PaintingsDB($conn);
+$paintings = $paint->getAll();
 ?>
 
 <!DOCTYPE html>
@@ -107,44 +109,46 @@ $galleries = $gal->getAll();
 
                     $baseSQL = "SELECT * FROM paintings";
                     $value = 0;
-
                     if (isset($_GET['title'])) {
-                        $baseSQL .= " WHERE Title = '" . $_GET['title'] . "'";
-                        $value++;
+                        if (!$_GET['title'] == "") {
+                            $baseSQL .= " WHERE Title = '" . $_GET['title'] . "'";
+                            $value++;
+                        }
                     }
                     if (isset($_GET['artist'])) {
-                        //$baseSQL .= " WHERE ArtistID = '" . $_GET['artist'] . "' AND";
-                        if ($value == 1) {
-                            $baseSQL .= " AND ArtistID = " . $_GET['artist'];
-                            $value++;
-                        } else {
-                            $baseSQL .= " WHERE ArtistID = " . $_GET['artist'];
-                            $value++;
+                        if (!$_GET['artist'] == 0) {
+                            //$baseSQL .= " WHERE ArtistID = '" . $_GET['artist'] . "' AND";
+                            if ($value == 1) {
+                                $baseSQL .= " AND ArtistID = " . $_GET['artist'];
+                                $value++;
+                            } else {
+                                $baseSQL .= " WHERE ArtistID = " . $_GET['artist'];
+                                $value++;
+                            }
                         }
                     }
                     if (isset($_GET['museum'])) {
+                        if (!$_GET['museum'] == 0) {
 
-                        //$baseSQL .= " WHERE Title GalleryID = '" . $_GET['museum'] . `'`;
-                        if ($value >= 1) {
+                            //$baseSQL .= " WHERE Title GalleryID = '" . $_GET['museum'] . `'`;
+                            if ($value >= 1) {
 
-                            $baseSQL .= " AND GalleryID = " . $_GET['museum'];
-                            $value++;
-                        } else {
-                            $baseSQL .= " WHERE GalleryID = " . $_GET['museum'];
-                            $value++;
+                                $baseSQL .= " AND GalleryID = " . $_GET['museum'];
+                                $value++;
+                            } else {
+                                $baseSQL .= " WHERE GalleryID = " . $_GET['museum'];
+                                $value++;
+                            }
                         }
                     }
-
                     if (isset($_GET['title']) or isset($_GET['artist']) or isset($_GET['museum'])) {
 
-                        $searchedPaintings;
-                        $statement = DatabaseHelper::runQuery($conn, $baseSQL, null);
-                        $searchedPaintings = $statement->fetchAll();
-                        var_dump($searchedPaintings);
+                        // $searchedPaintings;
+                        // $statement = DatabaseHelper::runQuery($conn, $baseSQL, null);
+                        // $searchedPaintings = $statement->fetchAll();
 
-                        foreach ($searchedPaintings as $s) {
-                            echo "<div> $s </div>";
-                        }
+                        $searchedPaintings = $paint->returnSearch($baseSQL);
+
                     ?>
                         <div>
                             <h3>Paintings</h3>
@@ -163,6 +167,11 @@ $galleries = $gal->getAll();
                                         <!-- find artist name -->
                                         <p><?= $p['Title'] ?></p>
                                         <p><?= $p['YearOfWork'] ?></p>
+                                        <?php if (isset($_GET['addedSearch'])) {
+                                            echo "<button>Painting Is Favorited</button>";
+                                        } else {
+                                            echo "<button><a href='favorites.php?paintingid-search=" . $p['PaintingID'] . "&title=" . $p['Title'] . "&artist=" . $p['Artist'] . "&museum=" . $p['museum'] . "'>Add To Favorites</a></button>";
+                                        } ?>
                                     </div>
                                 <?php
                                 }
