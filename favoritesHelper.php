@@ -11,7 +11,25 @@ function displayFavorites($paintingGate)
 
 function addFavorite($pID)
 {
-    array_push($_SESSION['userFavorites'], $pID);
+    $duplicate = false;
+    foreach ($_SESSION['userFavorites'] as $f) {
+        if ($f == $pID) {
+            $duplicate = true;
+        }
+    }
+    if ($duplicate == false) {
+        array_push($_SESSION['userFavorites'], $pID);
+    }
+}
+function isInFavorites($pID)
+{
+    $duplicate = false;
+    foreach ($_SESSION['userFavorites'] as $f) {
+        if ($f == $pID) {
+            return true;
+        }
+    }
+    return false;
 }
 
 function deleteFavorites($array)

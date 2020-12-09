@@ -5,7 +5,8 @@
 require_once 'config.inc.php';
 require_once 'assignment2-db-classes.inc.php';
 require_once 'favoritesHelper.php';
-require_once 'sessionDemo.php';
+// require_once 'sessionDemo.php';
+session_start();
 $connection = DatabaseHelper::createConnection([DBCONNSTRING, DBUSER, DBPASS]);
 $galleryGate = new GalleriesDB($connection);
 $paintingGate = new PaintingsDB($connection);
@@ -32,6 +33,7 @@ $paintings = $paintingGate->getAll();
   include("pagenav.inc.php");
   ?>
   <?php
+
   if (isset($_GET['paintingid'])) {
     addFavorite($_GET['paintingid']);
     header("Location: single-painting-tab.php?paintingid=" . $_GET['paintingid'] . "&added=yes");
@@ -85,7 +87,7 @@ $paintings = $paintingGate->getAll();
         echo "<p>Your Favorite Paintings Will Appear Here When You Find Them!</p>";
       }
       //Remove Current Session Data.
-      session_unset();
+      // session_unset();
       ?>
     </form>
   </table>

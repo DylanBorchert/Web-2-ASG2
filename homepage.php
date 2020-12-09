@@ -59,16 +59,16 @@ include("pagenav.inc.php");
 
                     for ($i = 0; $i < count($dataFirst15); $i++) {
                         if ($i == 0) {
-                            echo "<div class = 'middle'> <img src='/images/art/" . $dataFirst15[$i]['ImageFileName'] . ".jpg'/> 
+                            echo "<div class = 'middle'> <img src='/images/paintings/square-medium/" . $dataFirst15[$i]['ImageFileName'] . ".jpg'/> 
                         " . "<br>" . $dataFirst15[$i]['Title'] . "</div>";
                         }
                         if ($i % 2 && $i != 0) {
 
-                            echo "<div class = 'odd'> <img src='images/art/" . $dataFirst15[$i]['ImageFileName'] . ".jpg'/> 
+                            echo "<div class = 'odd'> <img src='images/paintings/square-medium/" . $dataFirst15[$i]['ImageFileName'] . ".jpg'/> 
                         " . "<br>" . $dataFirst15[$i]['Title'] . "</div>";
                         } else {
                             if ($i != 0) {
-                                echo "<div class = 'even'> <img src='images/art/" . $dataFirst15[$i]['ImageFileName'] . ".jpg'/> 
+                                echo "<div class = 'even'> <img src='images/paintings/square-medium/" . $dataFirst15[$i]['ImageFileName'] . ".jpg'/> 
                             " . "<br>" . $dataFirst15[$i]['Title'] . "</div>";
                             }
                         }
@@ -106,7 +106,7 @@ include("pagenav.inc.php");
                         DBPASS
                     ));
 
-                    $paintingGate = new PaintingDB($conn);
+                    $paintingGate = new PaintingsDB($conn);
 
                     $dataFirst15 = $paintingGate->getTop15();
                     $conn = null;
@@ -134,16 +134,16 @@ include("pagenav.inc.php");
                     $conn = null;
                     for ($i = 0; $i < count($dataPaitingsMayLike); $i++) {
                         if ($i == 0) {
-                            echo "<div class = 'middle'> <img src='images/art/" . $dataPaitingsMayLike[$i]['ImageFileName'] . ".jpg'/> 
+                            echo "<div class = 'middle'> <img src='images/paintings/square-medium/" . $dataPaitingsMayLike[$i]['ImageFileName'] . ".jpg'/> 
                                 " . "<br>" . $dataPaitingsMayLike[$i]['Title'] . "</div>";
                         }
                         if ($i % 2 && $i != 0) {
 
-                            echo "<div class = 'odd'> <img src='images/art/" . $dataPaitingsMayLike[$i]['ImageFileName'] . ".jpg'/> 
+                            echo "<div class = 'odd'> <img src='images/paintings/square-medium/" . $dataPaitingsMayLike[$i]['ImageFileName'] . ".jpg'/> 
                             " . "<br>" . $dataPaitingsMayLike[$i]['Title'] . "</div>";
                         } else {
                             if ($i != 0) {
-                                echo "<div class = 'even'> <img src='images/art/" . $dataPaitingsMayLike[$i]['ImageFileName'] . ".jpg'/> 
+                                echo "<div class = 'even'> <img src='images/paintings/square-medium/" . $dataPaitingsMayLike[$i]['ImageFileName'] . ".jpg'/> 
                                 " . "<br>" . $dataPaitingsMayLike[$i]['Title'] . "</div>";
                             }
                         }
@@ -166,7 +166,7 @@ include("pagenav.inc.php");
 
                     if ($value['Title'] == $_GET['checkSearch']) {
                         echo "<h2> " . $value['Title'] . "</h2>";
-                        echo " <img src='images/art/" . $value['ImageFileName'] . ".jpg'/ height='700' width='710'>";
+                        echo " <img src='images/paintings/square-medium/" . $value['ImageFileName'] . ".jpg'/ height='700' width='710'>";
                         $imageFound = true;
                         break;
                     } else {
@@ -190,16 +190,16 @@ include("pagenav.inc.php");
 
                 for ($i = 0; $i < count($_SESSION['favorites']); $i++) {
                     if ($i == 0) {
-                        echo "<div class = 'middle'> <img src='images/art" . $_SESSION['favorites'][$i]['ImageFileName'] . ".jpg'/> 
+                        echo "<div class = 'middle'> <img src='images/paintings/square-medium/" . $_SESSION['favorites'][$i]['ImageFileName'] . ".jpg'/> 
                             " . "<br>" . $_SESSION['favorites'][$i]['Title'] . "</div>";
                     }
                     if ($i % 2 && $i != 0) {
 
-                        echo "<div class = 'odd'> <img src='images/art" . $_SESSION['favorites'][$i]['ImageFileName'] . ".jpg'/> 
+                        echo "<div class = 'odd'> <img src='images/paintings/square-medium/" . $_SESSION['favorites'][$i]['ImageFileName'] . ".jpg'/> 
                             " . "<br>" . $_SESSION['favorites'][$i]['Title'] . "</div>";
                     } else {
                         if ($i != 0) {
-                            echo "<div class = 'even'> <img src='images/art" . $_SESSION['favorites'][$i]['ImageFileName'] . ".jpg'/> 
+                            echo "<div class = 'even'> <img src='images/paintings/square-medium/" . $_SESSION['favorites'][$i]['ImageFileName'] . ".jpg'/> 
                                 " . "<br>" . $_SESSION['favorites'][$i]['Title'] . "</div>";
                         }
                     }

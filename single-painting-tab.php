@@ -42,7 +42,6 @@ if (isset($_GET['paintingid'])) {
     <?php
     include("pagenav.inc.php");
     ?>
-    <img style="max-height: 400px" src="./images/paintings/full/<?= $painting['FullImageFileName'] ?>" alt=" <?= $painting['FullImageFileName'] ?>">
     <div id="header">
         <h2><?= $painting['Title'] ?></h2>
         <?php
@@ -57,7 +56,7 @@ if (isset($_GET['paintingid'])) {
 
         <body>
             <div id="header">
-                <img style="max-height:400px" src="/images/paintings/square/<?= $painting['FullImageFileName'] ?>" alt="<?= $painting['FullImageFileName'] ?>">
+                <img style="max-height:400px" src="images/paintings/square/<?= $painting['FullImageFileName'] ?>" alt="<?= $painting['FullImageFileName'] ?>">
                 <div id="info">
                     <h3><?= $painting['Title'] ?></h3>
                     <p>add to favorites</p>
