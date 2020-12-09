@@ -106,11 +106,8 @@ include("pagenav.inc.php");
         <div class="box Results">
             <?php
 
-            if (isset($_SESSION['favorites']) && !empty($_SESSION['favorites'])) {
-                $ArtistID = $_SESSION['favorites'][0]['ArtistID'];
-                // $YoWStart = getThreshholdStart($_SESSION['favorites'][0]['YearOfWork']);
-                //$YoWEnd = getThreshholdEnd($_SESSION['favorites'][0]['YearOfWork']);
-
+            if (isset($_SESSION['userFavorites']) && !empty($_SESSION['userFavorites'])) {
+                $ArtistID = $_SESSION['userFavorites'][0]['ArtistID'];
             } else {
 
                 try {
