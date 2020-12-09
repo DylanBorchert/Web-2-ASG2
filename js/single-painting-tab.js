@@ -34,9 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let details = document.querySelector("#Details");
     let color = document.querySelector("#Colors");
 
-    console.log(description);
-    console.log(details);
-    console.log(color);
+
 
     descriptionTitle.addEventListener("click", function(){
         description.style.display = "block";

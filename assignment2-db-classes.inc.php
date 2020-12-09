@@ -69,7 +69,7 @@ class PaintingsDB
     }
     public function getGalleryPaintings($galleryID)
     {
-        $sql = "SELECT * FROM paintings WHERE GalleryID=?";
+        $sql = "SELECT *, CONCAT(ImageFileName,'.jpg') as FullImageFileName FROM paintings LEFT JOIN artists ON paintings.ArtistID = artists.ArtistID WHERE GalleryID=?";
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($galleryID));
         return $statement->fetchAll();
     }
@@ -108,7 +108,7 @@ class PaintingsDB
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
         return $statement->fetchAll();
     }
-       public function getAllForArtist($artistID)
+    public function getAllForArtist($artistID)
     {
         $sql = self::$baseSQL . " WHERE Paintings.ArtistID=?";
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, array(
