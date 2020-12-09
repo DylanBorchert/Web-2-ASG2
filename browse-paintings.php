@@ -153,11 +153,36 @@ $paintings = $paint->getAll();
                             }
                         }
                     }
+                    if(isset($_GET['before'])){
+                        if(){
+                           if($_GET['before'] == ""){
+                                if($value >= 1){
+                                    $baseSQL .= " AND YearOfWork < " . $_GET['before'];
+                                $value++;
+                                }
+                                else{
+                                    $baseSQL .= " WHERE GalleryID < " . $_GET['before'];
+                                    $value++; 
+                                }
+                           } 
+                        }
+                    }
+                    if(isset($_GET['after'])){
+                        if(){
+                           if($_GET['after'] == ""){
+                                if($value >= 1){
+                                    $baseSQL .= " AND YearOfWork > " . $_GET['after'];
+                                $value++;
+                                }
+                                else{
+                                    $baseSQL .= " WHERE GalleryID > " . $_GET['after'];
+                                    $value++; 
+                                }
+                           } 
+                        }
+                    }
                     if (isset($_GET['title']) or isset($_GET['artist']) or isset($_GET['museum'])) {
 
-                        // $searchedPaintings;
-                        // $statement = DatabaseHelper::runQuery($conn, $baseSQL, null);
-                        // $searchedPaintings = $statement->fetchAll();
 
                         $searchedPaintings = $paint->returnSearch($baseSQL);
 

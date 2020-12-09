@@ -39,6 +39,9 @@ if (isset($_GET['paintingid'])) {
 </head>
 
 <body>
+    <?php
+    include("pagenav.inc.php");
+    ?>
     <img style="max-height: 400px" src="./images/paintings/full/<?= $painting['FullImageFileName'] ?>" alt=" <?= $painting['FullImageFileName'] ?>">
     <div id="header">
         <h2><?= $painting['Title'] ?></h2>
