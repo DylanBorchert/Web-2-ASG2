@@ -18,7 +18,7 @@ $paintings = $paintingGate->getAll();
 <html>
 
 <head>
-  <script type="text/javascript" src="favorites.js"></script>
+  <script type="text/javascript" src="js/favorites.js"></script>
   <meta charset="utf-8" />
   <title>COMP 3512 Assign 2</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,6 +36,10 @@ $paintings = $paintingGate->getAll();
     addFavorite($_GET['paintingid']);
     header("Location: single-painting-tab.php?paintingid=" . $_GET['paintingid'] . "&added=yes");
   }
+  if (isset($_GET['paintingid-search'])) {
+    addFavorite($_GET['paintingid']);
+    header("Location: favorites.php?paintingid-search=" . $p['PaintingID'] . "&title=" . $_GET['title'] . "&artist=" . $_GET['artist'] . "&museum=" . $_GET['museum']);
+  }
   //Array of paintings selected to be deleted.
   $selectedP = array();
 
@@ -47,9 +51,6 @@ $paintings = $paintingGate->getAll();
       deleteFavorites($selectedP);
     }
   }
-
-  //Display array contents for testing
-  // var_dump($selectedP);
 
   //Clear the selected paintings array. 
   $selectedP = array();

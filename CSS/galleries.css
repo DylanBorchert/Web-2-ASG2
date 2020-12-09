@@ -170,16 +170,16 @@ div#listOfGalleries {
   width: 120px;
 }
 
-#paintingHeading span[id="artist"] {
+#paintingHeading span[id="paintHeadArtist"] {
   width: 150px;
 }
 
-#paintingHeading span[id="title"] {
+#paintingHeading span[id="paintHeadTitle"] {
   width: 15vw;
   flex-grow: 2;
 }
 
-#paintingHeading span[id="year"] {
+#paintingHeading span[id="paintHeadYear"] {
   width: 100px;
   padding-right: 20px;
 }
@@ -217,12 +217,8 @@ div#listOfGalleries {
   width: 100px;
 }
 
-#paintingTitle a:visited {
-  color: var(--color-primary-1);
-  text-decoration: none;
-}
-
-#paintingTitle a:link {
+#paintingTitle a:link,
+a:visited {
   color: var(--color-primary-1);
   text-decoration: none;
 }

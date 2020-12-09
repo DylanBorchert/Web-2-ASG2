@@ -69,7 +69,7 @@ class PaintingsDB
     }
     public function getGalleryPaintings($galleryID)
     {
-        $sql = "SELECT * FROM paintings WHERE GalleryID=?";
+        $sql = "SELECT *, CONCAT(ImageFileName,'.jpg') as FullImageFileName FROM paintings LEFT JOIN artists ON paintings.ArtistID = artists.ArtistID WHERE GalleryID=?";
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($galleryID));
         return $statement->fetchAll();
     }
@@ -106,6 +106,53 @@ class PaintingsDB
     public function returnSearch($sql)
     {
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+        return $statement->fetchAll();
+    }
+    public function getAllForArtist($artistID)
+    {
+        $sql = self::$baseSQL . " WHERE Paintings.ArtistID=?";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, array(
+            $artistID
+        ));
+        return $statement->fetchAll();
+    }
+
+    public function getAllForGallery($galleryID)
+    {
+        $sql = self::$baseSQL . " WHERE Paintings.GalleryID=?";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, array(
+            $galleryID
+        ));
+        return $statement->fetchAll();
+    }
+    public function getTop15()
+    {
+        $sql = self::$baseSQL . " ORDER BY YearOfWork LIMIT 15";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+        return $statement->fetchAll();
+    }
+    public function getTop20()
+    {
+        $sql = self::$baseSQL . " ORDER BY YearOfWork LIMIT 20";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+        return $statement->fetchAll();
+    }
+    public function getforTitle($paintingTitle)
+    {
+        $sql = self::$baseSQL . " WHERE Paintings.Title=?";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, array(
+            $paintingTitle
+        ));
+        return $statement->fetchAll();
+    }
+    public function getAllForArtistandEraMayLike($artist, $yearS, $yearE)
+    {
+        $sql = self::$baseSQL . " WHERE Paintings.ArtistID = ? OR (Paintings.YearOfWork > ? AND Paintings.YearOfWork < ?) LIMIT 15";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, array(
+            $artist,
+            $yearS,
+            $yearE
+        ));
         return $statement->fetchAll();
     }
 }
