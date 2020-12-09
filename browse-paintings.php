@@ -69,7 +69,7 @@ $galleries = $gal->getAll();
                             ?>
                         </select><br>
 
-                        <label>Museum: </label>
+                        <label>Gallery: </label>
                         <select class="ui fluid dropdown" name="museum">
                             <option value='0'>Select Museum</option>
                             <?php
@@ -125,9 +125,14 @@ $galleries = $gal->getAll();
 
                     if (isset($_GET['title']) or isset($_GET['artist']) or isset($_GET['museum'])) {
 
-                        $searchedPaintings = [];
+                        $searchedPaintings;
                         $statement = DatabaseHelper::runQuery($conn, $baseSQL, null);
                         $searchedPaintings = $statement->fetchAll();
+                        var_dump($searchedPaintings);
+
+                        foreach ($searchedPaintings as $s) {
+                            echo "<div> $s </div>";
+                        }
                     ?>
                         <div>
                             <h3>Paintings</h3>

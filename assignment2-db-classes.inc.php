@@ -1,5 +1,6 @@
 <?php
-class DatabaseHelper {
+class DatabaseHelper
+{
     public static function createConnection($values = array())
     {
         $connString = $values[0];
@@ -19,16 +20,21 @@ class DatabaseHelper {
         if (count($parameters) > 0) {
             $statement = $connection->prepare($sql);
             $executedOk = $statement->execute($parameters);
-           if (! $executedOk) {throw new PDOException;}
+            if (!$executedOk) {
+                throw new PDOException;
+            }
         } else {
             $statement = $connection->query($sql);
-            if (!$statement) {throw new PDOException;}
+            if (!$statement) {
+                throw new PDOException;
+            }
         }
         return $statement;
     }
-} 
+}
 
-class GalleriesDB {
+class GalleriesDB
+{
     private static $baseSQL = "SELECT * FROM galleries";
     public function __construct($connection)
     {
@@ -54,7 +60,8 @@ class GalleriesDB {
     }
 }
 
-class PaintingsDB {
+class PaintingsDB
+{
     private static $baseSQL = "SELECT * FROM paintings";
     public function __construct($connection)
     {
@@ -96,9 +103,15 @@ class PaintingsDB {
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($PaintID));
         return $statement->fetch();
     }
+    public function returnSearch($sql)
+    {
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+        return $statement->fetchAll();
+    }
 }
 
-class ArtistDB {
+class ArtistDB
+{
     public function __construct($connection)
     {
         $this->pdo = $connection;
@@ -117,28 +130,34 @@ class ArtistDB {
     }
 }
 
-class CustomerLoginDB {
+class CustomerLoginDB
+{
     private static $baseSQL = "SELECT CustomerID, UserName, Pass FROM customerlogon";
-    
-    public function __construct($connection) {
+
+    public function __construct($connection)
+    {
         $this->pdo = $connection;
     }
-    public function getUserName($userName) {
+    public function getUserName($userName)
+    {
         $sql = self::$baseSQL . " WHERE UserName=?";
-        $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($userName));
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($userName));
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
 }
 
-class CustomerInfoDB {
+class CustomerInfoDB
+{
     private static $baseSQL = "SELECT FirstName, LastName, City, Country FROM customers";
 
-    public function __construct($connection) {
+    public function __construct($connection)
+    {
         $this->pdo = $connection;
     }
-    public function getCustomerInfo($userID) {
+    public function getCustomerInfo($userID)
+    {
         $sql = self::$baseSQL . " WHERE CustomerID=?";
-        $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($userID));
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($userID));
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
 }
