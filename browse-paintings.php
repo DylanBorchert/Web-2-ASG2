@@ -184,7 +184,7 @@ $paintings = $paint->getAll();
                                         } else {
                                             echo "<button><a href='favorites.php?paintingid-search=" . $p['PaintingID'] . "&title=" . $_GET['title'] . "&artist=" . $_GET['artist'] . "&museum=" . $_GET['museum'] . "'>Add To Favorites</a></button>";
                                         }
-                                        echo "<button><a href='single-paintin.php?paintingid=" . $p['PaintingID'] . "'>View</a></button>";
+                                        echo "<button><a href='single-painting.php?paintingid=" . $p['PaintingID'] . "'>View</a></button>";
                                         ?>
                                     </div>
                                 <?php

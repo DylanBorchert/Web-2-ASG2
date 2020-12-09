@@ -31,7 +31,7 @@ if (isset($_GET['paintingid'])) {
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital@1&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="/asg2/style/reset.css"> 
      <link rel="stylesheet" href="/asg2/style/index.css"> -->
-    <script src="/asg2/Web-2-ASG2/single-painting-tab.js"></script>
+    <script src="/asg2/Web-2-ASG2/js/single-painting-tab.js"></script>
 </head>
 
 <body>

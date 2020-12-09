@@ -18,7 +18,7 @@ $paintings = $paintingGate->getAll();
 <html>
 
 <head>
-  <script type="text/javascript" src="favorites.js"></script>
+  <script type="text/javascript" src="js/favorites.js"></script>
   <meta charset="utf-8" />
   <title>COMP 3512 Assign 2</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
