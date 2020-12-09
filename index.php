@@ -19,7 +19,7 @@
     <main>
         <div>
             <section>
-                <button id="login">Login</button>
+                <button id="login" onclick="location.href='login.php'">Login</button>
                 <button id="join">Join</button>
                 <button id="searchbutton" type="submit">Search</button>
 

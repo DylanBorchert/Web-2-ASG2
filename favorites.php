@@ -5,7 +5,7 @@
 require_once 'config.inc.php';
 require_once 'assignment2-db-classes.inc.php';
 require_once 'favoritesHelper.php';
-require_once 'sessionDemo.php';
+// require_once 'sessionDemo.php'; !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $connection = DatabaseHelper::createConnection([DBCONNSTRING, DBUSER, DBPASS]);
 // now retrieve galleries 
 $galleryGate = new GalleriesDB($connection);
@@ -85,7 +85,7 @@ $paintings = $paintingGate->getAll();
         echo "<p>Your Favorite Paintings Will Appear Here When You Find Them!</p>";
       }
       //Remove Current Session Data.
-      session_unset();
+      // session_unset(); !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       ?>
     </form>
   </table>

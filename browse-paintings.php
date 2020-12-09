@@ -88,24 +88,22 @@ $paintings = $paint->getAll();
                                 <p>Year:</p>
                             </tr>
                             <tr>
-                                <input type="radio" id="before" name="year" value="before">
+                                <input type="radio" id="before" name="year" value="">
                                 <label for="before">Before</label>
                                 <input type="text" id="beforeInput" name="beforeInput">
                                 <br>
                             </tr>
                             <tr>
-                                <input type="radio" id="after" name="year" value="after">
+                                <input type="radio" id="after" name="year" value="">
                                 <label for="after">After</label>
                                 <input type="text" id="afterInput" name="afterInput">
                                 <br>
                             </tr>
                             <tr>
-                                <input type="radio" id="Between" name="year" value="between">
+                                <input type="radio" id="Between" name="year" value="">
                                 <label for="between">Between</label>
-                                <input type="text" id="betweenLow" name="betweenLow">
                                 </br>
-                            </tr>
-                            <tr>
+                                <input type="text" id="betweenLow" name="betweenLow">
                                 <input type="text" id="betweenHigh" name="betweenHigh">
                                 </br>
                                 <input type="submit" title="filter" name="filter" value="filter">
@@ -153,32 +151,39 @@ $paintings = $paint->getAll();
                             }
                         }
                     }
-                    if(isset($_GET['before'])){
-                        if(){
-                           if($_GET['before'] == ""){
-                                if($value >= 1){
-                                    $baseSQL .= " AND YearOfWork < " . $_GET['before'];
+                    if (isset($_GET['beforeInput'])) {
+                        if (!$_GET['beforeInput'] == "") {
+                            if ($value >= 1) {
+                                $baseSQL .= " AND YearOfWork < " . $_GET['beforeInput'];
+                                var_dump($baseSQL);
                                 $value++;
-                                }
-                                else{
-                                    $baseSQL .= " WHERE GalleryID < " . $_GET['before'];
-                                    $value++; 
-                                }
-                           } 
+                            } else {
+                                $baseSQL .= " WHERE YearOfWork < " . $_GET['beforeInput'];
+                                $value++;
+                            }
                         }
                     }
-                    if(isset($_GET['after'])){
-                        if(){
-                           if($_GET['after'] == ""){
-                                if($value >= 1){
-                                    $baseSQL .= " AND YearOfWork > " . $_GET['after'];
+                    if (isset($_GET['afterInput'])) {
+                        if (!$_GET['afterInput'] == "") {
+                            if ($value >= 1) {
+                                $baseSQL .= " AND YearOfWork > " . $_GET['afterInput'];
                                 $value++;
-                                }
-                                else{
-                                    $baseSQL .= " WHERE GalleryID > " . $_GET['after'];
-                                    $value++; 
-                                }
-                           } 
+                            } else {
+                                $baseSQL .= " WHERE YearOfWork > " . $_GET['afterInput'];
+                                $value++;
+                            }
+                        }
+                    }
+                    if (isset($_GET['betweenLow'])) {
+                        if (!$_GET['betweenLow'] == "" && !$_GET['betweenHigh'] == "") {
+                            if ($value >= 1) {
+                                $baseSQL .= " AND YearOfWork > " . $_GET['betweenLow'] . " AND YearOfWork < " . $_GET['betweenHigh'];
+                                var_dump($baseSQL);
+                                $value++;
+                            } else {
+                                $baseSQL .= " WHERE YearOfWork > " . $_GET['betweenLow'] . " AND YearOfWork < " . $_GET['betweenHigh'];
+                                $value++;
+                            }
                         }
                     }
                     if (isset($_GET['title']) or isset($_GET['artist']) or isset($_GET['museum'])) {
