@@ -1,0 +1,19 @@
+
+ <!-- <link rel="stylesheet" href="/asg2/style/reset.css"> 
+     <link rel="stylesheet" href="/asg2/style/index.css"> -->
+     <script src="js/single-painting-tab.js"></script>
+</head>
+
+<body>
+    <img src="./images/paintings/full/<?= $painting['FullImageFileName'] ?>" alt=" <?= $painting['FullImageFileName'] ?>">
+    <div id="header">
+        <h2><?= $painting['Title'] ?></h2>
+        <?php
+        if (isset($_GET['added'])) {
+            echo "<button>Painting Is Favorited</button>";
+        } else {
+            echo "<button><a href='favorites.php?paintingid=" . $painting['PaintingID'] . "'>Add To Favorites</a></button>";
+        }
+        ?>
+        <p><?= $artist['FirstName'] . " " . $artist['LastName'] ?></p>
+        <p><?= $museum['GalleryName'] . " Year: " . $painting['YearOfWork'] ?></p>

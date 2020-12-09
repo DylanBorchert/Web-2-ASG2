@@ -30,8 +30,8 @@ if (isset($_GET['paintingid'])) {
     <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital@1&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="/asg2/Web-2-ASG-2/style/reset.css">  -->
-    <link rel="stylesheet" href="style/index.css">
-    <link rel="stylesheet" href="style/single-painting-tab.css">
+    <link rel="stylesheet" href="CSS/galleries.css">
+    <link rel="stylesheet" href="CSS/single-painting-tab.css">
     <script src="single-painting-tab.js"></script>
 </head>
 <!-- <link rel="stylesheet" href="/asg2/style/reset.css"> 
@@ -55,7 +55,7 @@ if (isset($_GET['paintingid'])) {
 
         <body>
             <div id="header">
-                <img style="max-height:400px" src="f2020-assign2/images/paintings/square/<?= $painting['FullImageFileName'] ?>" alt="<?= $painting['FullImageFileName'] ?>">
+                <img style="max-height:400px" src="/images/paintings/square/<?= $painting['FullImageFileName'] ?>" alt="<?= $painting['FullImageFileName'] ?>">
                 <div id="info">
                     <h3><?= $painting['Title'] ?></h3>
                     <p>add to favorites</p>
