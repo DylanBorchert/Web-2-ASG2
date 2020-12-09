@@ -95,11 +95,35 @@ $paintings = $paint->getAll();
                             }
                             ?>
                         </select><br>
-
-                        <label>Year: </label>
-                        <input type="submit" title="filter" name="filter" value="filter">
-                        <input type="reset" title="clear" name="clear" value="clear">
-
+                        <table>
+                            <tr>
+                                <p>Year:</p>
+                            </tr>
+                            <tr>
+                                <input type="radio" id="before" name="year" value="before">
+                                <label for="before">Before</label>
+                                <input type="text" id="beforeInput" name="beforeInput">
+                                <br>
+                            </tr>
+                            <tr>
+                                <input type="radio" id="after" name="year" value="after">
+                                <label for="after">After</label>
+                                <input type="text" id="afterInput" name="afterInput">
+                                <br>
+                            </tr>
+                            <tr>
+                                <input type="radio" id="Between" name="year" value="between">
+                                <label for="between">Between</label>
+                                <input type="text" id="betweenLow" name="betweenLow">
+                                </br>
+                            </tr>
+                            <tr>
+                                <input type="text" id="betweenHigh" name="betweenHigh">
+                                </br>
+                                <input type="submit" title="filter" name="filter" value="filter">
+                                <input type="reset" title="clear" name="clear" value="clear">
+                            </tr>
+                        </table>
                     </form>
                 </div>
             </td>
@@ -170,8 +194,10 @@ $paintings = $paint->getAll();
                                         <?php if (isset($_GET['addedSearch'])) {
                                             echo "<button>Painting Is Favorited</button>";
                                         } else {
-                                            echo "<button><a href='favorites.php?paintingid-search=" . $p['PaintingID'] . "&title=" . $p['Title'] . "&artist=" . $p['Artist'] . "&museum=" . $p['museum'] . "'>Add To Favorites</a></button>";
-                                        } ?>
+                                            echo "<button><a href='favorites.php?paintingid-search=" . $p['PaintingID'] . "&title=" . $_GET['title'] . "&artist=" . $_GET['artist'] . "&museum=" . $_GET['museum'] . "'>Add To Favorites</a></button>";
+                                        }
+                                        echo "<button><a href='single-paintin.php?paintingid=" . $p['PaintingID'] . "'>View</a></button>";
+                                        ?>
                                     </div>
                                 <?php
                                 }
