@@ -37,7 +37,6 @@ function deleteFavorites($array)
     foreach ($array as $p) {
         foreach ($_SESSION['userFavorites'] as $userF) {
             if ($userF == $p) {
-                echo "<li>$p and $userF are the same. To be deleted</li>";
                 $remove = array($userF);
                 $_SESSION['userFavorites'] = array_diff($_SESSION['userFavorites'], $remove);
             }

@@ -63,7 +63,7 @@ $paintings = $paintingGate->getAll();
   <button id="deselectAll" name="deselectAll">Deselect All</button>
   <table>
     <tr>
-      <th>Check To Remove</th>
+      <th>Check To Remove </th>
       <th>Painting</th>
       <th>Title</th>
     </tr>
@@ -82,15 +82,20 @@ $paintings = $paintingGate->getAll();
       if (count($_SESSION['userFavorites']) > 0) {
         //Generate Favorites List.
         displayFavorites($paintingGate);
-      } else {
-        //User Has No Favorites Yet.
-        echo "<p>Your Favorite Paintings Will Appear Here When You Find Them!</p>";
+        // } else {
+        //   //User Has No Favorites Yet.
+        //   echo "<p>Your Favorite Paintings Will Appear Here When You Find Them!</p>";
       }
       //Remove Current Session Data.
       // session_unset();
       ?>
     </form>
   </table>
+  <?php if (count($_SESSION['userFavorites'])  < 1) {
+    //User Has No Favorites Yet.
+    echo "<p>Your Favorite Paintings Will Appear Here When You Find Them!</p>";
+  }
+  ?>
 </body>
 
 </html>
