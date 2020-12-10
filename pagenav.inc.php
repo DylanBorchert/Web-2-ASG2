@@ -35,11 +35,17 @@
     </button>
     <div class="navlinks">
         <div class="logo"></div>
-        <a href="index.php">Home/Login</a>
+        <a href="index.php">Home</a>
         <a href="about.php">About</a>
         <a href="galleries.php">Galleries</a>
         <a href="browse-paintings.php">Search/Browse</a>
-        <a href="favorites.php">Favorites</a>
-        <a href="profile.php">Profile</a>
+        <?php
+        if (isset($_SESSION['userID'])) { ?>
+            <a href="favorites.php">Favorites</a>
+            <a href="profile.php">Logout</a>
+        <?php } else { ?>
+            <a href="profile.php">Logout</a>
+        <?php }
+        ?>
     </div>
 </nav>

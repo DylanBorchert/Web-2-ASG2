@@ -1,8 +1,8 @@
 <?php
+session_start(); //!!!!TALK TO HUDSON
 include 'config.inc.php';
 include 'assignment2-db-classes.inc.php';
 
-session_start(); //!!!!TALK TO HUDSON
 $msg = "hello";
 if (checkForLogin()) {
     try {
@@ -31,7 +31,8 @@ if (checkForLogin()) {
 }
 
 
-function checkForLogin() {
+function checkForLogin()
+{
     if (isset($_POST['email']) && isset($_POST['pass'])) {
         return true;
     } else {
@@ -41,10 +42,12 @@ function checkForLogin() {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title>A page</title>
-<meta charset="utf-8">
+    <title>A page</title>
+    <meta charset="utf-8">
 </head>
+
 <body>
     <div class="loginForm">
         <p><?= $msg ?></p>
@@ -52,9 +55,10 @@ function checkForLogin() {
             <label for="email">Email</label>
             <input type="email" name="email">
             <label for="password">Password<label>
-            <input type="password" name="pass">
-            <input type="submit" value="Login">
+                    <input type="password" name="pass">
+                    <input type="submit" value="Login">
         </form>
     </div>
 </body>
+
 </html>

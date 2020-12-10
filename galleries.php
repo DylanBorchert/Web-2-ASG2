@@ -15,6 +15,7 @@
     <?php
     include("pagenav.inc.php");
     ?>
+    <img href="images/paintings/square/001020.jpg" alt="image">
     <div class="container">
 
         <div class="containerGallery">

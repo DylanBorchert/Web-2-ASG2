@@ -20,7 +20,6 @@
         <div>
             <section>
                 <button id="login" onclick="location.href='login.php'">Login</button>
-                <button id="join">Join</button>
                 <button id="searchbutton" type="submit">Search</button>
 
                 <input type="text" name="title" class="searchbox" placeholder="Search BOX FOR Painting ">
@@ -32,8 +31,6 @@
 
     <footer>
         <p class="copyright">© Group Name: Webberinos - Web 2: December 2020</p>
-
-
 
     </footer>
 
