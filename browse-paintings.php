@@ -116,7 +116,7 @@ $paintings = $paint->getAll();
                 <div id="view">
                     <?php
 
-                    $baseSQL = "SELECT * FROM paintings";
+                    $baseSQL = "SELECT * FROM Paintings";
                     $value = 0;
                     if (isset($_GET['title'])) {
                         if (!$_GET['title'] == "") {

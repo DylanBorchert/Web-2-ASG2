@@ -164,7 +164,7 @@ class ArtistDB
     }
     public function getArtist($artistID)
     {
-        $sql = "SELECT * FROM artists WHERE ArtistID=?";
+        $sql = "SELECT * FROM Artists WHERE ArtistID=?";
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($artistID));
         return $statement->fetch();
     }
