@@ -49,13 +49,13 @@ if (isset($_GET['paintingid'])) {
     <div id="header">
         <h2><?= $painting['Title'] ?></h2>
         <?php
-        if(isset($_SESSION['userFavorites'])){
-        if (isInFavorites($painting['PaintingID']) == true) {
-            echo "<button>Painting Is Favorited</button>";
-        } else {
-            echo "<button><a href='favorites.php?paintingid=" . $painting['PaintingID'] . "'>Add To Favorites</a></button>";
+        if (isset($_SESSION['userFavorites'])) {
+            if (isInFavorites($painting['PaintingID']) == true) {
+                echo "<button>Painting Is Favorited</button>";
+            } else {
+                echo "<button><a href='favorites.php?paintingid=" . $painting['PaintingID'] . "'>Add To Favorites</a></button>";
+            }
         }
-    }
         ?>
         <p><?= $artist['FirstName'] . " " . $artist['LastName'] ?></p>
         <p><?= $museum['GalleryName'] . " Year: " . $painting['YearOfWork'] ?></p>
@@ -90,7 +90,6 @@ if (isset($_GET['paintingid'])) {
                 </section>
                 <section id="Colors" style="display:none">
                     <?php
-                    // var_dump($pJson);
                     echo "<div id='colorContainer'>";
                     foreach ($pJson['dominantColors'] as $p) {
                         echo "<div class='color' style='background-color:" . $p['web'] . "' id='Colour_1'><p class='name'>" . $p['name'] . "</p><p class='hex'>" . $p['web'] . "</p></div>";
