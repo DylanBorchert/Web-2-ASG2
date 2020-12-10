@@ -151,7 +151,7 @@ $paintings = $paint->getAll();
                 if (!$_GET['beforeInput'] == "") {
                     if ($value >= 1) {
                         $baseSQL .= " AND YearOfWork < " . $_GET['beforeInput'];
-                        // var_dump($baseSQL);
+                        
                         $value++;
                     } else {
                         $baseSQL .= " WHERE YearOfWork < " . $_GET['beforeInput'];
@@ -174,7 +174,7 @@ $paintings = $paint->getAll();
                 if (!$_GET['betweenLow'] == "" && !$_GET['betweenHigh'] == "") {
                     if ($value >= 1) {
                         $baseSQL .= " AND YearOfWork > " . $_GET['betweenLow'] . " AND YearOfWork < " . $_GET['betweenHigh'];
-                        // var_dump($baseSQL);
+                        
                         $value++;
                     } else {
                         $baseSQL .= " WHERE YearOfWork > " . $_GET['betweenLow'] . " AND YearOfWork < " . $_GET['betweenHigh'];
