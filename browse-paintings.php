@@ -25,12 +25,11 @@ $paintings = $paint->getAll();
 <html lang=en>
 
 <head>
-    <title>browse painting</title>
+    <title>Browse Paintings</title>
     <meta charset="utf-8" />
     <title>Assignment 02</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/reset.css">
-    <link rel="stylesheet" href="CSS/default.css">
     <link rel="stylesheet" href="CSS/browse-paintings.css">
     <script type="text/javascript" src="js/browse-paintings.js"></script>
 
@@ -42,7 +41,7 @@ $paintings = $paint->getAll();
     ?>
 
     <section id="header">
-        <h3>Browse Painting</h3>
+        <h3>Browse Paintings</h3>
     </section>
 
     <section id="filterBox">
@@ -174,55 +173,55 @@ $paintings = $paint->getAll();
                 $searchedPaintings = $paint->returnSearch($baseSQL);
             ?>
 
-            <table id="searchResults">
-                <colgroup>
-                    <col class="col1">
-                    <col class="col2">
-                    <col class="col3">
-                    <col class="col4">
-                    <col class="col5">
-                    <col class="col6">
-                </colgroup>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Artist</th>
-                        <th>Title</th>
-                        <th>Year</th>
-                    </tr>
-                </thead>
-                <tbody id="paintings">
-                    <?php foreach ($searchedPaintings as $p) { ?>
+                <table id="searchResults">
+                    <colgroup>
+                        <col class="col1">
+                        <col class="col2">
+                        <col class="col3">
+                        <col class="col4">
+                        <col class="col5">
+                        <col class="col6">
+                    </colgroup>
+                    <thead>
                         <tr>
-                            <td> 
-                                <img src="images/paintings/square-medium/<?= $p['ImageFileName'] ?>.jpg">
-                            </td>
-                            <?php foreach ($artists as $a) {
-                                if ($p['ArtistID'] == $a['ArtistID']) { ?>           
-                                    <td>
-                                        <p><?= $a['FirstName'] . " " . $a['LastName'] ?></p>
-                                    </td>
+                            <th></th>
+                            <th>Artist</th>
+                            <th>Title</th>
+                            <th>Year</th>
+                        </tr>
+                    </thead>
+                    <tbody id="paintings">
+                        <?php foreach ($searchedPaintings as $p) { ?>
+                            <tr>
+                                <td>
+                                    <img src="images/paintings/square-medium/<?= $p['ImageFileName'] ?>.jpg">
+                                </td>
+                                <?php foreach ($artists as $a) {
+                                    if ($p['ArtistID'] == $a['ArtistID']) { ?>
+                                        <td>
+                                            <p><?= $a['FirstName'] . " " . $a['LastName'] ?></p>
+                                        </td>
                                 <?php }
                                 } ?>
-                            <td>
-                                <p><?= $p['Title'] ?></p>
-                            </td>
-                            <td>
-                                <p><?= $p['YearOfWork'] ?></p>
-                            </td>
-                            <?php if (isset($_SESSION['userFavorites'])) {
-                                if (isInFavorites($p['PaintingID']) == true) {
-                                    echo "<td><button>Painting Is Favorited</button></td>";
-                                } else {
-                                    echo "<td><button><a href='favorites.php?paintingid-search=" . $p['PaintingID'] . "&title=" . $_GET['title'] . "&artist=" . $_GET['artist'] . "&museum=" . $_GET['museum'] . "'>Add To Favorites</a></button></td>";
+                                <td>
+                                    <p><?= $p['Title'] ?></p>
+                                </td>
+                                <td>
+                                    <p><?= $p['YearOfWork'] ?></p>
+                                </td>
+                                <?php if (isset($_SESSION['userFavorites'])) {
+                                    if (isInFavorites($p['PaintingID']) == true) {
+                                        echo "<td><button>Painting Is Favorited</button></td>";
+                                    } else {
+                                        echo "<td><button><a href='favorites.php?paintingid-search=" . $p['PaintingID'] . "&title=" . $_GET['title'] . "&artist=" . $_GET['artist'] . "&museum=" . $_GET['museum'] . "'>Add To Favorites</a></button></td>";
+                                    }
                                 }
-                            }
-                            echo "<td><button><a href='single-painting-tab.php?paintingid=" . $p['PaintingID'] . "'>View</a></button></td>";
-                            ?>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
+                                echo "<td><button><a href='single-painting-tab.php?paintingid=" . $p['PaintingID'] . "'>View</a></button></td>";
+                                ?>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
             <?php } ?>
         </div>
     </section>
