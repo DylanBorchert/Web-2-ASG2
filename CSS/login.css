@@ -1,1 +1,60 @@
 @import "./defualt.css";
+
+.loginForm {
+  border: 2px solid var(--color-primary-1);
+  background-color: var(--color-background-2);
+  border-radius: 5px;
+  padding: 100px 50px;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loginForm p {
+  text-align: center;
+  padding: 10px;
+  font-size: 25px;
+  font-weight: bold;
+  color: var(--color-primary-1);
+}
+
+.loginForm label {
+  padding: 10px;
+}
+
+.loginForm form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.loginForm form input[type="submit"] {
+  width: 100px;
+  margin-left: 25%;
+  height: 25px;
+  box-sizing: border-box;
+  border: 2px solid var(--color-primary-1);
+  border-radius: 10px;
+  background-color: var(--color-background-2);
+  color: var(--color-primary-1);
+}
+
+.loginForm form input[type="submit"]:hover {
+  cursor: pointer;
+  background-color: var(--color-black-1);
+}
+
+.loginForm form input[type="email"],
+.loginForm form input[type="password"] {
+  box-sizing: border-box;
+  border: 2px solid var(--color-primary-1);
+  background-color: var(--color-black-1);
+  border-radius: 10px;
+  padding-left: 10px;
+  color: var(--color-primary-1);
+  height: 30px;
+}

@@ -3,7 +3,7 @@ session_start(); //!!!!TALK TO HUDSON
 include 'config.inc.php';
 include 'assignment2-db-classes.inc.php';
 
-$msg = "Hello";
+$msg = "Log In";
 if (checkForLogin()) {
     try {
         //Check for email
@@ -56,9 +56,11 @@ function checkForLogin()
         <form method="post" action="login.php">
             <label for="email">Email</label>
             <input type="email" name="email">
-            <label for="password">Password<label>
-                    <input type="password" name="pass">
-                    <input type="submit" value="Login">
+            </br>
+            <label for="password">Password</label>
+            <input type="password" name="pass">
+            </br>
+            <input type="submit" value="Login">
         </form>
     </div>
 </body>
