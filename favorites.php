@@ -5,7 +5,6 @@
 require_once 'config.inc.php';
 require_once 'assignment2-db-classes.inc.php';
 require_once 'favoritesHelper.php';
-// require_once 'sessionDemo.php';
 session_start();
 $connection = DatabaseHelper::createConnection([DBCONNSTRING, DBUSER, DBPASS]);
 $galleryGate = new GalleriesDB($connection);
@@ -24,7 +23,7 @@ $paintings = $paintingGate->getAll();
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="CSS/reset.css">
-  <link rel="stylesheet" href="CSS/homepage.css">
+  <link rel="stylesheet" href="CSS/defualt.css">
 
 </head>
 
@@ -32,8 +31,10 @@ $paintings = $paintingGate->getAll();
   <?php
   include("pagenav.inc.php");
   ?>
-  <?php
 
+
+  <?php
+  //Set the links to the matching single painting page.
   if (isset($_GET['paintingid'])) {
     addFavorite($_GET['paintingid']);
     header("Location: single-painting-tab.php?paintingid=" . $_GET['paintingid'] . "&added=yes");
@@ -81,12 +82,7 @@ $paintings = $paintingGate->getAll();
       if (count($_SESSION['userFavorites']) > 0) {
         //Generate Favorites List.
         displayFavorites($paintingGate);
-        // } else {
-        //   //User Has No Favorites Yet.
-        //   echo "<p>Your Favorite Paintings Will Appear Here When You Find Them!</p>";
       }
-      //Remove Current Session Data.
-      // session_unset();
       ?>
     </form>
   </table>

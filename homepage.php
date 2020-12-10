@@ -1,9 +1,8 @@
 <?php
 require_once 'config.inc.php';
-require_once 'assignment2-db-classes.inc.php'; 
+require_once 'assignment2-db-classes.inc.php';
 require_once 'favoritesHelper.php';
 session_start();
-//var_dump($_SESSION['userFavorites']);
 try {
     $connection = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
     $gate = new CustomerInfoDB($connection);
@@ -87,7 +86,7 @@ include("pagenav.inc.php");
         <div class="box searchFavorite">
             <form method="post">
                 <input type="text" name="title" class="searchbox" placeholder="Search By Painting Title ">
-                <input type="submit" name="search" value="Search"/> 
+                <input type="submit" name="search" value="Search" />
         </div>
 
         </div>
@@ -100,7 +99,6 @@ include("pagenav.inc.php");
 
                 echo "<h2>Favorite Paintings</h2>";
                 displayHomeFavorites($paintingGate);
-                
             } else {
 
                 try {
