@@ -32,7 +32,7 @@ if (isset($_GET['paintingid'])) {
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital@1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/galleries.css">
     <link rel="stylesheet" href="CSS/single-painting-tab.css">
-    <script src="single-painting-tab.js"></script>
+    <script src="js/single-painting-tab.js"></script>
 </head>
 <!-- <link rel="stylesheet" href="/asg2/style/reset.css"> -->
 <link rel="stylesheet" href="CSS/index.css">

@@ -1,12 +1,13 @@
 <?php
 require_once 'config.inc.php';
 require_once 'assignment2-db-classes.inc.php'; //!!!!! Some stuff isn't workiing as I tranfer your classes
+require_once 'favoritesHelper.php';
 session_start();
-$_SESSION['userFavorites'] = array();
-
+var_dump($_SESSION['userFavorites']);
 try {
     $connection = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
     $gate = new CustomerInfoDB($connection);
+    $paintingGate = new PaintingsDB($connection);
     //Query For user info to process welcome user section
     $customerInfo = $gate->getCustomerInfo($_SESSION['userID']);
     $connection = null;
@@ -92,11 +93,9 @@ include("pagenav.inc.php");
         <div class="box Results">
             <?php
 
-            if (isset($_SESSION['favorites']) && !empty($_SESSION['favorites'])) {
-                $ArtistID = $_SESSION['favorites'][0]['ArtistID'];
-                // $YoWStart = getThreshholdStart($_SESSION['favorites'][0]['YearOfWork']);
-                //$YoWEnd = getThreshholdEnd($_SESSION['favorites'][0]['YearOfWork']);
+            if (isset($_SESSION['userFavorites']) && !empty($_SESSION['userFavorites'])) {
 
+                displayHomeFavorites($paintingGate);
             } else {
 
                 try {
@@ -129,7 +128,7 @@ include("pagenav.inc.php");
                     ));
                     echo "<div class = 'showPaintings'>";
 
-                    $paintingGate = new PaintingDB($conn);
+                    $paintingGate = new PaintingsDB($conn);
                     $dataPaitingsMayLike = $paintingGate->getAllForArtistandEraMayLike($ArtistID, $YoWStart, $YoWEnd);
                     $conn = null;
                     for ($i = 0; $i < count($dataPaitingsMayLike); $i++) {
