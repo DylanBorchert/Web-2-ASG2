@@ -108,7 +108,7 @@ include("pagenav.inc.php");
         <?php
         if (isset($_GET["checkSearch"])) {
             if (isset($_SESSION['userFavorites']) && !empty($_SESSION['userFavorites'])) {
-                echo "<div class='box' id ='Favorites'>";
+
 
                 foreach ($_SESSION['userFavorites'] as $key => $value) {
 
@@ -124,27 +124,14 @@ include("pagenav.inc.php");
                     echo "<h2>No Result Found<h2> <i> Please Try searching for a Title again! </i></h2>";
                 }
             } else {
-                echo "<div class='box' id ='Favorites'>";
                 echo "<h2> <i> You have no favorites <br>  Please Add to Favorites to use this feature! </i> </h2>";
             }
         } else {
 
             if (isset($_SESSION['userFavorites'])) {
-
-                echo "<div class='box' id ='Favorites'>";
-                echo "<div class = 'showPaintings'>";
-
                 processOutputtingFirst15($dataFirst15);
             }
         }
-
-        // if ($_SESSION['userFavorites']) {
-        // }
-
-        echo "</div>";
-        echo "</div>";
-
-
         ?>
         </div>
     </main>
