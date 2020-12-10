@@ -15,10 +15,16 @@ th {
   padding: 10px 0px;
 }
 
-tr,
-td {
-  margin: 50px;
+table {
+  display: inline-table;
+  border-spacing: 2px;
+  height: 25rem;
+  overflow: auto;
 }
+.checkboxes {
+  display: inline-table;
+}
+
 a {
   padding: 2px 0px;
 }
