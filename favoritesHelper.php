@@ -51,6 +51,6 @@ function deleteFavorites($array)
     }
 }
 
-
-//Get painting ID's of the selected paintings
-//Remove selected painting's ID's from the 'userFavorites' SESSION array
+function getJson()
+{
+}
