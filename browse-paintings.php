@@ -3,6 +3,7 @@
 require 'assignment2-db-classes.inc.php';
 require 'config.inc.php';
 require 'favoritesHelper.php';
+
 session_start();
 $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
 
@@ -28,10 +29,8 @@ $paintings = $paint->getAll();
     <meta charset="utf-8" />
     <title>Assignment 02</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital@1&display=swap" rel="stylesheet"> -->
-    <!-- <link rel="stylesheet" href="/asg2/Web-2-ASG-2/style/reset.css">  -->
-    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/reset.css">
+    <link rel="stylesheet" href="CSS/default.css">
     <link rel="stylesheet" href="CSS/browse-paintings.css">
     <script type="text/javascript" src="js/browse-paintings.js"></script>
 
@@ -100,7 +99,6 @@ $paintings = $paint->getAll();
                 <input type="text" id="betweenHigh" name="betweenHigh">
                 </br>
                 <input type="submit" title="filter" name="filter" value="filter">
-                <!-- <input type="reset" title="clear" name="clear" value="clear"> -->
                 <input type="submit" value="Clear" formaction="./browse-paintings.php">
 
 
@@ -114,13 +112,12 @@ $paintings = $paint->getAll();
             $value = 0;
             if (isset($_GET['title'])) {
                 if (!$_GET['title'] == "") {
-                    $baseSQL .= " WHERE Title = '" . $_GET['title'] . "'";
+                    $baseSQL .= " WHERE Title LIKE '%" . $_GET['title'] . "%'";
                     $value++;
                 }
             }
             if (isset($_GET['artist'])) {
                 if (!$_GET['artist'] == 0) {
-                    //$baseSQL .= " WHERE ArtistID = '" . $_GET['artist'] . "' AND";
                     if ($value == 1) {
                         $baseSQL .= " AND ArtistID = " . $_GET['artist'];
                         $value++;
@@ -133,7 +130,6 @@ $paintings = $paint->getAll();
             if (isset($_GET['museum'])) {
                 if (!$_GET['museum'] == 0) {
 
-                    //$baseSQL .= " WHERE Title GalleryID = '" . $_GET['museum'] . `'`;
                     if ($value >= 1) {
 
                         $baseSQL .= " AND GalleryID = " . $_GET['museum'];

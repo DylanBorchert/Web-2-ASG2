@@ -2,7 +2,7 @@
     if (isset($_POST['login'])) {
         header ('Location: login.php');
     } else if (isset($_POST['title'])) {
-        header('Location: browse-paintings.php?title=' . $_POST['title']);
+        header('Location: browse-paintings.php?title=' . $_POST['title'] . "&artist=0&museum=0&filter=filter");
     }
 ?>
 <!DOCTYPE html>
