@@ -38,19 +38,13 @@ $paintings = $paint->getAll();
 </head>
 
 <body>
-    <?php
+<?php
     include("pagenav.inc.php");
     ?>
-
-
-
-        
-            <section id="header">
+               <section id="title">
                 <h3>Browse Painting</h3>
             </section>
-        
-        
-                <div id="filter">
+            <div id="filter">
                     <form action="./browse-paintings.php" method="get">
                         <label for="title">Title:</label>
                         <input type="text" id="title" name="title"><br>
@@ -104,11 +98,10 @@ $paintings = $paint->getAll();
                                 <input type="submit" value="Clear" formaction="./browse-paintings.php">
                             
                       
-                    </form>
-                </div>
+                            <!-- filter div -->
+                        </div>
 
-                        <div id="view">
-                            <?php
+                        <?php
 
                             $baseSQL = "SELECT * FROM Paintings";
                             $value = 0;
@@ -183,76 +176,8 @@ $paintings = $paint->getAll();
 
 
                         $searchedPaintings = $paint->returnSearch($baseSQL);
-
+                            }
                     ?>
-                    <div id="view">
-                        
-                            <h3>Paintings</h3>
-                            <div id="headings">
-                                <span id="head">Artist</span>
-                                <span id="head">Title</span>
-                                <span id="head">Year</span>
-                            </div>
-                            <div id="paintings">
-                                <?php
-                                // echo "here";
-                                foreach ($searchedPaintings as $p) {
-                                ?>
-                                    <div id="painting">
-                                        <img src="images/paintings/square-medium/<?= $p['ImageFileName'] ?>.jpg">
-
-                            ?>
-                                <div>
-                                    <h3>Paintings</h3>
-                                    <div id="headings">
-                                        <span id="head">Artist</span>
-                                        <span id="head">Title</span>
-                                        <span id="head">Year</span>
-                                    </div>
-                                    <div id="paintings">
-                                        <?php
-                                        // echo "here";
-                                        foreach ($searchedPaintings as $p) {
-                                        ?>
-                                            <div id="painting">
-                                                <img src="images/paintings/square-medium/<?= $p['ImageFileName'] ?>.jpg">
-
-                                                <?php
-                                                foreach ($artists as $a) {
-                                                    if ($p['ArtistID'] == $a['ArtistID']) {
-                                                ?>
-                                                        <p><?= $a['FirstName'] . " " . $a['LastName'] ?></p>
-                                                <?php
-                                                    }
-                                                }
-                                                ?>
-                                                <p><?= $p['Title'] ?></p>
-                                                <p><?= $p['YearOfWork'] ?></p>
-                                                <?php
-                                                if (isset($_SESSION['userFavorites'])) {
-                                                    if (isInFavorites($p['PaintingID']) == true) {
-                                                        echo "<button>Painting Is Favorited</button>";
-                                                    } else {
-                                                        echo "<button><a href='favorites.php?paintingid-search=" . $p['PaintingID'] . "&title=" . $_GET['title'] . "&artist=" . $_GET['artist'] . "&museum=" . $_GET['museum'] . "'>Add To Favorites</a></button>";
-                                                    }
-                                                }
-                                                echo "<button><a href='single-painting-tab.php?paintingid=" . $p['PaintingID'] . "'>View</a></button>";
-                                                ?>
-                                            </div>
-                                        <?php
-                                        }
-                                        ?>
-                                    </div>
-                                <?php
-                                }
-                                
-                                ?>
-                            </div>
-                        </div>
-                    <?php
-                    }
-                    ?>
-
 
 
 </body>
