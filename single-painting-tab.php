@@ -85,10 +85,9 @@ if (isset($_GET['paintingid'])) {
                 </section>
                 <section id="Colors" style="display:none">
                     <?php
-                    // foreach($painting['Color'] as $p){
-                    //     echo "$p";
-
-                    // }
+                    foreach ($painting['Color'] as $p) {
+                        var_dump($p);
+                    }
                     ?>
                 </section>
                 <!-- </template> -->
