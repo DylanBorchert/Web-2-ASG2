@@ -14,9 +14,8 @@ h3 {
 }
 
 #filterBox {
-  display: inline-flex;
-  flex-direction: row;
-  max-width: fit-content;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
 }
 #filter {
   display: inline-block;
