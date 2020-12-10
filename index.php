@@ -1,9 +1,9 @@
 <?php
-    if (isset($_POST['login'])) {
-        header ('Location: login.php');
-    } else if (isset($_POST['title'])) {
-        header('Location: browse-paintings.php?title=' . $_POST['title'] . "&artist=0&museum=0&filter=filter");
-    }
+if (isset($_POST['login'])) {
+    header('Location: login.php');
+} else if (isset($_POST['title'])) {
+    header('Location: browse-paintings.php?title=' . $_POST['title'] . "&artist=0&museum=0&filter=filter");
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,8 +26,8 @@
     <main>
         <div id="indexhome">
             <form method="post">
-                <input type="submit" name="login" value="Login"/>
-                <input type="submit" name="search" value="Search"/> 
+                <input type="submit" name="login" value="Login" />
+                <input type="submit" name="search" value="Search" />
                 <input type="text" name="title" class="searchbox" placeholder="Search By Painting Title ">
             </form>
         </div>
@@ -37,58 +37,4 @@
         <p class="copyright">© Group Name: Webberinos - Web 2: December 2020</p>
 
     </footer>
-
-
-    </div>
-    <div class="containerView">
-        <template id="paintingViewTemplate">
-            <div id="paintingViewImg">
-                <figure>
-                    <img>
-                    <p id="imageSize"><span id="Width"></span> x <span id="Height"></span></p>
-                    <figcaption id="Copyright"></figcaption>
-                </figure>
-            </div>
-            <div id="paintingViewText">
-                <h2 id="Title"></h2>
-                <p id="Artist"></p>
-                <p id="Medium"></p>
-                <p id="Year"></p>
-                <p id="Description"></p>
-                <p id="GalleryName"></p>
-                <p id="GalleryCity"></p>
-                <a id="MuseumLink"></a>
-                <div id="colorContainer">
-                    <div class="color" id="Colour_1">
-                        <p class="name"></p>
-                        <p class="hex"></p>
-                    </div>
-                    <div class="color" id="Colour_2">
-                        <p class="name"></p>
-                        <p class="hex"></p>
-                    </div>
-                    <div class="color" id="Colour_3">
-                        <p class="name"></p>
-                        <p class="hex"></p>
-                    </div>
-                    <div class="color" id="Colour_4">
-                        <p class="name"></p>
-                        <p class="hex"></p>
-                    </div>
-                    <div class="color" id="Colour_5">
-                        <p class="name"></p>
-                        <p class="hex"></p>
-                    </div>
-                    <div class="color" id="Colour_6">
-                        <p class="name"></p>
-                        <p class="hex"></p>
-                    </div>
-                </div>
-                <p id="return"></p>
-            </div>
-        </template>
-        <div id="paintingView"></div>
-    </div>
-    </div>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRm7Dyqq8GWu-nGW5OhUdc3kq0jacKuds&callback=initMap" type="text/javascript"></script>
 </body>
