@@ -13,7 +13,7 @@ if (isset($_POST['login'])) {
     <title>COMP 3512 Assign 2</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="CSS/general.css">
+    <link rel="stylesheet" href="CSS/reset.css">
     <link rel="stylesheet" href="CSS/index.css">
     <script src="js/general.js"></script>
 </head>
@@ -24,6 +24,7 @@ if (isset($_POST['login'])) {
     ?>
 
     <main>
+        <img href="/images/Background.jpg" width="1000">
         <div id="indexhome">
             <form method="post">
                 <input type="submit" name="login" value="Login" />
@@ -32,9 +33,4 @@ if (isset($_POST['login'])) {
             </form>
         </div>
     </main>
-
-    <footer>
-        <p class="copyright">© Group Name: Webberinos - Web 2: December 2020</p>
-
-    </footer>
 </body>

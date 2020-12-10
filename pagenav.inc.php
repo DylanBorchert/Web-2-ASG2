@@ -3,8 +3,8 @@ if (session_status() != 2) {
     session_start();
 }
 ?>
-<link rel="stylesheet" href="CSS/pagenav.css">
 <link rel="stylesheet" href="CSS/reset.css">
+<link rel="stylesheet" href="CSS/pagenav.css">
 <script>
     var path = window.location.pathname;
     var page = path.split("/").pop();

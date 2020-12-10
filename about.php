@@ -48,10 +48,6 @@
         </div>
     </main>
 
-    <footer>
-        <p class="copyright">© Group Name: Webberinos - Web 2: December 2020</p>
-    </footer>
-
 
 
 </body>
