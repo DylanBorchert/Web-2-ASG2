@@ -1,7 +1,8 @@
 <?php
 require 'assignment2-db-classes.inc.php';
 require "config.inc.php";
-
+require 'favoritesHelper.php';
+session_start();
 $conn = DatabaseHelper::createConnection(array(
     DBCONNSTRING,
     DBUSER, DBPASS
@@ -45,7 +46,7 @@ if (isset($_GET['paintingid'])) {
     <div id="header">
         <h2><?= $painting['Title'] ?></h2>
         <?php
-        if (isset($_GET['added'])) {
+        if (isInFavorites($painting['PaintingID']) == true) {
             echo "<button>Painting Is Favorited</button>";
         } else {
             echo "<button><a href='favorites.php?paintingid=" . $painting['PaintingID'] . "'>Add To Favorites</a></button>";
