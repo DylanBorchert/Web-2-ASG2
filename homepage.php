@@ -3,7 +3,6 @@ require_once 'config.inc.php';
 require_once 'assignment2-db-classes.inc.php';
 require_once 'favoritesHelper.php';
 session_start();
-//var_dump($_SESSION['userFavorites']);
 try {
     $connection = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
     $gate = new CustomerInfoDB($connection);
@@ -36,7 +35,7 @@ if (isset($_POST['title'])) {
 
 <head>
     <meta charset="utf-8" />
-    <title>COMP 3512 Assign 2</title>
+    <title>Homepage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="CSS/reset.css">
