@@ -192,7 +192,6 @@ $paintings = $paint->getAll();
                     </div>
                     <div id="paintings">
                         <?php
-                        // echo "here";
                         foreach ($searchedPaintings as $p) {
                         ?>
                             <tr>
