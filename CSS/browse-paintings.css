@@ -12,6 +12,13 @@
   --color-black-3: #424242;
   --color-black-2: #121212;
 }
+body {
+  background: #cfcfe6 url("../images/unnamed.jpg");
+}
+h3 {
+  color: white;
+  font-size: 200%;
+}
 
 #filter {
   display: inline-block;
