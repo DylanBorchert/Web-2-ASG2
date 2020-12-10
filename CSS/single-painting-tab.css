@@ -1,83 +1,49 @@
-:root {
-    --color-1: #3C1874;
-    --color-primary-2:#7f5900;
-    --color-primary-1: #ffb300;
-    --color-secondary-2: #7a431d;
-    --color-secondary-1: #de9e48;
-    --color-background-1: #563727;
-    --color-background-2: #372c2e;
-    --color-white-1: #f1ffff;
-    --color-white-2: #bac2c2;
-    --color-black-1: #000000;
-    --color-black-3: #424242;
-    --color-black-2: #121212;
- }
+@import "./defualt.css";
 
+h2 {
+  display: inline-block;
+  padding: 10px;
+  margin: 10px;
+  border: solid;
 
-
-
- h2 {
-    display: inline-block;
-    padding: 10px;
-    margin: 10px;
-    border: solid;
-    
-    border-color: var(--color-primary-1);
-    border-radius: 5px;
-
+  border-color: var(--color-primary-1);
+  border-radius: 5px;
 }
 
 #Tabs {
-    padding: 1.5vh;
-    margin-bottom: 10px;
-    border: 3px solid var(--color-secondary-1);
-    border-radius: 5px;
+  padding: 1.5vh;
+  margin-bottom: 10px;
+  border: 3px solid var(--color-secondary-1);
+  border-radius: 5px;
 }
 
 a {
-    color: var(--color-primary-1);
-    text-decoration: none;
-    padding-left: 10px;
+  color: var(--color-primary-1);
+  text-decoration: none;
+  padding-left: 10px;
 }
 
 h3 {
-    color: var(--color-primary-1);
+  color: var(--color-primary-1);
 }
 
 #info {
-    display: inline-block;
-    position: relative;
-    z-index: 10;
-    margin-left: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    top: -110px;
-    border: 3px solid var(--color-secondary-1);
-    border-radius: 5px;
-    text-align: center;
-    /* position: relative;
+  display: inline-block;
+  position: relative;
+  z-index: 10;
+  margin-left: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  top: -110px;
+  border: 3px solid var(--color-secondary-1);
+  border-radius: 5px;
+  text-align: center;
+  /* position: relative;
     float: right;
 
     right: 5px; */
-
 }
 
 a:hover {
-    color: var(--color-secondary-2);
+  color: var(--color-secondary-2);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

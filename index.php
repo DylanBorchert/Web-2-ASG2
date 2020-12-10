@@ -17,7 +17,7 @@
     ?>
 
     <main>
-        <div>
+        <div id="indexhome">
             <section>
                 <button id="login" onclick="location.href='login.php'">Login</button>
                 <button id="searchbutton" type="submit">Search</button>

@@ -53,8 +53,7 @@ if (session_status() != 2) {
         <?php
         if (isset($_SESSION['userID'])) { ?>
             <a href="favorites.php">Favorites</a>
-            <a href="logout.php" onclick="session_unset()">Logout</a>
-
+            <a href="logout.php">Logout</a>
         <?php } else { ?>
             <a href="login.php">Login</a>
         <?php }
