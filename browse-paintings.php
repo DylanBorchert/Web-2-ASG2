@@ -220,7 +220,6 @@ $paintings = $paint->getAll();
                             }
                             echo "<button><a href='single-painting-tab.php?paintingid=" . $p['PaintingID'] . "'>View</a></button>";
                             ?>
-<<<<<<< HEAD
                         </select><br>
                         
                                 <p>Year:</p>
@@ -368,8 +367,6 @@ $paintings = $paint->getAll();
                                 }
                                 ?>
                             </div>
-=======
->>>>>>> f14b9dbf13510a80d36299cb7d1b6e561da87b68
                         </div>
                     <?php
                     }
