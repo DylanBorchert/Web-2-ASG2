@@ -65,3 +65,42 @@ h3 {
   row-gap: 10px;
   margin: 10px;
 }
+/* Search results table */
+#tableDiv {
+  display: none;
+  height: 47rem;
+  overflow: auto;
+}
+#searchResults {
+  border-collapse: collapse;
+  margin-bottom: 10px;
+  width: 100%;
+  table-layout: fixed;
+}
+td, th {
+  padding: 6px;
+  text-align: left;
+  vertical-align: top;
+  word-wrap: break-word;
+}
+.col1 {
+  width: 20%;
+}
+.col2 {
+  width: 20%;
+}
+.col3 {
+  width: 30%;
+}
+.col4 {
+  width: 10%;
+}
+.col5 {
+  width: 10%;
+}
+.col6 {
+  width: 10%;
+}
+.titleLink:hover{ 
+  text-decoration: underline;
+}
