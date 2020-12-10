@@ -33,6 +33,7 @@
 }
 
 .loginForm form input[type="submit"] {
+  margin: 10px;
   width: 100px;
   margin-left: 25%;
   height: 25px;
