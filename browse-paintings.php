@@ -1,15 +1,10 @@
 <?php
-
 require 'assignment2-db-classes.inc.php';
 require 'config.inc.php';
 require 'favoritesHelper.php';
 
 session_start();
 $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
-
-
-// $paint = new PaintingsDB($conn);
-// $painting = $paint->getPainting($_GET['paintingid']);
 
 $art = new ArtistDB($conn);
 $artists = $art->getAllArtist();
@@ -23,7 +18,6 @@ $paintings = $paint->getAll();
 
 <!DOCTYPE html>
 <html lang=en>
-
 <head>
     <title>browse painting</title>
     <meta charset="utf-8" />
@@ -33,9 +27,7 @@ $paintings = $paint->getAll();
     <link rel="stylesheet" href="CSS/default.css">
     <link rel="stylesheet" href="CSS/browse-paintings.css">
     <script type="text/javascript" src="js/browse-paintings.js"></script>
-
 </head>
-
 <body>
     <?php
     include("pagenav.inc.php");
@@ -63,7 +55,6 @@ $paintings = $paint->getAll();
                     }
                     ?>
                 </select><br>
-
                 <label>Gallery: </label>
                 <select class="ui fluid dropdown" name="museum">
                     <option value='0'>Select Museum</option>
@@ -102,7 +93,7 @@ $paintings = $paint->getAll();
 
         <div id="view">
             <?php
-
+            // Gets all the values for displaying search results
             $baseSQL = "SELECT * FROM Paintings";
             $value = 0;
             if (isset($_GET['title'])) {
@@ -173,7 +164,7 @@ $paintings = $paint->getAll();
             if (isset($_GET['title']) or isset($_GET['artist']) or isset($_GET['museum'])) {
                 $searchedPaintings = $paint->returnSearch($baseSQL);
             ?>
-
+            <!-- Table for search results -->
             <table id="searchResults">
                 <colgroup>
                     <col class="col1">
@@ -200,7 +191,7 @@ $paintings = $paint->getAll();
                             <?php foreach ($artists as $a) {
                                 if ($p['ArtistID'] == $a['ArtistID']) { ?>           
                                     <td>
-                                        <p><?= $a['FirstName'] . " " . $a['LastName'] ?></p>
+                                        <?= $a['FirstName'] . " " . $a['LastName'] ?>
                                     </td>
                                 <?php }
                                 } ?>
