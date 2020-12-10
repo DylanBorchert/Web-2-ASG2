@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 :root {
   --color-1: #3c1874;
   --color-primary-2: #7f5900;
@@ -16,6 +17,14 @@ body {
   background: #cfcfe6 url("../images/unnamed.jpg");
 }
 
+=======
+@import "./defualt.css";
+
+h3 {
+  color: white;
+  font-size: 200%;
+}
+>>>>>>> f14b9dbf13510a80d36299cb7d1b6e561da87b68
 
 #filter {
   display: inline-block;
