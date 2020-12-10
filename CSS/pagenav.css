@@ -18,7 +18,7 @@ nav.pagenav div.navlinks a {
 }
 
 nav.pagenav div.navlinks a:hover {
-  border-bottom: 2px solid var(--color-secondary-1);
+  border-bottom: 4px solid var(--color-secondary-1);
   cursor: pointer;
   background-color: var(--color-background-1);
   transition: background-color 0.5s;
@@ -38,13 +38,13 @@ nav.pagenav div.navlinks a:hover {
   }
 
   nav.pagenav div.navlinks a {
-    border-right: 2px solid var(--color-background-2);
+    border-right: 4px solid var(--color-background-2);
     padding: 15px 8px 15px 8px;
   }
 
   nav.pagenav div.navlinks a:hover {
     border: none;
-    border-right: 2px solid var(--color-secondary-1);
+    border-right: 4px solid var(--color-secondary-1);
   }
 
   .pagenavhamburger svg {

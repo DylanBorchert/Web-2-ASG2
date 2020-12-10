@@ -43,14 +43,31 @@ document.addEventListener("DOMContentLoaded", function () {
       listOfGalleriesArea.addEventListener("click", (e) => {
         if (e.target.nodeName.toLowerCase() == "li") {
           let map = document.querySelector("#map");
-          if (document.documentElement.clientWidth > 950) {
-            map.style.height = "56vh";
-          }
+          let mapSizeUpdate = function mapSizeUpdate() {
+            if (document.documentElement.clientWidth > 950) {
+              map.style.height = "56vh";
+            } else {
+              map.style.height = "380px";
+            }
+          };
+          mapSizeUpdate();
+          window.addEventListener("resize", (e) => {
+            mapSizeUpdate();
+          });
           let galleryMap = document.querySelector("#galleryMap");
-          if (document.documentElement.clientWidth > 950) {
-            galleryMap.style.gridRow = "2/3";
-            galleryMap.style.gridColumn = "2/3";
-          }
+          let mapGridUpdate = function mapGridUpdate() {
+            if (document.documentElement.clientWidth > 950) {
+              galleryMap.style.gridRow = "2/3";
+              galleryMap.style.gridColumn = "2/3";
+            } else {
+              galleryMap.style.gridRow = "2/3";
+              galleryMap.style.gridColumn = "1/2";
+            }
+          };
+          mapGridUpdate();
+          window.addEventListener("resize", (e) => {
+            mapGridUpdate();
+          });
           galleryInfo.style.display = "block";
           paintings.style.display = "block";
 
@@ -106,6 +123,18 @@ document.addEventListener("DOMContentLoaded", function () {
       containerGallery.style.gridTemplateColumns = "75px 3fr 4fr";
     }
     expandList.style.display = "block";
+  });
+
+  window.addEventListener("resize", (e) => {
+    if (document.documentElement.clientWidth <= 950) {
+      containerGallery.style.gridTemplateColumns = "1fr";
+      listOfGalleries.style.border = "none";
+      listGalleryHeader.style.display = "flex";
+      listOfGalleriesArea.style.display = "block";
+      expandList.style.display = "none";
+    } else {
+      containerGallery.style.gridTemplateColumns = "2fr 3fr 4fr";
+    }
   });
 
   expandList.addEventListener("click", (e) => {

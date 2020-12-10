@@ -1,5 +1,55 @@
 @import "./defualt.css";
 
+main {
+  background-color: var(--color-background-2);
+  padding-top: 20px;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+main h1 {
+  font-size: 30px;
+  font-weight: bolder;
+  color: var(--color-primary-1);
+  margin-left: 10px;
+  padding: 10px 0px;
+}
+
+main div {
+  width: 300px;
+  background-color: var(--color-background-2);
+  border-bottom: 2px solid var(--color-primary-1);
+  margin-bottom: 10px;
+  padding-left: 15px;
+}
+
+main div *:last-child {
+  padding-bottom: 10px;
+}
+
+main div h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--color-primary-1);
+  padding: 10px 0px;
+}
+
+.links ul li {
+  padding: 2px 0px;
+}
+
+.links a:link,
+a:visited {
+  color: var(--color-primary-1);
+  text-decoration: none;
+}
+
+.links a:hover {
+  cursor: pointer;
+  color: var(--color-primary-2);
+}
+
 /*Style for the Footer*/
 
 footer {

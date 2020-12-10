@@ -16,6 +16,7 @@
     ?>
 
     <main>
+        <h1> About </h1>
         <div class="pageInfo">
             <h2>COMP 3512-001: Web Development</h2>
             <h3>Submitted to: Randy Connaly</h3>

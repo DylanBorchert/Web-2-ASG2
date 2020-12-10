@@ -6,7 +6,24 @@ if (session_status() != 2) {
 <link rel="stylesheet" href="CSS/pagenav.css">
 <link rel="stylesheet" href="CSS/reset.css">
 <script>
+    var path = window.location.pathname;
+    var page = path.split("/").pop();
+
     document.addEventListener("DOMContentLoaded", function() {
+        let currentLink = document.querySelector(`.navlinks a[href="${page}"]`);
+        let updateBorder = function updateBorder() {
+            if (document.documentElement.clientWidth > 950) {
+                currentLink.style.borderBottom = "4px solid var(--color-secondary-1)";
+                currentLink.style.borderRight = "none";
+            } else {
+                currentLink.style.borderRight = "4px solid var(--color-secondary-1)";
+                currentLink.style.borderBottom = "none";
+            }
+        }
+        updateBorder();
+        window.addEventListener('resize', e => {
+            updateBorder();
+        });
         let navBarState = 0;
         let navBarLink = document.querySelector(".navlinks");
         let navBar = document.querySelector(".pagenavhamburger");
@@ -39,7 +56,6 @@ if (session_status() != 2) {
         </svg>
     </button>
     <div class="navlinks">
-        <div class="logo"></div>
         <?php
         if (isset($_SESSION['userID'])) { ?>
             <a href="homepage.php">Home</a>

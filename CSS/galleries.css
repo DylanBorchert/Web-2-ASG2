@@ -240,11 +240,36 @@ a:visited {
   box-shadow: 0px 0px 4px black;
 }
 
+#listLoader {
+  display: none;
+  top: 29vh;
+  bottom: 29vh;
+  z-index: 4;
+}
+
+#paintingLoader {
+  display: none;
+  top: 40vh;
+  bottom: 40vh;
+  z-index: 4;
+}
+
 @media only screen and (max-width: 900px) {
+  #listLoader {
+    display: none;
+    top: 10vh;
+    bottom: 29vh;
+    z-index: 4;
+  }
+
   .containerGallery {
     grid-template-columns: 1fr;
-    grid-template-rows: 300px 400px 1fr 1fr;
+    grid-template-rows: 300px 400px 1fr 700px;
     grid-gap: 10px;
+  }
+
+  #paintingHeading span[id="emptyFlex"] {
+    width: 70px;
   }
 
   #map {
@@ -286,19 +311,6 @@ a:visited {
 }
 
 /* CSS Loader source: https://hookagency.com/website-color-schemes/ */
-#listLoader {
-  display: none;
-  top: 29vh;
-  bottom: 29vh;
-  z-index: 4;
-}
-
-#paintingLoader {
-  display: none;
-  top: 40vh;
-  bottom: 40vh;
-  z-index: 4;
-}
 
 .lds-roller {
   margin: auto;

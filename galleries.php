@@ -68,12 +68,13 @@
                     <div></div>
                 </div>
                 <div id="paintingHeading"></div>
+                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRm7Dyqq8GWu-nGW5OhUdc3kq0jacKuds&callback=initMap" type="text/javascript"></script>
                 <div id="paintingArea">
                 </div>
             </div>
 
         </div>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRm7Dyqq8GWu-nGW5OhUdc3kq0jacKuds&callback=initMap" type="text/javascript"></script>
+
 </body>
 
 </html>
