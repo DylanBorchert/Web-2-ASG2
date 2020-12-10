@@ -100,7 +100,6 @@ $paintings = $paint->getAll();
                 <input type="text" id="betweenHigh" name="betweenHigh">
                 </br>
                 <input type="submit" title="filter" name="filter" value="filter">
-                <!-- <input type="reset" title="clear" name="clear" value="clear"> -->
                 <input type="submit" value="Clear" formaction="./browse-paintings.php">
 
 
@@ -120,7 +119,6 @@ $paintings = $paint->getAll();
             }
             if (isset($_GET['artist'])) {
                 if (!$_GET['artist'] == 0) {
-                    //$baseSQL .= " WHERE ArtistID = '" . $_GET['artist'] . "' AND";
                     if ($value == 1) {
                         $baseSQL .= " AND ArtistID = " . $_GET['artist'];
                         $value++;
@@ -133,7 +131,6 @@ $paintings = $paint->getAll();
             if (isset($_GET['museum'])) {
                 if (!$_GET['museum'] == 0) {
 
-                    //$baseSQL .= " WHERE Title GalleryID = '" . $_GET['museum'] . `'`;
                     if ($value >= 1) {
 
                         $baseSQL .= " AND GalleryID = " . $_GET['museum'];

@@ -4,6 +4,14 @@ h3 {
   color: white;
   font-size: 200%;
 }
+#header {
+  padding: 1.5vh;
+  margin-bottom: 2px;
+  border: 3px solid var(--color-secondary-1);
+  font-size: 4vh;
+  font-weight: bold;
+  background-color: var(--color-background-1);
+}
 
 #filterBox {
   display: inline-flex;
@@ -40,6 +48,7 @@ select {
   background-color: var(--color-background-2);
   border: 3px solid var(--color-secondary-1);
   border-radius: 5px;
+  padding: 20px;
 }
 
 /* #painting {
