@@ -88,21 +88,15 @@ if (isset($_GET['paintingid'])) {
                 </section>
                 <section id="Colors" style="display:none">
                     <?php
-                    foreach ($pJson['JsonAnotations'] as $p) {
-                        echo "<div id='colorContainer'>
-                        <div class='color' id='Colour_1'><p class='name'></p><p class='hex'></p></div>
-                        <div class='color' id='Colour_2'><p class='name'></p><p class='hex'></p></div>
-                        <div class='color' id='Colour_3'><p class='name'></p><p class='hex'></p></div>
-                        <div class='color' id='Colour_4'><p class='name'></p><p class='hex'></p></div>
-                        <div class='color' id='Colour_5'><p class='name'></p><p class='hex'></p></div>
-                        <div class='color' id='Colour_6'><p class='name'></p><p class='hex'></p></div>
-                    </div>
-                    <p id='return'></p>
-                </div>";
+                    // var_dump($pJson);
+                    echo "<div id='colorContainer'>";
+                    foreach ($pJson['dominantColors'] as $p) {
+                        echo "<div class='color' style='background-color:" . $p['web'] . "' id='Colour_1'><p class='name'>" . $p['name'] . "</p><p class='hex'>" . $p['web'] . "</p></div>";
                     }
+                    echo "</div><p id='return'></p>"
+
                     ?>
                 </section>
-                <!-- </template> -->
             </div>
         </body>
         <?php
