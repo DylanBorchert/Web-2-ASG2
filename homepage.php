@@ -25,6 +25,10 @@ function displayUserData($customerInfo)
         echo "<p> Name: " . $customerInfo['FirstName'] . " "  . $customerInfo['LastName'] . "<br>" . "</p>" . "<p> City: " . $customerInfo['City'] . "<br>" . "</p>" . "<p> Country: " . $customerInfo['Country'] . "</p>";
     }
 }
+
+if (isset($_POST['title'])) {
+    header('Location: browse-paintings.php?title=' . $_POST['title'] . "&artist=0&museum=0&filter=filter");
+}
 ?>
 
 <!DOCTYPE html>
@@ -81,10 +85,9 @@ include("pagenav.inc.php");
             </section>
         </div>
         <div class="box searchFavorite">
-            <form action="home-logged-in.php" method="get">
-
-                <input type="text" name="checkSearch" class='searchFavoritesBox'>
-                <button type="Submit">Search</button>
+            <form method="post">
+                <input type="text" name="title" class="searchbox" placeholder="Search By Painting Title ">
+                <input type="submit" name="search" value="Search"/> 
         </div>
 
         </div>
