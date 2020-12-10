@@ -112,7 +112,7 @@ $paintings = $paint->getAll();
             $value = 0;
             if (isset($_GET['title'])) {
                 if (!$_GET['title'] == "") {
-                    $baseSQL .= " WHERE Title = '" . $_GET['title'] . "'";
+                    $baseSQL .= " WHERE Title LIKE '%" . $_GET['title'] . "%'";
                     $value++;
                 }
             }
