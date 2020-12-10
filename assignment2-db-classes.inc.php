@@ -35,7 +35,7 @@ class DatabaseHelper
 
 class GalleriesDB
 {
-    private static $baseSQL = "SELECT * FROM galleries";
+    private static $baseSQL = "SELECT * FROM Galleries";
     public function __construct($connection)
     {
         $this->pdo = $connection;
@@ -62,14 +62,14 @@ class GalleriesDB
 
 class PaintingsDB
 {
-    private static $baseSQL = "SELECT * FROM paintings";
+    private static $baseSQL = "SELECT * FROM Paintings";
     public function __construct($connection)
     {
         $this->pdo = $connection;
     }
     public function getGalleryPaintings($galleryID)
     {
-        $sql = "SELECT *, CONCAT(ImageFileName,'.jpg') as FullImageFileName FROM paintings LEFT JOIN artists ON paintings.ArtistID = artists.ArtistID WHERE GalleryID=?";
+        $sql = "SELECT *, CONCAT(ImageFileName,'.jpg') as FullImageFileName FROM Paintings LEFT JOIN Artists ON paintings.ArtistID = artists.ArtistID WHERE GalleryID=?";
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($galleryID));
         return $statement->fetchAll();
     }
@@ -99,7 +99,7 @@ class PaintingsDB
     }
     public function getPainting($PaintID)
     {
-        $sql = "SELECT *, CONCAT(ImageFileName,'.jpg') as FullImageFileName FROM paintings WHERE PaintingID=?";
+        $sql = "SELECT *, CONCAT(ImageFileName,'.jpg') as FullImageFileName FROM Paintings WHERE PaintingID=?";
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($PaintID));
         return $statement->fetch();
     }
@@ -116,7 +116,6 @@ class PaintingsDB
         ));
         return $statement->fetchAll();
     }
-
     public function getAllForGallery($galleryID)
     {
         $sql = self::$baseSQL . " WHERE Paintings.GalleryID=?";
@@ -179,7 +178,7 @@ class ArtistDB
 
 class CustomerLoginDB
 {
-    private static $baseSQL = "SELECT CustomerID, UserName, Pass FROM customerlogon";
+    private static $baseSQL = "SELECT CustomerID, UserName, Pass FROM CustomerLogon";
 
     public function __construct($connection)
     {
@@ -195,7 +194,7 @@ class CustomerLoginDB
 
 class CustomerInfoDB
 {
-    private static $baseSQL = "SELECT FirstName, LastName, City, Country FROM customers";
+    private static $baseSQL = "SELECT FirstName, LastName, City, Country FROM Customers";
 
     public function __construct($connection)
     {
