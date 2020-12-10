@@ -1,5 +1,10 @@
 @import "./defualt.css";
 
+h3 {
+  color: white;
+  font-size: 200%;
+}
+
 #filter {
   display: inline-block;
   width: 1/3;
@@ -32,7 +37,9 @@ select {
   border-radius: 5px;
 }
 
-#paintings {
+#paintings p {
+  display: inline-block;
+  color: white;
 }
 
 /* #painting {

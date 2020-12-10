@@ -1,7 +1,8 @@
 <?php
 require 'assignment2-db-classes.inc.php';
 require "config.inc.php";
-
+require 'favoritesHelper.php';
+session_start();
 $conn = DatabaseHelper::createConnection(array(
     DBCONNSTRING,
     DBUSER, DBPASS
@@ -31,7 +32,7 @@ if (isset($_GET['paintingid'])) {
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital@1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/galleries.css">
     <link rel="stylesheet" href="CSS/single-painting-tab.css">
-    <script src="single-painting-tab.js"></script>
+    <script src="js/single-painting-tab.js"></script>
 </head>
 <!-- <link rel="stylesheet" href="/asg2/style/reset.css"> -->
 <link rel="stylesheet" href="CSS/index.css">
@@ -45,7 +46,7 @@ if (isset($_GET['paintingid'])) {
     <div id="header">
         <h2><?= $painting['Title'] ?></h2>
         <?php
-        if (isset($_GET['added'])) {
+        if (isInFavorites($painting['PaintingID']) == true) {
             echo "<button>Painting Is Favorited</button>";
         } else {
             echo "<button><a href='favorites.php?paintingid=" . $painting['PaintingID'] . "'>Add To Favorites</a></button>";
@@ -84,10 +85,9 @@ if (isset($_GET['paintingid'])) {
                 </section>
                 <section id="Colors" style="display:none">
                     <?php
-                    // foreach($painting['Color'] as $p){
-                    //     echo "$p";
-
-                    // }
+                    foreach ($painting['Color'] as $p) {
+                        var_dump($p);
+                    }
                     ?>
                 </section>
                 <!-- </template> -->
