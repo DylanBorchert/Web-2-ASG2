@@ -43,14 +43,13 @@ $paintings = $paint->getAll();
     ?>
 
 
-    <table>
-        <tr>
+
+        
             <section id="header">
                 <h3>Browse Painting</h3>
             </section>
-        </tr>
-        <tr>
-            <td>
+        
+        
                 <div id="filter">
                     <form action="./browse-paintings.php" method="get">
                         <label for="title">Title:</label>
@@ -81,23 +80,19 @@ $paintings = $paint->getAll();
                             }
                             ?>
                         </select><br>
-                        <table>
-                            <tr>
+                        
                                 <p>Year:</p>
-                            </tr>
-                            <tr>
+                          
                                 <input type="radio" class="rad" id="before" name="year" value="">
                                 <label for="before">Before</label>
                                 <input type="text" id="beforeInput" name="beforeInput">
                                 <br>
-                            </tr>
-                            <tr>
+                            
                                 <input type="radio" class="rad" id="after" name="year" value="">
                                 <label for="after">After</label>
                                 <input type="text" id="afterInput" name="afterInput">
                                 <br>
-                            </tr>
-                            <tr>
+                           
                                 <input type="radio" class="rad" id="between" name="year" value="">
                                 <label for="between">Between</label>
                                 </br>
@@ -107,12 +102,11 @@ $paintings = $paint->getAll();
                                 <input type="submit" title="filter" name="filter" value="filter">
                                 <!-- <input type="reset" title="clear" name="clear" value="clear"> -->
                                 <input type="submit" value="Clear" formaction="./browse-paintings.php">
-                            </tr>
+                            
                         </table>
                     </form>
                 </div>
-            </td>
-            <td>
+
                 <div id="view">
                     <?php
 
@@ -217,11 +211,14 @@ $paintings = $paint->getAll();
                                         ?>
                                         <p><?= $p['Title'] ?></p>
                                         <p><?= $p['YearOfWork'] ?></p>
-                                        <?php if (isInFavorites($p['PaintingID']) == true) {
+                                        <?php 
+                                        if(isset($_SESSION['userFavorites'])){
+                                        if (isInFavorites($p['PaintingID']) == true) {
                                             echo "<button>Painting Is Favorited</button>";
                                         } else {
                                             echo "<button><a href='favorites.php?paintingid-search=" . $p['PaintingID'] . "&title=" . $_GET['title'] . "&artist=" . $_GET['artist'] . "&museum=" . $_GET['museum'] . "'>Add To Favorites</a></button>";
                                         }
+                                    }
                                         echo "<button><a href='single-painting-tab.php?paintingid=" . $p['PaintingID'] . "'>View</a></button>";
                                         ?>
                                     </div>
@@ -233,9 +230,7 @@ $paintings = $paint->getAll();
                     <?php
                     }
                     ?>
-            </td>
-        </tr>
-    </table>
+
 
 
 </body>

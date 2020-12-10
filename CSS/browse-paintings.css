@@ -12,6 +12,10 @@
   --color-black-3: #424242;
   --color-black-2: #121212;
 }
+body {
+  background: #cfcfe6 url("../images/unnamed.jpg");
+}
+
 
 #filter {
   display: inline-block;
@@ -49,3 +53,8 @@ select {
     border: 3px solid var(--color-secondary-1);
     border-radius: 5px;
 } */
+h3 {
+  color: white;
+  font-size: 2000%;
+  text-align: center;
+}
