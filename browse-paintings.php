@@ -103,7 +103,7 @@ $paintings = $paint->getAll();
                                 <!-- <input type="reset" title="clear" name="clear" value="clear"> -->
                                 <input type="submit" value="Clear" formaction="./browse-paintings.php">
                             
-                        </table>
+                        
                     </form>
                 </div>
 
