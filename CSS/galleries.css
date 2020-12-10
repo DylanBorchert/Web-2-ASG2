@@ -1,12 +1,4 @@
-@import "./colorpalet.css";
-
-body {
-  /* background from https://www.toptal.com/designers/subtlepatterns/page/14/ */
-  background: #cfcfe6 url("../images/unnamed.jpg");
-  background-size: auto 300px;
-  color: var(--color-white-1);
-  font-family: "Archivo", "Cairo", sans-serif;
-}
+@import "./defualt.css";
 
 .container {
   display: grid;

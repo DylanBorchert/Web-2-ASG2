@@ -1,16 +1,4 @@
-@import "./colorpalet.css";
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 2;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 2em;
-}
+@import "./defualt.css";
 
 body {
   width: 100%;
