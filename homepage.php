@@ -35,9 +35,10 @@ if (isset($_POST['title'])) {
 
 <head>
     <meta charset="utf-8" />
-    <title>COMP 3512 Assign 2</title>
+    <title>Homepage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="CSS/reset.css">
     <link rel="stylesheet" href="CSS/homepage.css">
 </head>
 <?php
@@ -46,9 +47,6 @@ include("pagenav.inc.php");
 
 <body>
     <main class="container">
-        <div class="box h">
-
-        </div>
 
         <div class="box WelcomeUser">
             <section>
@@ -100,21 +98,7 @@ include("pagenav.inc.php");
                 echo "<h2>Favorite Paintings</h2>";
                 displayHomeFavorites($paintingGate);
             } else {
-
-                try {
-                    $conn = DatabaseHelper::createConnection(array(
-                        DBCONNSTRING,
-                        DBUSER,
-                        DBPASS
-                    ));
-
-                    $paintingGate = new PaintingsDB($conn);
-
-                    $dataFirst15 = $paintingGate->getTop15();
-                    $conn = null;
-                } catch (PDOException $e) {
-                    die($e->getMessage());
-                }
+                $dataFirst15 = $paintingGate->getTop15();
             }
             ?>
 

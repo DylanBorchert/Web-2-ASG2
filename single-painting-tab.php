@@ -119,4 +119,6 @@ where it is inside a div to keep the info organized.  -->
         </body>
         <?php
 
-        ?>
+            ?>
+        </section>
+</body>

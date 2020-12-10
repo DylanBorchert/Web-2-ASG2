@@ -19,11 +19,12 @@ $paintings = $paintingGate->getAll();
 <head>
   <script type="text/javascript" src="js/favorites.js"></script>
   <meta charset="utf-8" />
-  <title>COMP 3512 Assign 2</title>
+  <title>Favorites</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="CSS/reset.css">
   <link rel="stylesheet" href="CSS/defualt.css">
+  <link rel="stylesheet" href="CSS/favorites.css">
 
 </head>
 
@@ -31,66 +32,67 @@ $paintings = $paintingGate->getAll();
   <?php
   include("pagenav.inc.php");
   ?>
+  <section id="mainContent">
 
-
-  <?php
-  //Set the links to the matching single painting page.
-  if (isset($_GET['paintingid'])) {
-    addFavorite($_GET['paintingid']);
-    header("Location: single-painting-tab.php?paintingid=" . $_GET['paintingid'] . "&added=yes");
-  }
-  if (isset($_GET['paintingid-search'])) {
-    addFavorite($_GET['paintingid-search']);
-    header("Location: browse-paintings.php?title=" . $_GET['title'] . "&artist=" . $_GET['artist'] . "&museum=" . $_GET['museum']);
-  }
-  //Array of paintings selected to be deleted.
-  $selectedP = array();
-
-
-  //Populate selectedP with paintings that are checked to be removed when the "Remove Favorite" button is pressed. 
-  if (!empty($_POST["favPainting"])) {
-    foreach ($_POST['favPainting'] as $sp) {
-      $selectedP[] = $sp;
-      deleteFavorites($selectedP);
+    <?php
+    //Set the links to the matching single painting page.
+    if (isset($_GET['paintingid'])) {
+      addFavorite($_GET['paintingid']);
+      header("Location: single-painting-tab.php?paintingid=" . $_GET['paintingid'] . "&added=yes");
     }
-  }
+    if (isset($_GET['paintingid-search'])) {
+      addFavorite($_GET['paintingid-search']);
+      header("Location: browse-paintings.php?title=" . $_GET['title'] . "&artist=" . $_GET['artist'] . "&museum=" . $_GET['museum']);
+    }
+    //Array of paintings selected to be deleted.
+    $selectedP = array();
 
-  //Clear the selected paintings array. 
-  $selectedP = array();
-  ?>
 
-  <button id="selectAll" name="selectAll">Select All</button>
-  <button id="deselectAll" name="deselectAll">Deselect All</button>
-  <table>
-    <tr>
-      <th>Check To Remove </th>
-      <th>Painting</th>
-      <th>Title</th>
-    </tr>
-    <form action="" method="post">
-      <button name="formSubmit" type="submit" value="paintingID">Remove From Favorites</button>
-      <?php
-
-      //Array of paintings that are checked 
-      //to be removed from the userFavorites SESSION array.
-      $pToRemove = array();
-
-      //Set checkboxs to unchecked.
-      $allSelected = false;
-
-      //If user has favorites, Display them.
-      if (count($_SESSION['userFavorites']) > 0) {
-        //Generate Favorites List.
-        displayFavorites($paintingGate);
+    //Populate selectedP with paintings that are checked to be removed when the "Remove Favorite" button is pressed. 
+    if (!empty($_POST["favPainting"])) {
+      foreach ($_POST['favPainting'] as $sp) {
+        $selectedP[] = $sp;
+        deleteFavorites($selectedP);
       }
-      ?>
-    </form>
-  </table>
-  <?php if (count($_SESSION['userFavorites'])  < 1) {
-    //User Has No Favorites Yet.
-    echo "<p>Your Favorite Paintings Will Appear Here When You Find Them!</p>";
-  }
-  ?>
+    }
+
+    //Clear the selected paintings array. 
+    $selectedP = array();
+    ?>
+
+    <button id="selectAll" name="selectAll">Select All</button>
+    <button id="deselectAll" name="deselectAll">Deselect All</button>
+    <table>
+      <tr>
+        <th>Check To Remove </th>
+        <th>Painting</th>
+        <th>Title</th>
+      </tr>
+      <form action="" method="post">
+        <button name="formSubmit" type="submit" value="paintingID">Remove From Favorites</button>
+        <?php
+
+        //Array of paintings that are checked 
+        //to be removed from the userFavorites SESSION array.
+        $pToRemove = array();
+
+        //Set checkboxs to unchecked.
+        $allSelected = false;
+
+        //If user has favorites, Display them.
+        if (count($_SESSION['userFavorites']) > 0) {
+          //Generate Favorites List.
+          displayFavorites($paintingGate);
+        }
+        ?>
+      </form>
+    </table>
+    <?php if (count($_SESSION['userFavorites'])  < 1) {
+      //User Has No Favorites Yet.
+      echo "<p>Your Favorite Paintings Will Appear Here When You Find Them!</p>";
+    }
+    ?>
 </body>
+</section>
 
 </html>

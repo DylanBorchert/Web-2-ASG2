@@ -24,7 +24,7 @@ if (isset($_POST['title'])) {
     <main>
         <div id="indexhome">
             <form method="post">
-                <button><a href='login.php'>Login</a></button>
+                <button type="button"><a href='login.php'>Login</a></button>
                 <input type="text" name="title" class="searchbox" placeholder="Search By Painting Title ">
             </form>
         </div>
