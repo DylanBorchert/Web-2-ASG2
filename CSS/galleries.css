@@ -386,48 +386,6 @@ a:visited {
   }
 }
 
-/* overflow scroll bar style from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_scrollbar2 */
-/* width */
-body ::-webkit-scrollbar {
-  width: 8px;
-}
-
-/*  Track */
-body ::-webkit-scrollbar-track {
-  background-color: var(--color-primary-2);
-  border-radius: 4px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-/* Handle */
-body ::-webkit-scrollbar-thumb {
-  background: var(--color-primary-1);
-  border-radius: 4px;
-}
-/* Handle on hover */
-body ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-secondary-1);
-}
-
-.color {
-  display: inline-block;
-  text-align: center;
-  justify-content: center;
-  width: 100px;
-  height: 100px;
-}
-
-.paintingViewText {
-  display: inline-block;
-  justify-content: right;
-}
-
-.paintingView {
-  display: inline-block;
-  justify-content: left;
-}
-
 /* light box styling from https://www.w3schools.com/howto/howto_js_lightbox.asp */
 
 #LargePainting {
