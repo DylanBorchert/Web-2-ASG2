@@ -185,24 +185,8 @@ $paintings = $paint->getAll();
                         $searchedPaintings = $paint->returnSearch($baseSQL);
 
                     ?>
-                    <div id="view">
-                        
-                            <h3>Paintings</h3>
-                            <div id="headings">
-                                <span id="head">Artist</span>
-                                <span id="head">Title</span>
-                                <span id="head">Year</span>
-                            </div>
-                            <div id="paintings">
-                                <?php
-                                // echo "here";
-                                foreach ($searchedPaintings as $p) {
-                                ?>
-                                    <div id="painting">
-                                        <img src="images/paintings/square-medium/<?= $p['ImageFileName'] ?>.jpg">
 
-                            ?>
-                                <div>
+                                
                                     <h3>Paintings</h3>
                                     <div id="headings">
                                         <span id="head">Artist</span>
@@ -250,7 +234,7 @@ $paintings = $paint->getAll();
                             </div>
                         </div>
                     <?php
-                    }
+                    
                     ?>
 
 
