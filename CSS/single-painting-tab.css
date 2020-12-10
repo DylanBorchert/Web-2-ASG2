@@ -2,6 +2,7 @@
 
 h2 {
   display: inline-block;
+  
   padding: 10px;
   margin: 10px;
   border: solid;
@@ -28,7 +29,7 @@ h3 {
   margin-left: 20px;
   padding-left: 20px;
   padding-right: 20px;
-  top: -110px;
+  top: -150px;
   border: 3px solid var(--color-secondary-1);
   border-radius: 5px;
   text-align: center;
@@ -40,4 +41,27 @@ h3 {
 
 a:hover {
   color: var(--color-secondary-2);
+}
+#header p{
+  font-size: medium;
+}
+#Tabs h2 {
+  font-size: larger;
+  border: 3px solid var(--color-secondary-1);
+  border-radius: 5px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+#info h3 {
+font-size: larger;
+padding: 15px;
+}
+#info p{
+  padding: 15px;
+}
+
+.section {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

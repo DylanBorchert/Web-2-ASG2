@@ -39,11 +39,11 @@
             <ul>
                 <li> <a href="https://github.com/dborc610/Web-2-ASG2/tree/justprzy">Master Branch</a></li>
                 <br>
-                <li><a href="https://github.com/">Hudson Github</a></li>
-                <li> <a href="https://github.com/">Justin Github</a></li>
-                <li> <a href="https://github.com/">Curtis Github</a></li>
-                <li> <a href="https://github.com/">Dylan Github</a></li>
-                <li> <a href="https://github.com/">Nitin Github</a></li>
+                <li><a href="https://github.com/hukas">Hudson Github</a></li>
+                <li> <a href="https://github.com/justprzy">Justin Github</a></li>
+                <li> <a href="https://github.com/CurtisMacLean">Curtis Github</a></li>
+                <li> <a href="https://github.com/dborc610">Dylan Github</a></li>
+                <li> <a href="https://github.com/nitinw1">Nitin Github</a></li>
             </ul>
         </div>
     </main>

@@ -53,7 +53,7 @@ if (isset($_GET['paintingid'])) {
         <p><?= $museum['GalleryName'] . " Year: " . $painting['YearOfWork'] ?></p> -->
 
         <body>
-            <div id="header">
+            <div id="header" class="section" >
                 <img style="max-height:400px" src="images/paintings/square/<?= $painting['FullImageFileName'] ?>" alt="<?= $painting['FullImageFileName'] ?>">
                 <div id="info">
                     <h3><?= $painting['Title'] ?></h3>
