@@ -17,6 +17,9 @@ if (isset($_GET['paintingid'])) {
 
     $mues = new GalleriesDB($conn);
     $museum = $mues->getGallery($painting['GalleryID']);
+
+    $paintingJson = $painting['JsonAnnotations'];
+    $pJson = json_decode($paintingJson, true);
 } else echo "broken";
 
 ?>
@@ -87,8 +90,17 @@ if (isset($_GET['paintingid'])) {
                 </section>
                 <section id="Colors" style="display:none">
                     <?php
-                    foreach ($painting['Color'] as $p) {
-                        var_dump($p);
+                    foreach ($pJson['JsonAnotations'] as $p) {
+                        echo "<div id='colorContainer'>
+                        <div class='color' id='Colour_1'><p class='name'></p><p class='hex'></p></div>
+                        <div class='color' id='Colour_2'><p class='name'></p><p class='hex'></p></div>
+                        <div class='color' id='Colour_3'><p class='name'></p><p class='hex'></p></div>
+                        <div class='color' id='Colour_4'><p class='name'></p><p class='hex'></p></div>
+                        <div class='color' id='Colour_5'><p class='name'></p><p class='hex'></p></div>
+                        <div class='color' id='Colour_6'><p class='name'></p><p class='hex'></p></div>
+                    </div>
+                    <p id='return'></p>
+                </div>";
                     }
                     ?>
                 </section>
