@@ -42,9 +42,10 @@
         <?php
         if (isset($_SESSION['userID'])) { ?>
             <a href="favorites.php">Favorites</a>
-            <a href="profile.php">Logout</a>
+            <a href="index.php" onclick="session_destroy ( )">Logout</a>
+
         <?php } else { ?>
-            <a href="profile.php">Logout</a>
+            <a href="login.php">Login</a>
         <?php }
         ?>
     </div>
