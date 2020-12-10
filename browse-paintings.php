@@ -191,7 +191,7 @@ $paintings = $paint->getAll();
                             <?php foreach ($artists as $a) {
                                 if ($p['ArtistID'] == $a['ArtistID']) { ?>           
                                     <td>
-                                        <?= $a['FirstName'] . " " . $a['LastName'] ?>
+                                        <p><?= $a['FirstName'] . " " . $a['LastName'] ?></p>
                                     </td>
                                 <?php }
                                 } ?>

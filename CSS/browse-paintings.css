@@ -66,11 +66,11 @@ h3 {
   width: 100%;
   table-layout: fixed;
 }
-td, th, tr {
+td, th {
   padding: 6px;
   text-align: left;
-  vertical-align: top;
   word-wrap: break-word;
+  vertical-align: middle;
 }
 .col1 {
   width: 15%;
