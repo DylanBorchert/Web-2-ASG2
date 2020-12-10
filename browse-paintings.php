@@ -4,10 +4,7 @@ require 'assignment2-db-classes.inc.php';
 require 'config.inc.php';
 require 'favoritesHelper.php';
 session_start();
-$conn = DatabaseHelper::createConnection(array(
-    DBCONNSTRING,
-    DBUSER, DBPASS
-));
+$conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
 
 
 // $paint = new PaintingsDB($conn);

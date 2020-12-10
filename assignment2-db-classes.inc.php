@@ -170,7 +170,7 @@ class ArtistDB
     }
     public function getAllArtist()
     {
-        $sql = "SELECT * FROM artists";
+        $sql = "SELECT * FROM Artists";
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
         return $statement->fetchAll();
     }
