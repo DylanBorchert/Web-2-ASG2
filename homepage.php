@@ -7,6 +7,7 @@ try {
     $connection = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
     $gate = new CustomerInfoDB($connection);
     $paintingGate = new PaintingsDB($connection);
+    $artistGate = new ArtistDB($connection);
     //Query For user info to process welcome user section
     $customerInfo = $gate->getCustomerInfo($_SESSION['userID']);
     $connection = null;
@@ -95,7 +96,6 @@ include("pagenav.inc.php");
             echo "<h2>Favorite Paintings</h2>";
             if (isset($_SESSION['userFavorites']) && !empty($_SESSION['userFavorites'])) {
                 displayHomeFavorites($paintingGate);
-                //Put algorithm here !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 $dataFirst15 = $paintingGate->getTop15();
             } else {
                 //User Has No Favorites Yet.

@@ -130,6 +130,12 @@ class PaintingsDB
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
         return $statement->fetchAll();
     }
+    public function getRecommendedTop15($artistID)
+    {
+        $sql = self::$baseSQL . "WHERE ArtistID=? ORDER BY YearOfWork LIMIT 15";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, $artistID);
+        return $statement->fetchAll();
+    }
     public function getTop20()
     {
         $sql = self::$baseSQL . " ORDER BY YearOfWork LIMIT 20";
@@ -166,6 +172,12 @@ class ArtistDB
     {
         $sql = "SELECT * FROM Artists WHERE ArtistID=?";
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($artistID));
+        return $statement->fetch();
+    }
+    public function getArtist2($paintingID)
+    {
+        $sql = "SELECT * FROM Artists WHERE PaintingID=?";
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, array($paintingID));
         return $statement->fetch();
     }
     public function getAllArtist()
