@@ -5,6 +5,11 @@ h3 {
   font-size: 200%;
 }
 
+#filterBox {
+  display: inline-flex;
+  flex-direction: row;
+  max-width: fit-content;
+}
 #filter {
   display: inline-block;
   width: 1/3;
