@@ -41,14 +41,18 @@ div#indexhome form {
 
 #indexhome button {
   margin: auto;
-  width: 250px;
-  height: 70px;
+  width: 100px;
+  height: 50px;
   border-radius: 50px;
   margin-bottom: 30px;
   box-sizing: border-box;
   font-size: 18px;
   border: 2px solid var(--color-primary-1);
   background-color: var(--color-background-2);
+}
+
+#indexhome button a {
+  padding: 10px;
 }
 
 #indexhome button a:visited,
