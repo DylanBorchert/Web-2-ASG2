@@ -1,3 +1,10 @@
+<?php
+    if (isset($_POST['login'])) {
+        header ('Location: login.php');
+    } else if (isset($_POST['title'])) {
+        header('Location: browse-paintings.php?title=' . $_POST['title']);
+    }
+?>
 <!DOCTYPE html>
 <html>
 
@@ -17,6 +24,7 @@
     ?>
 
     <main>
+<<<<<<< Updated upstream
         <div id="indexhome">
             <section>
                 <button id="login" onclick="location.href='login.php'">Login</button>
@@ -26,6 +34,14 @@
 
 
             </section>
+=======
+        <div>
+            <form method="post">
+                <input type="submit" name="login" value="Login"/>
+                <input type="submit" name="search" value="Search"/> 
+                <input type="text" name="title" class="searchbox" placeholder="Search By Painting Title ">
+            </form>
+>>>>>>> Stashed changes
         </div>
     </main>
 
