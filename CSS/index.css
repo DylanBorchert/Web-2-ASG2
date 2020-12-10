@@ -10,9 +10,9 @@ main {
 
 div#indexhome {
   position: absolute;
-  height: 25%;
-  width: 50%;
-  top: 30%;
+  height: 30%;
+  width: 35%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -29,4 +29,44 @@ div#indexhome form {
 
 .searchbox {
   grid-column: 1/3;
+  box-sizing: border-box;
+  border: 2px solid var(--color-primary-1);
+  background-color: var(--color-background-2);
+  border-radius: 10px;
+  padding-left: 10px;
+  color: var(--color-primary-1);
+  height: 60px;
+  font-size: 30px;
+}
+
+#indexhome input[type="submit"] {
+  margin: auto;
+  width: 250px;
+  height: 70px;
+  border-radius: 50px;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+  border: 2px solid var(--color-primary-1);
+  background-color: var(--color-background-2);
+  color: var(--color-primary-1);
+}
+
+#indexhome input[type="submit"]:hover {
+  cursor: pointer;
+  background-color: var(--color-black-1);
+}
+
+footer {
+  width: 100vw;
+  height: 50px;
+  background-color: var(--color-background-2);
+  position: absolute;
+  bottom: 1px;
+}
+
+footer p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

@@ -24,13 +24,16 @@ if (isset($_POST['login'])) {
     ?>
 
     <main>
-        <img href="/images/Background.jpg" width="1000">
         <div id="indexhome">
             <form method="post">
-                <input type="submit" name="login" value="Login" />
                 <input type="submit" name="search" value="Search" />
+                <input type="submit" name="login" value="Login" />
                 <input type="text" name="title" class="searchbox" placeholder="Search By Painting Title ">
             </form>
         </div>
     </main>
+
+    <footer>
+        <p class="copyright">© Group Name: Webberinos - Web 2: December 2020</p>
+    </footer>
 </body>
