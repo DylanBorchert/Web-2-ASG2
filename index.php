@@ -24,24 +24,12 @@
     ?>
 
     <main>
-<<<<<<< Updated upstream
         <div id="indexhome">
-            <section>
-                <button id="login" onclick="location.href='login.php'">Login</button>
-                <button id="searchbutton" type="submit">Search</button>
-
-                <input type="text" name="title" class="searchbox" placeholder="Search BOX FOR Painting ">
-
-
-            </section>
-=======
-        <div>
             <form method="post">
                 <input type="submit" name="login" value="Login"/>
                 <input type="submit" name="search" value="Search"/> 
                 <input type="text" name="title" class="searchbox" placeholder="Search By Painting Title ">
             </form>
->>>>>>> Stashed changes
         </div>
     </main>
 
