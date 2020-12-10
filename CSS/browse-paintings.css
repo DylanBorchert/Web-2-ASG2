@@ -45,11 +45,6 @@ select {
   border-radius: 5px;
 }
 
-#paintings p {
-  display: inline-block;
-  color: white;
-}
-
 /* #painting {
     border: 3px solid var(--color-secondary-1);
     border-radius: 5px;
