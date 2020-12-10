@@ -1,7 +1,5 @@
 <?php
-if (isset($_POST['login'])) {
-    header('Location: login.php');
-} else if (isset($_POST['title'])) {
+if (isset($_POST['title'])) {
     header('Location: browse-paintings.php?title=' . $_POST['title'] . "&artist=0&museum=0&filter=filter");
 }
 ?>
@@ -26,12 +24,16 @@ if (isset($_POST['login'])) {
     <main>
         <div id="indexhome">
             <form method="post">
-                <input type="submit" name="search" value="Search" />
-                <input type="submit" name="login" value="Login" />
+                <button><a href='login.php'>Login</a></button>
                 <input type="text" name="title" class="searchbox" placeholder="Search By Painting Title ">
             </form>
         </div>
     </main>
+    <script>
+        function login() {
+            window.open("login.php");
+        }
+    </script>
 
     <footer>
         <p class="copyright">© Group Name: Webberinos - Web 2: December 2020</p>

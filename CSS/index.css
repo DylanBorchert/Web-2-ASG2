@@ -23,7 +23,7 @@ div#indexhome form {
   left: 50%;
   transform: translate(-50%, -50%);
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: 1fr 2fr;
 }
 
@@ -39,19 +39,24 @@ div#indexhome form {
   font-size: 30px;
 }
 
-#indexhome input[type="submit"] {
+#indexhome button {
   margin: auto;
   width: 250px;
   height: 70px;
   border-radius: 50px;
   margin-bottom: 30px;
   box-sizing: border-box;
+  font-size: 18px;
   border: 2px solid var(--color-primary-1);
   background-color: var(--color-background-2);
-  color: var(--color-primary-1);
 }
 
-#indexhome input[type="submit"]:hover {
+#indexhome button a:visited,
+#indexhome button a:link {
+  text-decoration: none;
+  color: var(--color-primary-1);
+}
+#indexhome button:hover {
   cursor: pointer;
   background-color: var(--color-black-1);
 }
