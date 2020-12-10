@@ -30,8 +30,6 @@ if (isset($_GET['paintingid'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital@1&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="/asg2/style/reset.css"> 
-     <link rel="stylesheet" href="/asg2/style/index.css"> -->
     <script src="/asg2/Web-2-ASG2/single-painting-tab.js"></script>
 </head>
 

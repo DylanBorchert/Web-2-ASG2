@@ -272,6 +272,10 @@ a:visited {
     width: 70px;
   }
 
+  #paintingArea span[id="paintingTitle"] a {
+    font-size: 16px;
+  }
+
   #map {
     height: 380px;
     margin: 10px;

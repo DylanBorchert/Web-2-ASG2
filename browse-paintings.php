@@ -29,12 +29,8 @@ $paintings = $paint->getAll();
     <meta charset="utf-8" />
     <title>Assignment 02</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    <link rel="stylesheet" href="CSS/index.css">
-=======
     <link rel="stylesheet" href="CSS/reset.css">
     <link rel="stylesheet" href="CSS/default.css">
->>>>>>> 8a40b05725a79738eb6477a1de66f97c8741fc68
     <link rel="stylesheet" href="CSS/browse-paintings.css">
     <script type="text/javascript" src="js/browse-paintings.js"></script>
 
@@ -44,9 +40,6 @@ $paintings = $paint->getAll();
     <?php
     include("pagenav.inc.php");
     ?>
-
-
-
 
     <section id="header">
         <h3>Browse Painting</h3>
