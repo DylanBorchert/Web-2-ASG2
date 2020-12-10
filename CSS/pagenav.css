@@ -1,4 +1,5 @@
-@import "./colorpalet.css";
+@import "./defualt.css";
+
 nav.pagenav {
   background-color: var(--color-background-2);
   height: 50px;

@@ -1,16 +1,8 @@
-:root {
-  --color-1: #3c1874;
-  --color-primary-2: #7f5900;
-  --color-primary-1: #ffb300;
-  --color-secondary-2: #7a431d;
-  --color-secondary-1: #de9e48;
-  --color-background-1: #563727;
-  --color-background-2: #372c2e;
-  --color-white-1: #f1ffff;
-  --color-white-2: #bac2c2;
-  --color-black-1: #000000;
-  --color-black-3: #424242;
-  --color-black-2: #121212;
+@import "./defualt.css";
+
+h3 {
+  color: white;
+  font-size: 200%;
 }
 
 #filter {
@@ -45,12 +37,12 @@ select {
   border-radius: 5px;
 }
 
-#paintings p {
-  display: inline-block;
-  color: white;
-}
-
 /* #painting {
     border: 3px solid var(--color-secondary-1);
     border-radius: 5px;
 } */
+h3 {
+  color: white;
+  font-size: 2000%;
+  text-align: center;
+}

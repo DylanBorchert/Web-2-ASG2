@@ -3,7 +3,7 @@ session_start(); //!!!!TALK TO HUDSON
 include 'config.inc.php';
 include 'assignment2-db-classes.inc.php';
 
-$msg = "hello";
+$msg = "Hello";
 if (checkForLogin()) {
     try {
         //Check for email
@@ -46,6 +46,8 @@ function checkForLogin()
 <head>
     <title>A page</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="CSS/reset.css">
+    <link rel="stylesheet" href="CSS/login.css">
 </head>
 
 <body>
