@@ -177,14 +177,23 @@ $paintings = $paint->getAll();
                     </colgroup>
                     <thead>
                         <tr>
-                            <td> 
-                                <img src="images/paintings/square-medium/<?= $p['ImageFileName'] ?>.jpg">
-                            </td>
-                            <?php foreach ($artists as $a) {
-                                if ($p['ArtistID'] == $a['ArtistID']) { ?>           
-                                    <td>
-                                        <p><?= $a['FirstName'] . " " . $a['LastName'] ?></p>
-                                    </td>
+                            <th></th>
+                            <th>Artist</th>
+                            <th>Title</th>
+                            <th>Year</th>
+                        </tr>
+                    </thead>
+                    <tbody id="paintings">
+                        <?php foreach ($searchedPaintings as $p) { ?>
+                            <tr>
+                                <td>
+                                    <img src="images/paintings/square-medium/<?= $p['ImageFileName'] ?>.jpg">
+                                </td>
+                                <?php foreach ($artists as $a) {
+                                    if ($p['ArtistID'] == $a['ArtistID']) { ?>
+                                        <td>
+                                            <?= $a['FirstName'] . " " . $a['LastName'] ?>
+                                        </td>
                                 <?php }
                                 } ?>
                                 <td>
