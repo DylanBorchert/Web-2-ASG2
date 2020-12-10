@@ -2,7 +2,7 @@
 
 h2 {
   display: inline-block;
-  
+
   padding: 10px;
   margin: 10px;
   border: solid;
@@ -10,7 +10,6 @@ h2 {
   border-color: var(--color-primary-1);
   border-radius: 5px;
 }
-
 
 a {
   color: var(--color-primary-1);
@@ -42,7 +41,8 @@ h3 {
 a:hover {
   color: var(--color-secondary-2);
 }
-#header p{
+
+#header p {
   font-size: medium;
 }
 #Tabs h2 {
@@ -54,10 +54,10 @@ a:hover {
 }
 
 #info h3 {
-font-size: larger;
-padding: 15px;
+  font-size: larger;
+  padding: 15px;
 }
-#info p{
+#info p {
   padding: 15px;
 }
 

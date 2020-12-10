@@ -46,60 +46,50 @@ if (isset($_GET['paintingid'])) {
     <?php
     include("pagenav.inc.php");
     ?>
-    <!-- <div id="header"> -->
-        <!-- <h2><?= $painting['Title'] ?></h2> -->
-  
-        <!-- <p><?= $artist['FirstName'] . " " . $artist['LastName'] ?></p>
-        <p><?= $museum['GalleryName'] . " Year: " . $painting['YearOfWork'] ?></p> -->
 
-        <body>
-            <div id="header" class="section" >
-                <img style="max-height:400px" src="images/paintings/square/<?= $painting['FullImageFileName'] ?>" alt="<?= $painting['FullImageFileName'] ?>">
-                <div id="info">
-                    <h3><?= $painting['Title'] ?></h3>
-                    <?php
-        if (isset($_SESSION['userFavorites'])) {
-            if (isInFavorites($painting['PaintingID']) == true) {
-                echo "<button>Painting Is Favorited</button>";
-            } else {
-                echo "<button><a href='favorites.php?paintingid=" . $painting['PaintingID'] . "'>Add To Favorites</a></button>";
+    <div id="header" class="section">
+        <img style="max-height:400px" src="images/paintings/square/<?= $painting['FullImageFileName'] ?>" alt="<?= $painting['FullImageFileName'] ?>">
+        <div id="info">
+            <h3><?= $painting['Title'] ?></h3>
+            <?php
+            if (isset($_SESSION['userFavorites'])) {
+                if (isInFavorites($painting['PaintingID']) == true) {
+                    echo "<button>Painting Is Favorited</button>";
+                } else {
+                    echo "<button><a href='favorites.php?paintingid=" . $painting['PaintingID'] . "'>Add To Favorites</a></button>";
+                }
             }
-        }
-        ?>
-                    <p><?= $artist['FirstName'] . " " . $artist['LastName'] ?></p>
-                    <p><?= $museum['GalleryName'] . " Year: " . $painting['YearOfWork'] ?></p>
-                </div>
-            </div>
-            <!-- <template id="tabTemplates"> -->
-            <div id="header">
-                <section id="Tabs">
-                    <h2 id="title1">Desciption</h2>
-                    <h2 id="title2">Details</h2>
-                    <h2 id="title3">Colors</h2>
-                </section>
-                <section id="Description" style="display:block">
-                    <p id="descriptionText"><?= $painting['Description'] ?></p>
-                </section>
-                <section id="Details" style="display:none">
-                    <p id="Medium">Medium: <?= $painting['Medium'] ?></p>
-                    <p id="width">Width: <?= $painting['Width'] ?></p>
-                    <p id="height">Height: <?= $painting['Height'] ?></p>
-                    <p id="copyright">Copyright: <?= $painting['CopyrightText'] ?></p>
-                    <a id="wikiLink" href="<?= $painting['WikiLink'] ?>">Wiki Link</a>
-                    <a id="museumLink" href="<?= $painting['MuseumLink'] ?>">Museum Link</a>
-                </section>
-                <section id="Colors" style="display:none">
-                    <?php
-                    echo "<div id='colorContainer'>";
-                    foreach ($pJson['dominantColors'] as $p) {
-                        echo "<div class='color' style='background-color:" . $p['web'] . "' id='Colour_1'><p class='name'>" . $p['name'] . "</p><p class='hex'>" . $p['web'] . "</p></div>";
-                    }
-                    echo "</div><p id='return'></p>"
+            ?>
+            <p><?= $artist['FirstName'] . " " . $artist['LastName'] ?></p>
+            <p><?= $museum['GalleryName'] . " Year: " . $painting['YearOfWork'] ?></p>
+        </div>
+    </div>
+    <!-- <template id="tabTemplates"> -->
+    <div id="header">
+        <section id="Tabs">
+            <h2 id="title1">Desciption</h2>
+            <h2 id="title2">Details</h2>
+            <h2 id="title3">Colors</h2>
+        </section>
+        <section id="Description" style="display:block">
+            <p id="descriptionText"><?= $painting['Description'] ?></p>
+        </section>
+        <section id="Details" style="display:none">
+            <p id="Medium">Medium: <?= $painting['Medium'] ?></p>
+            <p id="width">Width: <?= $painting['Width'] ?></p>
+            <p id="height">Height: <?= $painting['Height'] ?></p>
+            <p id="copyright">Copyright: <?= $painting['CopyrightText'] ?></p>
+            <a id="wikiLink" href="<?= $painting['WikiLink'] ?>">Wiki Link</a>
+            <a id="museumLink" href="<?= $painting['MuseumLink'] ?>">Museum Link</a>
+        </section>
+        <section id="Colors" style="display:none">
+            <?php
+            echo "<div id='colorContainer'>";
+            foreach ($pJson['dominantColors'] as $p) {
+                echo "<div class='color' style='background-color:" . $p['web'] . "' id='Colour_1'><p class='name'>" . $p['name'] . "</p><p class='hex'>" . $p['web'] . "</p></div>";
+            }
+            echo "</div><p id='return'></p>"
 
-                    ?>
-                </section>
-            <!-- </div> -->
-        </body>
-        <?php
-
-        ?>
+            ?>
+        </section>
+</body>

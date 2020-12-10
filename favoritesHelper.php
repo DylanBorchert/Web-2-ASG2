@@ -13,7 +13,7 @@ function displayHomeFavorites($paintingGate)
     foreach ($_SESSION['userFavorites'] as $f) {
         $favPainting = $paintingGate->getFavPainting($f);
         echo "<tr id=" . $favPainting['PaintingID'] . ">
-      <td><a href='single-painting-tab.php?paintingid=" . $favPainting['PaintingID'] . "'><img src='images/paintings/square-medium/" . $favPainting['ImageFileName'] . ".jpg'></a></td><td><a href='single-painting-tab.php?paintingid=" . $favPainting['PaintingID'] . "'>" . $favPainting['Title'] . "</a></td></tr>";
+      <td><a href='single-painting-tab.php?paintingid=" . $favPainting['PaintingID'] . "'><img src='images/paintings/square-medium/" . $favPainting['ImageFileName'] . ".jpg'></a></td></tr>";
     }
 }
 function addFavorite($pID)
