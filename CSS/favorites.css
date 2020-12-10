@@ -22,7 +22,11 @@ table {
   overflow: auto;
 }
 .checkboxes {
-  display: inline-table;
+  width: 50px;
+  height: 50px;
+}
+table tr td {
+  padding-left: 20px;
 }
 
 a {
