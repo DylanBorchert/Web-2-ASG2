@@ -36,6 +36,7 @@
         <div class="links">
             <h2>Technology Used</h2>
             <p>GitHub</p>
+            <br>
             <ul>
                 <li> <a href="https://github.com/dborc610/Web-2-ASG2/tree/justprzy">Master Branch</a></li>
                 <br>
