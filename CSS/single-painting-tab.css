@@ -12,7 +12,7 @@ h2 {
 }
 
 
-a {
+#Details a {
   color: var(--color-primary-1);
   text-decoration: none;
   padding-left: 10px;
@@ -64,4 +64,8 @@ padding: 15px;
 .section {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+#descriptionText {
+  padding: 10px;
 }

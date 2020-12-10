@@ -1,4 +1,15 @@
+<!-- 
+This page uses php html and sql to take in input from a form and pass it to 
+a sql querry which then runs returning an array of paintings which are displayed
+using a combination of php and html
+
+ -->
+
 <?php
+
+// This calls for all the information from the database we will need later 
+// checking if any passed variables exist before searching for them as 
+// they can cause errors if not handled properly. 
 
 require 'assignment2-db-classes.inc.php';
 require 'config.inc.php';
@@ -8,8 +19,7 @@ session_start();
 $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
 
 
-// $paint = new PaintingsDB($conn);
-// $painting = $paint->getPainting($_GET['paintingid']);
+
 
 $art = new ArtistDB($conn);
 $artists = $art->getAllArtist();
@@ -105,6 +115,11 @@ $paintings = $paint->getAll();
 
             $baseSQL = "SELECT * FROM Paintings";
             $value = 0;
+            // The following sets of nested loops act as checks for the form data to make
+            // sure it not only exists but is not equal to "" or 0 as we dont want the code 
+            // to run as intended.  We also store a value varible to see if there is a where
+            // clause before you add another as they are different depending on if a where 
+            // has already been called. 
             if (isset($_GET['title'])) {
                 if (!$_GET['title'] == "") {
                     $baseSQL .= " WHERE Title LIKE '%" . $_GET['title'] . "%'";
@@ -170,6 +185,8 @@ $paintings = $paint->getAll();
                     }
                 }
             }
+            //This just checks to see if one of our sql statements have been triggered if 
+            // true it continues to print the returned paintings
             if (isset($_GET['title']) or isset($_GET['artist']) or isset($_GET['museum'])) {
                 $searchedPaintings = $paint->returnSearch($baseSQL);
             ?>
@@ -192,7 +209,9 @@ $paintings = $paint->getAll();
                     </tr>
                 </thead>
                 <tbody id="paintings">
-                    <?php foreach ($searchedPaintings as $p) { ?>
+                    <?php
+ // just makes sure that we are looping through each painting that is returned by the search.
+                    foreach ($searchedPaintings as $p) { ?>
                         <tr>
                             <td> 
                                 <img src="images/paintings/square-medium/<?= $p['ImageFileName'] ?>.jpg">
@@ -210,7 +229,9 @@ $paintings = $paint->getAll();
                             <td>
                                 <p><?= $p['YearOfWork'] ?></p>
                             </td>
-                            <?php if (isset($_SESSION['userFavorites'])) {
+                            <?php 
+ // checks to see if the favourites session exists and by extention, checking if the user is logged in 
+                            if (isset($_SESSION['userFavorites'])) {
                                 if (isInFavorites($p['PaintingID']) == true) {
                                     echo "<td><button>Painting Is Favorited</button></td>";
                                 } else {
