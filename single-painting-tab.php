@@ -46,9 +46,18 @@ if (isset($_GET['paintingid'])) {
     <?php
     include("pagenav.inc.php");
     ?>
-    <div id="header">
-        <h2><?= $painting['Title'] ?></h2>
-        <?php
+    <!-- <div id="header"> -->
+        <!-- <h2><?= $painting['Title'] ?></h2> -->
+  
+        <!-- <p><?= $artist['FirstName'] . " " . $artist['LastName'] ?></p>
+        <p><?= $museum['GalleryName'] . " Year: " . $painting['YearOfWork'] ?></p> -->
+
+        <body>
+            <div id="header">
+                <img style="max-height:400px" src="images/paintings/square/<?= $painting['FullImageFileName'] ?>" alt="<?= $painting['FullImageFileName'] ?>">
+                <div id="info">
+                    <h3><?= $painting['Title'] ?></h3>
+                    <?php
         if (isset($_SESSION['userFavorites'])) {
             if (isInFavorites($painting['PaintingID']) == true) {
                 echo "<button>Painting Is Favorited</button>";
@@ -57,15 +66,6 @@ if (isset($_GET['paintingid'])) {
             }
         }
         ?>
-        <p><?= $artist['FirstName'] . " " . $artist['LastName'] ?></p>
-        <p><?= $museum['GalleryName'] . " Year: " . $painting['YearOfWork'] ?></p>
-
-        <body>
-            <div id="header">
-                <img style="max-height:400px" src="images/paintings/square/<?= $painting['FullImageFileName'] ?>" alt="<?= $painting['FullImageFileName'] ?>">
-                <div id="info">
-                    <h3><?= $painting['Title'] ?></h3>
-                    <p>add to favorites</p>
                     <p><?= $artist['FirstName'] . " " . $artist['LastName'] ?></p>
                     <p><?= $museum['GalleryName'] . " Year: " . $painting['YearOfWork'] ?></p>
                 </div>
@@ -98,7 +98,7 @@ if (isset($_GET['paintingid'])) {
 
                     ?>
                 </section>
-            </div>
+            <!-- </div> -->
         </body>
         <?php
 
