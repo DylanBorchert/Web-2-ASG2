@@ -1,3 +1,8 @@
+<?php
+if (session_status() != 2) {
+    session_start();
+}
+?>
 <link rel="stylesheet" href="CSS/pagenav.css">
 <link rel="stylesheet" href="CSS/reset.css">
 <script>
@@ -35,14 +40,20 @@
     </button>
     <div class="navlinks">
         <div class="logo"></div>
-        <a href="index.php">Home</a>
+        <?php
+        if (isset($_SESSION['userID'])) { ?>
+            <a href="homepage.php">Home</a>
+        <?php } else { ?>
+            <a href="index.php">Home</a>
+        <?php }
+        ?>
         <a href="about.php">About</a>
         <a href="galleries.php">Galleries</a>
         <a href="browse-paintings.php">Search/Browse</a>
         <?php
         if (isset($_SESSION['userID'])) { ?>
             <a href="favorites.php">Favorites</a>
-            <a href="index.php" onclick="session_destroy ( )">Logout</a>
+            <a href="logout.php" onclick="session_unset()">Logout</a>
 
         <?php } else { ?>
             <a href="login.php">Login</a>
