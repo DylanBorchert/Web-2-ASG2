@@ -38,7 +38,7 @@
             <p>GitHub</p>
             <br>
             <ul>
-                <li> <a href="https://github.com/dborc610/Web-2-ASG2/tree/justprzy">Master Branch</a></li>
+                <li> <a href="https://github.com/dborc610/Web-2-ASG2/tree/master">Master Branch</a></li>
                 <br>
                 <li><a href="https://github.com/hukas">Hudson Github</a></li>
                 <li> <a href="https://github.com/justprzy">Justin Github</a></li>
