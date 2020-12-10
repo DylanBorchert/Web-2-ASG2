@@ -24,10 +24,15 @@
 }
 
 .Results {
+  overflow: auto;
   grid-row: 2/3;
 }
 
+.Results p {
+  padding: 10px;
+}
+
 .showPaintings {
-  height: 45vh;
+  height: 49vh;
   overflow: auto;
 }
