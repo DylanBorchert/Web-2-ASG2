@@ -226,7 +226,7 @@ document.addEventListener("DOMContentLoaded", function () {
     imageItem.setAttribute("width", "100px");
     imageItem.setAttribute(
       "src",
-      `../images/paintings/square/${painting.FullImageFileName}`
+      `images/paintings/square/${painting.FullImageFileName}`
     );
     paintingLoader.style.display = "none";
     paintingHeading.style.display = "flex";
