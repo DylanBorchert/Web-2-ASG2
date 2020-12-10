@@ -186,42 +186,46 @@ $paintings = $paint->getAll();
 
                     ?>
 
-                                
+                                <table>
                                     <h3>Paintings</h3>
                                     <div id="headings">
-                                        <span id="head">Artist</span>
-                                        <span id="head">Title</span>
-                                        <span id="head">Year</span>
+                                        <th></th>
+                                        <th><span id="head">Artist</span></th>
+                                        <th><span id="head">Title</span></th>
+                                        <th><span id="head">Year</span></th>
                                     </div>
                                     <div id="paintings">
                                         <?php
                                         // echo "here";
                                         foreach ($searchedPaintings as $p) {
                                         ?>
+                                        <tr>
                                             <div id="painting">
-                                                <img src="images/paintings/square-medium/<?= $p['ImageFileName'] ?>.jpg">
+                                            <td><img src="images/paintings/square-medium/<?= $p['ImageFileName'] ?>.jpg"></td>
 
                                                 <?php
                                                 foreach ($artists as $a) {
                                                     if ($p['ArtistID'] == $a['ArtistID']) {
                                                 ?>
-                                                        <p><?= $a['FirstName'] . " " . $a['LastName'] ?></p>
+                                                        <td><p><?= $a['FirstName'] . " " . $a['LastName'] ?></p></td>
                                                 <?php
                                                     }
                                                 }
                                                 ?>
-                                                <p><?= $p['Title'] ?></p>
-                                                <p><?= $p['YearOfWork'] ?></p>
+                                                <td><p><?= $p['Title'] ?></p></td>
+                                                <td><p><?= $p['YearOfWork'] ?></p></td>
                                                 <?php
                                                 if (isset($_SESSION['userFavorites'])) {
                                                     if (isInFavorites($p['PaintingID']) == true) {
-                                                        echo "<button>Painting Is Favorited</button>";
+                                                        echo "<td><button>Painting Is Favorited</button></td>";
                                                     } else {
-                                                        echo "<button><a href='favorites.php?paintingid-search=" . $p['PaintingID'] . "&title=" . $_GET['title'] . "&artist=" . $_GET['artist'] . "&museum=" . $_GET['museum'] . "'>Add To Favorites</a></button>";
+                                                        echo "<td><button><a href='favorites.php?paintingid-search=" . $p['PaintingID'] . "&title=" . $_GET['title'] . "&artist=" . $_GET['artist'] . "&museum=" . $_GET['museum'] . "'>Add To Favorites</a></button></td>";
                                                     }
                                                 }
-                                                echo "<button><a href='single-painting-tab.php?paintingid=" . $p['PaintingID'] . "'>View</a></button>";
+                                                echo "<td><button><a href='single-painting-tab.php?paintingid=" . $p['PaintingID'] . "'>View</a></button></td>";
                                                 ?>
+                                                </tr>
+
                                             </div>
                                         <?php
                                         }
@@ -233,6 +237,7 @@ $paintings = $paint->getAll();
                                 ?>
                             </div>
                         </div>
+                        </table>
                     <?php
                     
                     ?>
