@@ -92,12 +92,14 @@ include("pagenav.inc.php");
         </div>
         <div class="box Results">
             <?php
-
+            echo "<h2>Favorite Paintings</h2>";
             if (isset($_SESSION['userFavorites']) && !empty($_SESSION['userFavorites'])) {
-
-                echo "<h2>Favorite Paintings</h2>";
                 displayHomeFavorites($paintingGate);
+                //Put algorithm here !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                $dataFirst15 = $paintingGate->getTop15();
             } else {
+                //User Has No Favorites Yet.
+                echo "<p>Your Favorite Paintings Will Appear Here When You Find Them!</p>";
                 $dataFirst15 = $paintingGate->getTop15();
             }
             ?>
@@ -111,7 +113,6 @@ include("pagenav.inc.php");
                 foreach ($_SESSION['userFavorites'] as $key => $value) {
 
                     if ($value['Title'] == $_GET['checkSearch']) {
-                        echo "<h2> " . $value['Title'] . "</h2>";
                         echo " <img src='images/paintings/square-medium/" . $value['ImageFileName'] . ".jpg'/ height='700' width='710'>";
                         $imageFound = true;
                         break;
@@ -128,38 +129,21 @@ include("pagenav.inc.php");
             }
         } else {
 
-            if (isset($_SESSION['favorites'])) {
+            if (isset($_SESSION['userFavorites'])) {
 
                 echo "<div class='box' id ='Favorites'>";
-                echo "<h2>Your Favorites</h2>";
                 echo "<div class = 'showPaintings'>";
 
-                for ($i = 0; $i < count($_SESSION['favorites']); $i++) {
-                    if ($i == 0) {
-                        echo "<div class = 'middle'> <img src='images/paintings/square-medium/" . $_SESSION['favorites'][$i]['ImageFileName'] . ".jpg'/> 
-                            " . "<br>" . $_SESSION['favorites'][$i]['Title'] . "</div>";
-                    }
-                    if ($i % 2 && $i != 0) {
-
-                        echo "<div class = 'odd'> <img src='images/paintings/square-medium/" . $_SESSION['favorites'][$i]['ImageFileName'] . ".jpg'/> 
-                            " . "<br>" . $_SESSION['favorites'][$i]['Title'] . "</div>";
-                    } else {
-                        if ($i != 0) {
-                            echo "<div class = 'even'> <img src='images/paintings/square-medium/" . $_SESSION['favorites'][$i]['ImageFileName'] . ".jpg'/> 
-                                " . "<br>" . $_SESSION['favorites'][$i]['Title'] . "</div>";
-                        }
-                    }
-                    //processOutputtingFirst15($dataFirst15);
-                }
-            } else {
-                if (isset($dataFirst15)) {
-                    processOutputtingFirst15($dataFirst15);
-                }
+                processOutputtingFirst15($dataFirst15);
             }
-
-            echo "</div>";
-            echo "</div>";
         }
+
+        // if ($_SESSION['userFavorites']) {
+        // }
+
+        echo "</div>";
+        echo "</div>";
+
 
         ?>
         </div>
