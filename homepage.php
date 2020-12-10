@@ -1,9 +1,9 @@
 <?php
 require_once 'config.inc.php';
-require_once 'assignment2-db-classes.inc.php'; //!!!!! Some stuff isn't workiing as I tranfer your classes
+require_once 'assignment2-db-classes.inc.php'; 
 require_once 'favoritesHelper.php';
 session_start();
-var_dump($_SESSION['userFavorites']);
+//var_dump($_SESSION['userFavorites']);
 try {
     $connection = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
     $gate = new CustomerInfoDB($connection);
@@ -17,9 +17,12 @@ try {
 
 function displayUserData($customerInfo)
 {
+    echo "<h1>User Info: </h1>";
+    echo "<br>";
     if (isset($customerInfo)) {
         echo "<h2> Welcome " . $customerInfo['FirstName'] . "</h2>";
-        echo "<p>" . $customerInfo['FirstName'] . " " . $customerInfo['LastName'] . "</p>" . "<p>" . $customerInfo['City'] . "</p>" . "<p>" . $customerInfo['Country'] . "</p>";
+        echo "<br>";
+        echo "<p> Name: " . $customerInfo['FirstName'] . " "  . $customerInfo['LastName'] . "<br>" . "</p>" . "<p> City: " . $customerInfo['City'] . "<br>" . "</p>" . "<p> Country: " . $customerInfo['Country'] . "</p>";
     }
 }
 ?>
@@ -41,12 +44,7 @@ include("pagenav.inc.php");
 <body>
     <main class="container">
         <div class="box h">
-            <header>
-                <h1>
-                    COMP 3512 Assign 2
-                </h1>
 
-            </header>
         </div>
 
         <div class="box WelcomeUser">
@@ -55,7 +53,8 @@ include("pagenav.inc.php");
                 function processOutputtingFirst15($dataFirst15)
                 {
                     echo "<div class='box' id = 'Favorites'>";
-                    echo "<h2> Sample Panintings </h2>";
+                    echo "<h2> Paintings You May Like </h2>";
+                    echo "<br>";
                     echo "<div class = 'showPaintings'>";
 
                     for ($i = 0; $i < count($dataFirst15); $i++) {
@@ -77,6 +76,7 @@ include("pagenav.inc.php");
                 }
 
                 displayUserData($customerInfo);
+                //processOutputtingFirst15($dataFirst15);
                 ?>
             </section>
         </div>
@@ -95,7 +95,9 @@ include("pagenav.inc.php");
 
             if (isset($_SESSION['userFavorites']) && !empty($_SESSION['userFavorites'])) {
 
+                echo "<h2>Favorite Paintings</h2>";
                 displayHomeFavorites($paintingGate);
+                
             } else {
 
                 try {
@@ -109,46 +111,6 @@ include("pagenav.inc.php");
 
                     $dataFirst15 = $paintingGate->getTop15();
                     $conn = null;
-                } catch (PDOException $e) {
-                    die($e->getMessage());
-                }
-            }
-
-
-            //if (isset($_SESSION['favorites']) && !empty($_SESSION['favorites']))
-            if (count($_SESSION['userFavorites']) > 0) {
-
-                echo "<h2>Paintings You May Like</h2>";
-
-                try {
-                    $conn = DatabaseHelper::createConnection(array(
-                        DBCONNSTRING,
-                        DBUSER,
-                        DBPASS
-                    ));
-                    echo "<div class = 'showPaintings'>";
-
-                    $paintingGate = new PaintingsDB($conn);
-                    $dataPaitingsMayLike = $paintingGate->getAllForArtistandEraMayLike($ArtistID, $YoWStart, $YoWEnd);
-                    $conn = null;
-                    for ($i = 0; $i < count($dataPaitingsMayLike); $i++) {
-                        if ($i == 0) {
-                            echo "<div class = 'middle'> <img src='images/paintings/square-medium/" . $dataPaitingsMayLike[$i]['ImageFileName'] . ".jpg'/> 
-                                " . "<br>" . $dataPaitingsMayLike[$i]['Title'] . "</div>";
-                        }
-                        if ($i % 2 && $i != 0) {
-
-                            echo "<div class = 'odd'> <img src='images/paintings/square-medium/" . $dataPaitingsMayLike[$i]['ImageFileName'] . ".jpg'/> 
-                            " . "<br>" . $dataPaitingsMayLike[$i]['Title'] . "</div>";
-                        } else {
-                            if ($i != 0) {
-                                echo "<div class = 'even'> <img src='images/paintings/square-medium/" . $dataPaitingsMayLike[$i]['ImageFileName'] . ".jpg'/> 
-                                " . "<br>" . $dataPaitingsMayLike[$i]['Title'] . "</div>";
-                            }
-                        }
-                    }
-
-                    echo "</div>";
                 } catch (PDOException $e) {
                     die($e->getMessage());
                 }
@@ -181,7 +143,7 @@ include("pagenav.inc.php");
             }
         } else {
 
-            if (isset($_SESSION['favorites']) && !empty($_SESSION['favorites'])) {
+            if (isset($_SESSION['favorites'])) {
 
                 echo "<div class='box' id ='Favorites'>";
                 echo "<h2>Your Favorites</h2>";
@@ -202,6 +164,7 @@ include("pagenav.inc.php");
                                 " . "<br>" . $_SESSION['favorites'][$i]['Title'] . "</div>";
                         }
                     }
+                    //processOutputtingFirst15($dataFirst15);
                 }
             } else {
                 if (isset($dataFirst15)) {

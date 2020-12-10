@@ -110,76 +110,103 @@ $paintings = $paint->getAll();
                 
                     <?php
 
-                    $baseSQL = "SELECT * FROM Paintings";
-                    $value = 0;
-                    if (isset($_GET['title'])) {
-                        if (!$_GET['title'] == "") {
-                            $baseSQL .= " WHERE Title = '" . $_GET['title'] . "'";
-                            $value++;
-                        }
-                    }
-                    if (isset($_GET['artist'])) {
-                        if (!$_GET['artist'] == 0) {
-                            //$baseSQL .= " WHERE ArtistID = '" . $_GET['artist'] . "' AND";
-                            if ($value == 1) {
-                                $baseSQL .= " AND ArtistID = " . $_GET['artist'];
-                                $value++;
-                            } else {
-                                $baseSQL .= " WHERE ArtistID = " . $_GET['artist'];
-                                $value++;
-                            }
-                        }
-                    }
-                    if (isset($_GET['museum'])) {
-                        if (!$_GET['museum'] == 0) {
+                            <input type="radio" class="rad" id="before" name="year" value="">
+                            <label for="before">Before</label>
+                            <input type="text" id="beforeInput" name="beforeInput">
+                            <br>
 
-                            //$baseSQL .= " WHERE Title GalleryID = '" . $_GET['museum'] . `'`;
-                            if ($value >= 1) {
+                            <input type="radio" class="rad" id="after" name="year" value="">
+                            <label for="after">After</label>
+                            <input type="text" id="afterInput" name="afterInput">
+                            <br>
 
-                                $baseSQL .= " AND GalleryID = " . $_GET['museum'];
-                                $value++;
-                            } else {
-                                $baseSQL .= " WHERE GalleryID = " . $_GET['museum'];
-                                $value++;
+                            <input type="radio" class="rad" id="between" name="year" value="">
+                            <label for="between">Between</label>
+                            </br>
+                            <input type="text" id="betweenLow" name="betweenLow">
+                            <input type="text" id="betweenHigh" name="betweenHigh">
+                            </br>
+                            <input type="submit" title="filter" name="filter" value="filter">
+                            <!-- <input type="reset" title="clear" name="clear" value="clear"> -->
+                            <input type="submit" value="Clear" formaction="./browse-paintings.php">
+
+
+                            </form>
+                        </div>
+
+                        <div id="view">
+                            <?php
+
+                            $baseSQL = "SELECT * FROM Paintings";
+                            $value = 0;
+                            if (isset($_GET['title'])) {
+                                if (!$_GET['title'] == "") {
+                                    $baseSQL .= " WHERE Title = '" . $_GET['title'] . "'";
+                                    $value++;
+                                }
                             }
-                        }
-                    }
-                    if (isset($_GET['beforeInput'])) {
-                        if (!$_GET['beforeInput'] == "") {
-                            if ($value >= 1) {
-                                $baseSQL .= " AND YearOfWork < " . $_GET['beforeInput'];
-                                var_dump($baseSQL);
-                                $value++;
-                            } else {
-                                $baseSQL .= " WHERE YearOfWork < " . $_GET['beforeInput'];
-                                $value++;
+                            if (isset($_GET['artist'])) {
+                                if (!$_GET['artist'] == 0) {
+                                    //$baseSQL .= " WHERE ArtistID = '" . $_GET['artist'] . "' AND";
+                                    if ($value == 1) {
+                                        $baseSQL .= " AND ArtistID = " . $_GET['artist'];
+                                        $value++;
+                                    } else {
+                                        $baseSQL .= " WHERE ArtistID = " . $_GET['artist'];
+                                        $value++;
+                                    }
+                                }
                             }
-                        }
-                    }
-                    if (isset($_GET['afterInput'])) {
-                        if (!$_GET['afterInput'] == "") {
-                            if ($value >= 1) {
-                                $baseSQL .= " AND YearOfWork > " . $_GET['afterInput'];
-                                $value++;
-                            } else {
-                                $baseSQL .= " WHERE YearOfWork > " . $_GET['afterInput'];
-                                $value++;
+                            if (isset($_GET['museum'])) {
+                                if (!$_GET['museum'] == 0) {
+
+                                    //$baseSQL .= " WHERE Title GalleryID = '" . $_GET['museum'] . `'`;
+                                    if ($value >= 1) {
+
+                                        $baseSQL .= " AND GalleryID = " . $_GET['museum'];
+                                        $value++;
+                                    } else {
+                                        $baseSQL .= " WHERE GalleryID = " . $_GET['museum'];
+                                        $value++;
+                                    }
+                                }
                             }
-                        }
-                    }
-                    if (isset($_GET['betweenLow'])) {
-                        if (!$_GET['betweenLow'] == "" && !$_GET['betweenHigh'] == "") {
-                            if ($value >= 1) {
-                                $baseSQL .= " AND YearOfWork > " . $_GET['betweenLow'] . " AND YearOfWork < " . $_GET['betweenHigh'];
-                                var_dump($baseSQL);
-                                $value++;
-                            } else {
-                                $baseSQL .= " WHERE YearOfWork > " . $_GET['betweenLow'] . " AND YearOfWork < " . $_GET['betweenHigh'];
-                                $value++;
+                            if (isset($_GET['beforeInput'])) {
+                                if (!$_GET['beforeInput'] == "") {
+                                    if ($value >= 1) {
+                                        $baseSQL .= " AND YearOfWork < " . $_GET['beforeInput'];
+                                        var_dump($baseSQL);
+                                        $value++;
+                                    } else {
+                                        $baseSQL .= " WHERE YearOfWork < " . $_GET['beforeInput'];
+                                        $value++;
+                                    }
+                                }
                             }
-                        }
-                    }
-                    if (isset($_GET['title']) or isset($_GET['artist']) or isset($_GET['museum'])) {
+                            if (isset($_GET['afterInput'])) {
+                                if (!$_GET['afterInput'] == "") {
+                                    if ($value >= 1) {
+                                        $baseSQL .= " AND YearOfWork > " . $_GET['afterInput'];
+                                        $value++;
+                                    } else {
+                                        $baseSQL .= " WHERE YearOfWork > " . $_GET['afterInput'];
+                                        $value++;
+                                    }
+                                }
+                            }
+                            if (isset($_GET['betweenLow'])) {
+                                if (!$_GET['betweenLow'] == "" && !$_GET['betweenHigh'] == "") {
+                                    if ($value >= 1) {
+                                        $baseSQL .= " AND YearOfWork > " . $_GET['betweenLow'] . " AND YearOfWork < " . $_GET['betweenHigh'];
+                                        var_dump($baseSQL);
+                                        $value++;
+                                    } else {
+                                        $baseSQL .= " WHERE YearOfWork > " . $_GET['betweenLow'] . " AND YearOfWork < " . $_GET['betweenHigh'];
+                                        $value++;
+                                    }
+                                }
+                            }
+                            if (isset($_GET['title']) or isset($_GET['artist']) or isset($_GET['museum'])) {
 
 
                         $searchedPaintings = $paint->returnSearch($baseSQL);
@@ -201,28 +228,49 @@ $paintings = $paint->getAll();
                                     <div id="painting">
                                         <img src="images/paintings/square-medium/<?= $p['ImageFileName'] ?>.jpg">
 
+                            ?>
+                                <div>
+                                    <h3>Paintings</h3>
+                                    <div id="headings">
+                                        <span id="head">Artist</span>
+                                        <span id="head">Title</span>
+                                        <span id="head">Year</span>
+                                    </div>
+                                    <div id="paintings">
                                         <?php
-                                        foreach ($artists as $a) {
-                                            if ($p['ArtistID'] == $a['ArtistID']) {
+                                        // echo "here";
+                                        foreach ($searchedPaintings as $p) {
                                         ?>
-                                                <p><?= $a['FirstName'] . " " . $a['LastName'] ?></p>
+                                            <div id="painting">
+                                                <img src="images/paintings/square-medium/<?= $p['ImageFileName'] ?>.jpg">
+
+                                                <?php
+                                                foreach ($artists as $a) {
+                                                    if ($p['ArtistID'] == $a['ArtistID']) {
+                                                ?>
+                                                        <p><?= $a['FirstName'] . " " . $a['LastName'] ?></p>
+                                                <?php
+                                                    }
+                                                }
+                                                ?>
+                                                <p><?= $p['Title'] ?></p>
+                                                <p><?= $p['YearOfWork'] ?></p>
+                                                <?php
+                                                if (isset($_SESSION['userFavorites'])) {
+                                                    if (isInFavorites($p['PaintingID']) == true) {
+                                                        echo "<button>Painting Is Favorited</button>";
+                                                    } else {
+                                                        echo "<button><a href='favorites.php?paintingid-search=" . $p['PaintingID'] . "&title=" . $_GET['title'] . "&artist=" . $_GET['artist'] . "&museum=" . $_GET['museum'] . "'>Add To Favorites</a></button>";
+                                                    }
+                                                }
+                                                echo "<button><a href='single-painting-tab.php?paintingid=" . $p['PaintingID'] . "'>View</a></button>";
+                                                ?>
+                                            </div>
                                         <?php
-                                            }
                                         }
-                                        ?>
-                                        <p><?= $p['Title'] ?></p>
-                                        <p><?= $p['YearOfWork'] ?></p>
-                                        <?php 
-                                        if(isset($_SESSION['userFavorites'])){
-                                        if (isInFavorites($p['PaintingID']) == true) {
-                                            echo "<button>Painting Is Favorited</button>";
-                                        } else {
-                                            echo "<button><a href='favorites.php?paintingid-search=" . $p['PaintingID'] . "&title=" . $_GET['title'] . "&artist=" . $_GET['artist'] . "&museum=" . $_GET['museum'] . "'>Add To Favorites</a></button>";
-                                        }
-                                    }
-                                        echo "<button><a href='single-painting-tab.php?paintingid=" . $p['PaintingID'] . "'>View</a></button>";
                                         ?>
                                     </div>
+<<<<<<< HEAD
                                 <?php
                                 }
                                 
@@ -232,6 +280,18 @@ $paintings = $paint->getAll();
                     <?php
                     }
                     ?>
+=======
+                                </div>
+                            <?php
+                            }
+                            ?>
+                        </div>
+                </div>
+        <?php
+                    }
+                }
+        ?>
+>>>>>>> 73ac475bda72d64fbe9510dd567db386cd4c2e71
 
 
 
