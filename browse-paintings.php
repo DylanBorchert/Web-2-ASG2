@@ -270,7 +270,6 @@ $paintings = $paint->getAll();
                                         }
                                         ?>
                                     </div>
-<<<<<<< HEAD
                                 <?php
                                 }
                                 
@@ -280,18 +279,6 @@ $paintings = $paint->getAll();
                     <?php
                     }
                     ?>
-=======
-                                </div>
-                            <?php
-                            }
-                            ?>
-                        </div>
-                </div>
-        <?php
-                    }
-                }
-        ?>
->>>>>>> 73ac475bda72d64fbe9510dd567db386cd4c2e71
 
 
 
